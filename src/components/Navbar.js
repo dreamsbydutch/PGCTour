@@ -13,10 +13,10 @@ function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/leaderboard">Leaderboard</Nav.Link>
-                        <Nav.Link href="/standings">Standings</Nav.Link>
-                        <Nav.Link href="/">Golfer Stats</Nav.Link>
+                        <Nav.Link href="/pgctour">Home</Nav.Link>
+                        <Nav.Link href="/pgctour/leaderboard">Leaderboard</Nav.Link>
+                        <Nav.Link href="/pgctour/standings">Standings</Nav.Link>
+                        <Nav.Link href="/pgctour/">Golfer Stats</Nav.Link>
                         <NavDropdown title="Tournaments" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/tournament/6">The Masters</NavDropdown.Item>
                             <NavDropdown.Item href="/tournament/9">PGA Championship</NavDropdown.Item>
@@ -38,7 +38,7 @@ function NavBar() {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/tournament/16">Playoffs</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="/history">Tour History</Nav.Link>
+                        <Nav.Link href="/pgctour/history">Tour History</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
