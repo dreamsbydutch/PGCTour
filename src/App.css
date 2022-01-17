@@ -1,7 +1,12 @@
 :root {
   --mainDark: #343a40;
-  --mainGrey: rgba(109,109,109);
-  --mainLightGrey: rgba(172,172,172);
+  --mainGrey: #6d6d6d;
+  --mainLightGrey: #acacac;
   --mainWhite: #fff;
   --mainBlue: #007bff;
+  background: #acacac;
+}
+
+.container {
+  background: #e4e4e4;
 }

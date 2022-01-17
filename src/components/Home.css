@@ -1,4 +1,6 @@
-img {
-    width: 90px;
-    height: 90px;
+.home-nav-button > img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: auto;
 }
