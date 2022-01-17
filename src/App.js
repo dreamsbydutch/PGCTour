@@ -19,11 +19,11 @@ function App() {
       <NavBar />
       <Container>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/tournament/:id" element={<Tournament />} />
-          <Route path="/standings" element={<Standings />} />
-          <Route path='/history' element={<History />} />
+          <Route path="/pgctour" element={<Home />} />
+          <Route path="/pgctour/leaderboard" element={<Leaderboard />} />
+          <Route path="/pgctour/tournament/:id" element={<Tournament />} />
+          <Route path="/pgctour/standings" element={<Standings />} />
+          <Route path="/pgctour/history" element={<History />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Container>
