@@ -7,6 +7,7 @@
   background: #acacac;
 }
 
-.container {
-  background: #e4e4e4;
+.main-page-container {
+  min-height: 750px;
+  padding-top: 2.5rem;;
 }

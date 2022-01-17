@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Container>
+      <Container className='main-page-container'>
         <Routes>
           <Route path="/pgctour" element={<Home />} />
           <Route path="/pgctour/leaderboard" element={<Leaderboard />} />

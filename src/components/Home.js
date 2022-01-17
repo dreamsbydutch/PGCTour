@@ -7,10 +7,13 @@ function Home() {
     return (
         <div className='home-nav-buttons'>
             <div className="home-nav-button standings-button rounded">
-                <img src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png'></img>
+                <img alt='Standings Icon' src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png'></img>
             </div>
             <div className="home-nav-button leaderboard-button rounded">
-                <img src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png'></img>
+                <img alt='Leaderboard Icon' src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png'></img>
+            </div>
+            <div className="home-nav-button golferstats-button rounded">
+                <img alt='Golfer Stats Icon' src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/golferstatsIcon.png'></img>
             </div>
 
         </div>

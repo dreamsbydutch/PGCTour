@@ -1,6 +1,12 @@
+
+.home-nav-buttons {
+    display: flex;
+    border: 1px solid --mainDark;
+    border-radius: 5px;
+}
+
 .home-nav-button > img {
     width: 100px;
     height: 100px;
-    display: block;
-    margin: auto;
+    margin: 0.5rem;
 }
