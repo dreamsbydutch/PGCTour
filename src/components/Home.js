@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import Leaderboard from './Leaderboard';
 
 function Home() {
     return (
         <div>
-            Home Page
+            <Leaderboard limit="10" />
         </div>
     )
 }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import './Navbar.css';
 
 
 function NavBar() {
     return (
         <Navbar bg="light" expand="md">
-            <Container>
+            <Container className='navbar-container'>
                 <Navbar.Brand>
-                    <img alt="PGC logo" src="https://github.io/dreasmbydutch/pgctour/public/assets/PGCsmall.png" height="50" width="50" />
+                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/PGCsmall.png" height="50" width="50" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -37,6 +38,7 @@ function NavBar() {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/tournament/16">Playoffs</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link href="/history">Tour History</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

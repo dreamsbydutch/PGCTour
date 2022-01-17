@@ -4,16 +4,18 @@ import useFetch from 'react-fetch-hook';
 import { Outlet } from 'react-router-dom';
 import LeaderboardItem from './LeaderboardItem';
 
-function Leaderboard() {
+function Leaderboard(props) {
 
     const { isLoading, error, data } = useFetch("https://opensheet.elk.sh/1LyloFyLI-YsPZnAWbmeh6l4KbhMUb1bqHm9Y47-fZOw/3")
     if (isLoading) return "Loading....";
     if (error) return "Error!";
 
+    const filter_data = props.limit > 0 ? data.filter(obj => Number(obj.RawRk) <= Number(props.limit)) : data;
+
     return (
         <>
             <Container>
-                {data.map(obj => <LeaderboardItem info={obj} key={obj.id} />)}
+                {filter_data.map(obj => <LeaderboardItem info={obj} key={obj.id} />)}
             </Container>
             <Outlet />
         </>
