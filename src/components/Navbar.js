@@ -16,28 +16,29 @@ function NavBar() {
                         <Nav.Link href="/pgctour">Home</Nav.Link>
                         <Nav.Link href="/pgctour/leaderboard">Leaderboard</Nav.Link>
                         <Nav.Link href="/pgctour/standings">Standings</Nav.Link>
-                        <Nav.Link href="/pgctour/">Golfer Stats</Nav.Link>
+                        <Nav.Link href="/pgctour/golferstats">Golfer Stats</Nav.Link>
                         <NavDropdown title="Tournaments" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/tournament/6">The Masters</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/9">PGA Championship</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/11">U.S. Open</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/14">The Open Championship</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/6">The Masters</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/9">PGA Championship</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/11">U.S. Open</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/14">The Open Championship</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/tournament/2">Genesis Invitational</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/3">Arnold Palmer Invitational</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/4">The Players Championship</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/10">The Memorial Tournament</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/2">Genesis Invitational</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/3">Arnold Palmer Invitational</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/4">The Players Championship</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/10">The Memorial Tournament</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/tournament/1">Waste Management Open</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/5">Valero Texas Open</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/7">Zurich Classic</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/8">Wells Fargo Championship</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/12">Travelers Championship</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/13">Genesis Scottish Open</NavDropdown.Item>
-                            <NavDropdown.Item href="/tournament/15">Rocket Mortgage Classic</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/1">Waste Management Open</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/5">Valero Texas Open</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/7">Zurich Classic</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/8">Wells Fargo Championship</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/12">Travelers Championship</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/13">Genesis Scottish Open</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/15">Rocket Mortgage Classic</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/tournament/16">Playoffs</NavDropdown.Item>
+                            <NavDropdown.Item href="/pgctour/tournament/16">Playoffs</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link href="/pgctour/rulebook">Rulebook</Nav.Link>
                         <Nav.Link href="/pgctour/history">Tour History</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

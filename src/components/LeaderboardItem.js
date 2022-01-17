@@ -7,10 +7,10 @@ function LeaderboardItem(props) {
         <Container className='item-container'>
             <Row className='main-row'>
                 <Col className='rank'>{props.info.ShowRk}</Col>
-                <Col className=' col-5 name'>{props.info.Name}</Col>
-                <Col className='col-2 score-to-par'>{props.info.ToPar}</Col>
+                <Col xs={5} className='name'>{props.info.Name}</Col>
+                <Col className='score-to-par'>{props.info.ToPar}</Col>
                 <Col className='points'>{props.info.Points}</Col>
-                <Col>{props.info.Earnings}</Col>
+                <Col className='earnings'>{props.info.Earnings}</Col>
             </Row>
         </Container>
     )

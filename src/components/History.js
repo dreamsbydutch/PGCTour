@@ -2,8 +2,8 @@ import React from 'react'
 
 function History() {
     return (
-        <div>
-            History
+        <div className="history-container">
+            League History page coming soon!
         </div>
     )
 }
