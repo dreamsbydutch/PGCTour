@@ -7,7 +7,7 @@ function NavBar() {
         <Navbar bg="light" expand="md">
             <Container>
                 <Navbar.Brand>
-                    <img alt="PGC logo" src="/assets/images/logos/PGCsmall.png" height="50" width="50" />
+                    <img alt="PGC logo" src="https://github.io/dreasmbydutch/pgctour/public/assets/PGCsmall.png" height="50" width="50" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
