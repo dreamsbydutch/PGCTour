@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 import './App.css';
@@ -17,18 +17,18 @@ import Tournament from './components/Tournament';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <NavBar />
       <Container className='main-page-container'>
         <Routes>
-          <Route path="/pgctour" element={<Home />} />
-          <Route path="/pgctour/leaderboard" element={<Leaderboard />} />
-          <Route path="/pgctour/tournament/:id" element={<Tournament />} />
-          <Route path="/pgctour/standings" element={<Standings />} />
-          <Route path="/pgctour/golferstats" element={<GolferStats />} />
-          <Route path="/pgctour/rulebook" element={<Rulebook />} />
-          <Route path="/pgctour/history" element={<History />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="/" exact element={<Home />} />
+          <Route path="/leaderboard" exact element={<Leaderboard />} />
+          <Route path="/tournament/:id" exact element={<Tournament />} />
+          <Route path="/standings" exact element={<Standings />} />
+          <Route path="/pgctour/golferstats" exact element={<GolferStats />} />
+          <Route path="/pgctour/rulebook" exact element={<Rulebook />} />
+          <Route path="/pgctour/history" exact element={<History />} />
+          <Route path="*" exact element={<ErrorPage />} />
         </Routes>
       </Container>
     </Router>
