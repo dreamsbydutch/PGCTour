@@ -1,11 +1,18 @@
 import React from 'react';
 
-import Leaderboard from './Leaderboard';
+// import Leaderboard from './Leaderboard';
+import './Home.css';
 
 function Home() {
     return (
-        <div>
-            <Leaderboard limit="10" />
+        <div className='home-nav-buttons'>
+            <div className="home-nav-button standings-button">
+                <img src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png'></img>
+            </div>
+            <div className="home-nav-button leaderboard-button">
+                <img src='https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png'></img>
+            </div>
+
         </div>
     )
 }
