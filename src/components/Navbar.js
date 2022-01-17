@@ -7,7 +7,7 @@ function NavBar() {
     return (
         <Navbar bg="light" expand="md">
             <Container className='navbar-container'>
-                <Navbar.Brand>
+                <Navbar.Brand href='/pgctour'>
                     <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/PGCsmall.png" height="50" width="50" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
