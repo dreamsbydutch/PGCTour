@@ -17,7 +17,7 @@ import Tournament from './components/Tournament';
 
 function App() {
   return (
-    <Router basename="/pgctour">
+    <Router>
       <NavBar />
       <Container className='main-page-container'>
         <Routes>
