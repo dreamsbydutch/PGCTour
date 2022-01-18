@@ -15,7 +15,7 @@
 .tournament-header-logo img {
 	display: block;
 	max-width: 100%;
-	max-height: 160px;
+	max-height: 125px;
 }
 .tournament-header-tourneyname {
 	grid-area: 1/3/3/8;
@@ -44,4 +44,78 @@
 	grid-area: 3/9/4/11;
 	font-size: 0.75rem;
 	place-self: center;
+}
+
+
+@media only screen and (min-width: 450px) {
+	.tournament-header-tourneyname {
+		font-size: 1.3rem;
+	}
+	.tournament-header-tourneydate {
+		font-size: 1.05rem;
+	}
+	.tournament-header-tourneycity {
+		font-size: 0.85rem;
+	}
+	.tournament-header-tourneycourse {
+		font-size: 0.85rem;
+	}
+	.tournament-header-tourneypar {
+		font-size: 0.85rem;
+	}
+}
+
+
+@media only screen and (min-width: 575px) {
+	.tournament-header-tourneyname {
+		font-size: 1.5453rem;
+	}
+	.tournament-header-tourneydate {
+		font-size: 1.3rem;
+	}
+	.tournament-header-tourneycity {
+		font-size: 0.95rem;
+	}
+	.tournament-header-tourneycourse {
+		font-size: 0.95rem;
+	}
+	.tournament-header-tourneypar {
+		font-size: 0.95rem;
+	}
+}
+
+@media only screen and (min-width: 767px) {
+	.tournament-header-tourneyname {
+		font-size: 1.8rem;
+	}
+	.tournament-header-tourneydate {
+		font-size: 1.5rem;
+	}
+	.tournament-header-tourneycity {
+		font-size: 1.1rem;
+	}
+	.tournament-header-tourneycourse {
+		font-size: 1.1rem;
+	}
+	.tournament-header-tourneypar {
+		font-size: 1.1rem;
+	}
+}
+
+@media only screen and (min-width: 990px) {
+	.tournament-header-tourneyname {
+		font-size: 2rem;
+	}
+	.tournament-header-tourneydate {
+		font-size: 1.8rem;
+	}
+	.tournament-header-tourneycity {
+		font-size: 1.3rem;
+	}
+	.tournament-header-tourneycourse {
+		font-size: 1.3rem;
+	}
+	.tournament-header-tourneypar {
+		font-size: 1.3rem;
+	}
 }
