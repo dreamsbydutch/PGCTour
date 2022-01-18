@@ -21,7 +21,7 @@ function App() {
       <NavBar />
       <Container className='main-page-container'>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/tournament/:id" element={<Tournament />} />
           <Route path="/standings" element={<Standings />} />

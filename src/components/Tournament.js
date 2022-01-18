@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import useFetch from 'react-fetch-hook';
 import { useParams } from 'react-router-dom';
 import LeaderboardItem from './LeaderboardItem';
+import TournamentHeader from './TournamentHeader';
 
 function Tournament(props) {
     let { id } = useParams();
@@ -15,6 +16,7 @@ function Tournament(props) {
 
     return (
         <Container>
+            <TournamentHeader tourneyId={id} />
             {filter_data.map(obj => <LeaderboardItem info={obj} key={obj.id} />)}
         </Container>
     )
