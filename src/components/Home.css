@@ -3,12 +3,13 @@
 }
 
 .home-nav-button {
-    border: 3px solid var(--primary);
+    border: 2px solid #f3f3f3f3;
     border-radius: 10px;
     margin: 0.4rem;
     width: 106px;
     margin: auto;
-    background: var(--secondary);
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .home-nav-button > a > img {

@@ -10,7 +10,7 @@ function TournamentHeader(props) {
     if (error) return "Error!";
 
     const filter_data = data.filter(obj => Number(obj.id) === Number(props.tourneyId))
-    console.log(filter_data, data)
+
     return (
         <div id="tournament-header">
             <div className="tournament-header-header">

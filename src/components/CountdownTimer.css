@@ -1,12 +1,10 @@
 .countdown-timer-container {
-    margin: 1.25rem;
+    margin: 2rem;
     text-align: center;
-
 }
 
 .countdown-timer-container > h1 {
     font-weight: 800;
-    width: 100%;
 }
 
 .row-container {
