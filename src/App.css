@@ -14,3 +14,9 @@
   min-height: 750px;
   padding-top: 2rem;;
 }
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
