@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pgctour/static/css/main.4725191c.css",
-    "main.js": "/pgctour/static/js/main.7e681d75.js",
+    "main.css": "/pgctour/static/css/main.589c3509.css",
+    "main.js": "/pgctour/static/js/main.c4f7ddef.js",
     "static/js/787.0fcbd85f.chunk.js": "/pgctour/static/js/787.0fcbd85f.chunk.js",
     "index.html": "/pgctour/index.html",
-    "main.4725191c.css.map": "/pgctour/static/css/main.4725191c.css.map",
-    "main.7e681d75.js.map": "/pgctour/static/js/main.7e681d75.js.map",
+    "main.589c3509.css.map": "/pgctour/static/css/main.589c3509.css.map",
+    "main.c4f7ddef.js.map": "/pgctour/static/js/main.c4f7ddef.js.map",
     "787.0fcbd85f.chunk.js.map": "/pgctour/static/js/787.0fcbd85f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4725191c.css",
-    "static/js/main.7e681d75.js"
+    "static/css/main.589c3509.css",
+    "static/js/main.c4f7ddef.js"
   ]
 }
