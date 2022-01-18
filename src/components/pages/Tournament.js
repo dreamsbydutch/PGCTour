@@ -2,8 +2,8 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import useFetch from 'react-fetch-hook';
 import { useParams } from 'react-router-dom';
-import LeaderboardItem from './LeaderboardItem';
-import TournamentHeader from './TournamentHeader';
+import LeaderboardItem from './leaderboard/LeaderboardItem';
+import TournamentHeader from './tournament/TournamentHeader';
 
 function Tournament(props) {
     let { id } = useParams();

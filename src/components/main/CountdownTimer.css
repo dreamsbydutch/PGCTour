@@ -28,3 +28,21 @@
 .mini-timer-labels {
     font-size: 0.575rem;
 }
+
+
+@media only screen and (max-width: 340px) { 
+    .countdown-timer-container > h1 {
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+
+    .tourney_logo > img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .countdown-timer-div {
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+}

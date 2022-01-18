@@ -1,8 +1,7 @@
 import React from 'react';
 import useFetch from 'react-fetch-hook';
 
-// import Leaderboard from './Leaderboard';
-import CountdownTimer from './CountdownTimer';
+import CountdownTimer from '../main/CountdownTimer';
 import './Home.css';
 
 function Home() {
@@ -12,7 +11,7 @@ function Home() {
     if (isLoading) return "Loading....";
     if (error) return "Error!";
 
-    const filter_data = data.filter(obj => Number(obj.id) === Number('19'));
+    const filter_data = data.filter(obj => Number(obj.id) === Number('20'));
     var start_date = new Date(filter_data[0].StartDate);
     var current_date = new Date();
     const INITIAL_COUNT = Math.round((start_date - current_date) / 1000);

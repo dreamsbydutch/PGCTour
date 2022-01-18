@@ -4,16 +4,16 @@ import { Container } from 'react-bootstrap';
 
 import './App.css';
 
-import NavBar from './components/Navbar'
-import Home from './components/Home';
-import Leaderboard from './components/Leaderboard';
-import Standings from './components/Standings';
-import ErrorPage from './components/ErrorPage';
-import Rulebook from './components/Rulebook';
-import GolferStats from './components/GolferStats';
-import History from './components/History';
-// import Footer from './components/Footer';
-import Tournament from './components/Tournament';
+import NavBar from './components/main/Navbar'
+import Home from './components/pages/Home';
+import Leaderboard from './components/pages/Leaderboard';
+import Standings from './components/pages/Standings';
+import ErrorPage from './components/pages/ErrorPage';
+import Rulebook from './components/pages/Rulebook';
+import GolferStats from './components/pages/GolferStats';
+import History from './components/pages/History';
+import Footer from './components/main/Footer';
+import Tournament from './components/pages/Tournament';
 
 function App() {
   return (
@@ -31,6 +31,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Container>
+      <Footer />
     </Router>
   );
 }
