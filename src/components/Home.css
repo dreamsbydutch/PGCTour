@@ -1,12 +1,13 @@
 .home-nav-buttons {
     display: flex;
+    padding: 0.5rem 0;
 }
 
 .home-nav-button {
-    border: 2px solid #f3f3f3f3;
+    border: 2px solid #f2f2f2;
     border-radius: 10px;
     margin: 0.4rem;
-    width: 106px;
+    width: 104px;
     margin: auto;
     background-color: #f9f9f9;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -15,4 +16,20 @@
 .home-nav-button > a > img {
     width: 100px;
     height: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+    .home-nav-buttons {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .home-nav-button {
+        width: 74px;
+    }
+    .home-nav-button > a > img {
+        width: 70px;
+        height: 70px;
+    }
 }

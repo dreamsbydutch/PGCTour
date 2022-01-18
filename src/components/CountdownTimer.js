@@ -4,7 +4,7 @@ import './CountdownTimer.css';
 
 export default function CountdownApp(props) {
 
-    const [secondsRemaining, setSecondsRemaining] = useState(props.count);
+    const [secondsRemaining, setSecondsRemaining] = useState(props.count < 0 ? 0 : props.count);
     const [status, setStatus] = useState('Started');
 
     useInterval(

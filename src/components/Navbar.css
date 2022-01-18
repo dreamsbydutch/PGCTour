@@ -1,23 +1,23 @@
 .navbar-container {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 500;
 }
 .nav-link {
-    margin: 0px 15px;
+    margin: 0px 10px;
 }
 .nav-item {
-    margin: 0px 15px;
+    margin: 0px 10px;
 }
 
 @media screen and (max-width: 1000px) {
     .navbar-container {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 400;
     }
     .nav-link {
-        margin: 0px 5px;
+        margin: 0px 0px;
     }
     .nav-item {
-        margin: 0px 5px;
+        margin: 0px 0px;
     }
 }
