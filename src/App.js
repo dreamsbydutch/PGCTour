@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/tournament/:id" element={<Tournament />} />
+          <Route path="/tournament/:tourneyId" element={<Tournament />} />
           <Route path="/standings" element={<Standings />} />
           <Route path="/golferstats" element={<GolferStats />} />
           <Route path="/rulebook" element={<Rulebook />} />

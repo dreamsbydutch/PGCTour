@@ -6,11 +6,11 @@ import './TournamentHeader.css';
 
 function TournamentHeader(props) {
 
-    const { isLoading, error, data } = useFetch("https://opensheet.elk.sh/1ce6c0R9YggvfOxoilnZqqXfcAPxVKyaN0mly5_FOouk/3")
+    const { isLoading, error, data } = useFetch("https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1")
     if (isLoading) return <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div>;
     if (error) return "Error!";
 
-    const filter_data = data.filter(obj => Number(obj.id) === Number(props.tourneyId))
+    const filter_data = data.filter(obj => obj.id === props.tourneyId)
 
     return (
         <div id="tournament-header">

@@ -8,18 +8,17 @@ import LeaderboardItem from './leaderboard/LeaderboardItem';
 import TournamentHeader from './tournament/TournamentHeader';
 
 function Tournament(props) {
-    let { id } = useParams();
-    const { isLoading, error, data } = useFetch("https://opensheet.elk.sh/1LyloFyLI-YsPZnAWbmeh6l4KbhMUb1bqHm9Y47-fZOw/3")
+    let { tourneyId } = useParams();
+    const { isLoading, error, data } = useFetch('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/' + tourneyId)
     if (isLoading) return <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div>;
     if (error) return "Error!";
 
-    const new_data = data.filter(obj => Number(obj.Tournament) === Number(id))
-    const filter_data = props.limit > 0 ? new_data.filter(obj => Number(obj.RawRk) <= Number(props.limit)) : new_data;
+    const filter_data = props.limit > 0 ? data.filter(obj => Number(obj.RawRk) <= Number(props.limit)) : data;
 
     return (
         <Container>
-            <TournamentHeader tourneyId={id} />
-            {filter_data.map(obj => <LeaderboardItem info={obj} key={obj.id} />)}
+            <TournamentHeader tourneyId={tourneyId} />
+            {filter_data.map(obj => <LeaderboardItem info={obj} key={obj.RawRk} />)}
         </Container>
     )
 }

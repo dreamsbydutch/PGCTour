@@ -13,10 +13,10 @@ function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="https://dreamsbydutch.github.io/pgctour">Home</Nav.Link>
-                        <Nav.Link href="https://dreamsbydutch.github.io/pgctour/#/leaderboard">Leaderboard</Nav.Link>
-                        <Nav.Link href="https://dreamsbydutch.github.io/pgctour/#/standings">Standings</Nav.Link>
-                        <Nav.Link href="https://dreamsbydutch.github.io/pgctour/#/golferstats">Golfer Stats</Nav.Link>
+                        <Nav.Link href="/pgctour">Home</Nav.Link>
+                        <Nav.Link aria-controls="basic-navbar-nav" href="/pgctour/#/leaderboard">Leaderboard</Nav.Link>
+                        <Nav.Link aria-controls="basic-navbar-nav" href="https://dreamsbydutch.github.io/pgctour/#/standings">Standings</Nav.Link>
+                        <Nav.Link aria-controls="basic-navbar-nav" href="https://dreamsbydutch.github.io/pgctour/#/golferstats">Golfer Stats</Nav.Link>
                         <NavDropdown title="Tournaments" id="basic-nav-dropdown">
                             <NavDropdown.Item href="https://dreamsbydutch.github.io/pgctour/#/tournament/6">The Masters</NavDropdown.Item>
                             <NavDropdown.Item href="https://dreamsbydutch.github.io/pgctour/#/tournament/9">PGA Championship</NavDropdown.Item>

@@ -8,6 +8,7 @@
   --mainWhite: #fcfcfc;
   --mainBlue: #007bff;
   background: #acacac;
+  
 }
 
 .main-page-container {
@@ -19,4 +20,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5rem 0;
 }

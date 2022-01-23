@@ -9,6 +9,10 @@
     margin: 0px 10px;
 }
 
+.navbar {
+    box-shadow: 0 2px 5px rgba(114,114,114,0.8);
+}
+
 @media screen and (max-width: 1000px) {
     .navbar-container {
         font-size: 0.9rem;
