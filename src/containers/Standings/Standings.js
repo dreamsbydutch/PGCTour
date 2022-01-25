@@ -1,10 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import StandingsComponent from '../../components/Standings/StandingsComponent';
+import { useCurrentStandings } from '../../context/StandingsContext';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 function Standings() {
-    return (
-        <div>
+    var standingsState = useCurrentStandings();
 
-        </div>
+    return (
+        <Container>
+            {standingsState.isLoading ? <LoadingSpinner /> : <StandingsComponent info={standingsState.state} />}
+        </Container>
     )
 }
 

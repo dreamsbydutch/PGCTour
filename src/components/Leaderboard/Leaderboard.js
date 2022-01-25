@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Spinner } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import './Leaderboard.css'
 import LeaderboardItem from './Item/LeaderboardItem';
+import LeaderboardHeader from './Header/LeaderboardHeader';
+import { useTourneyById } from '../../context/TournamentContext';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 function Leaderboard(props) {
     const [leaderboardData, setLeaderboardData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    var tourney = useTourneyById(props.tourneyId)
 
     useEffect(() => {
         axios
@@ -23,7 +27,17 @@ function Leaderboard(props) {
 
     return (
         <Container>
-            {isLoading ? <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div> : filter_data.map(obj => <LeaderboardItem info={obj} key={obj.RawRk} live={props.live ? true : false} />)}
+            {tourney.isLoading ? <LoadingSpinner /> : <LeaderboardHeader tourney={tourney.state} />}
+            <div id="tournament-leaderboard">
+                <div className="tournament-leaderboard-slot-labels">
+                    <div className="tournament-leaderboard-rank-label">Rank</div>
+                    <div className="tournament-leaderboard-teamname-label">Name</div>
+                    <div className="tournament-leaderboard-totaltopar-label">Score</div>
+                    <div className="tournament-leaderboard-todaytopar-label">{props.live ? 'Today' : 'Pts'}</div>
+                    <div className="tournament-leaderboard-todaythru-label">{props.live ? 'Thru' : '$$'}</div>
+                </div>
+                {isLoading ? <LoadingSpinner /> : filter_data.map(obj => <LeaderboardItem info={obj} key={obj.RawRk} live={props.live ? true : false} />)}
+            </div>
         </Container>
     )
 }

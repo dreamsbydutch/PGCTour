@@ -8,6 +8,7 @@
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	font-family: "Barlow Condensed";
+	text-align: center;
 }
 
 .tournament-leaderboard-roundone-label {

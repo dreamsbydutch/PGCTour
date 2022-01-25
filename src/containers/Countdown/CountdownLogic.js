@@ -1,12 +1,12 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/Spinner';
 import CountdownTimer from './CountdownTimer';
 import { useNextTourney } from '../../context/TournamentContext';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 function CountdownLogic() {
     const state = useNextTourney()
 
-    if (state.isLoading) return <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div>;
+    if (state.isLoading) return <LoadingSpinner />;
 
     var currentTourney = state.state
     var start_date = new Date(currentTourney.StartDate);

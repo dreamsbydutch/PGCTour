@@ -33,24 +33,24 @@ export const TourneyContext = ({ children }) => {
 
 export const useCurrentTourney = () => {
     const { tournamentData, isLoading } = useContext(TourneyContextData)
-    var currentTourney = isLoading[0] ? "" : tournamentData[0].data[18]
+    var currentTourney = isLoading[0] ? null : tournamentData[0].data[18]
     return { state: currentTourney, isLoading: isLoading[0] }
 }
 
 export const useNextTourney = () => {
     const { tournamentData, isLoading } = useContext(TourneyContextData)
-    var nextTourney = isLoading[0] ? "" : tournamentData[0].data[19]
+    var nextTourney = isLoading[0] ? null : tournamentData[0].data[19]
     return { state: nextTourney, isLoading: isLoading[0] }
 }
 
 export const useAllTourneys = () => {
     const { tournamentData, isLoading } = useContext(TourneyContextData)
-    var allTourneys = isLoading[0] ? "" : tournamentData[0].data
+    var allTourneys = isLoading[0] ? null : tournamentData[0].data
     return { state: allTourneys, isLoading: isLoading[0] }
 }
 
 export const useTourneyById = (id) => {
     const { tournamentData, isLoading } = useContext(TourneyContextData)
-    var tourney = isLoading[0] ? "" : tournamentData[0].data[id - 1]
+    var tourney = isLoading[0] ? null : tournamentData[0].data[id - 1]
     return { state: tourney, isLoading: isLoading[0] }
 }

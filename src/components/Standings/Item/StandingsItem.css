@@ -21,70 +21,6 @@
 .standings-points {grid-area:1/14/2/17;font-size:0.9rem;place-self:center;}
 .standings-earnings {grid-area:1/17/2/20;font-size:0.75rem;place-self:center;}
 
-.slot-extras-wrapper {grid-area:2/1/3/20;width:100%;}
-.slot-extras {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-.slot-extras-stats {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
-}
-
-.extra-stats-labels {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-    margin: 3px 0px;
-}
-.extra-stats-label {
-    font-size: 0.55rem;
-    place-self: center;
-}
-
-
-.extra-stats {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-    margin: 3px 0px;
-}
-.extra-stat {
-    font-size: 0.65rem;
-}
-
-
-.slot-extras-tournaments {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-}
-.tournament-history {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    border-left: 1px dotted #ccc;
-}
-.tourney-hist {
-    border-right: 1px dotted #ccc;
-}
-.tourney-logo > img {
-    object-fit: cover;
-    width: 90%;
-    max-width: 50px;
-}
-.tourney-rank {
-    padding: 5px 0px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
 .majorChamp {
     width: 20px;
 }
@@ -95,9 +31,6 @@
     .standings-teamname {font-size: 1rem;}
     .standings-points {font-size: 0.95rem;}
     .standings-earnings {font-size: 0.85rem;}
-    .extra-stats-label {font-size: 0.55rem;}
-    .extra-stat {font-size: 0.7em;}
-    .tourney-rank {font-size: 0.85rem;}
 }
 @media only screen and (min-width: 675px) {
     .standings-grid {margin: 5px 25px;}
@@ -106,9 +39,6 @@
     .standings-teamname {font-size: 1.1rem;}
     .standings-points {font-size: 1.05rem;}
     .standings-earnings {font-size: 0.95rem;}
-    .extra-stats-label {font-size: 0.6rem;}
-    .extra-stat {font-size: 0.75em;}
-    .tourney-rank {font-size: 0.95rem;}
 }
 @media only screen and (min-width: 850px) {
     .standings-rank {font-size: 1rem;}
@@ -116,9 +46,6 @@
     .standings-teamname {font-size: 1.2rem;}
     .standings-points {font-size: 1.15rem;}
     .standings-earnings {font-size: 1rem;}
-    .extra-stats-label {font-size: 0.65rem;}
-    .extra-stat {font-size: 0.85em;}
-    .tourney-rank {font-size: 1rem;}
 }
 @media only screen and (min-width: 1100px) {
     .standings-rank {font-size: 1.15rem;}
@@ -126,7 +53,4 @@
     .standings-teamname {font-size: 1.4rem;}
     .standings-points {font-size: 1.35rem;}
     .standings-earnings {font-size: 1.15rem;}
-    .extra-stats-label {font-size: 0.8rem;}
-    .extra-stat {font-size: 1em;}
-    .tourney-rank {font-size: 1.1rem;}
 }
