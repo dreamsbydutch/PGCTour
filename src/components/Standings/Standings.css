@@ -45,7 +45,7 @@
     margin-top: 25px;
     padding-bottom: 4px;
     border-bottom: 1px dashed #ccc;
-    font-family: "varelaround";
+    font-family: "Varela Round";
 }
 
 .standings-header-rank {grid-area:1/1/2/4;font-size:0.8rem;font-weight:bold;place-self:center;}
