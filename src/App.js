@@ -4,7 +4,8 @@ import { Container } from 'react-bootstrap';
 
 import './App.css';
 
-import NavBar from './containers/Navbar/Navbar'
+import MobileNavbar from './containers/Navbar/MobileNavbar';
+import Navbar from './containers/Navbar/Navbar';
 import Footer from './containers/Footer/Footer';
 
 import Home from './containers/Home/Home';
@@ -25,7 +26,8 @@ function App() {
     <TourneyContext>
       <StandingsContext>
         <Router>
-          <NavBar />
+          <Navbar />
+          <MobileNavbar />
           <Container className='main-page-container'>
             <Routes>
               <Route exact path="/" element={<Home />} />
