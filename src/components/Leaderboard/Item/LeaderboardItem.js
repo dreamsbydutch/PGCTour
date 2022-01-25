@@ -7,13 +7,13 @@ function LeaderboardItem(props) {
     const onClick = () => setShowInfo(!showInfo)
 
     return (
-        <div className='tournament-leaderboard-container' onClick={onClick}>
+        <div className='tournament-leaderboard-slot-container' onClick={onClick}>
             <div className='tournament-leaderboard-slot'>
                 <div className='tournament-leaderboard-rank'>{props.info.ShowRk}</div>
                 <div xs={5} className='tournament-leaderboard-teamname'>{props.info.Name}</div>
                 <div className='tournament-leaderboard-totaltopar'>{props.info.ScoreToPar}</div>
-                <div className='tournament-leaderboard-todaytopar'>{props.info.LiveScore}</div>
-                <div className='tournament-leaderboard-todaythru'>{props.info.LiveHoles}</div>
+                <div className='tournament-leaderboard-todaytopar'>{props.live ? props.info.LiveScore : props.info.Points}</div>
+                <div className='tournament-leaderboard-todaythru'>{props.live ? props.info.LiveHoles : props.info.Earnings}</div>
             </div>
             {showInfo ? <LeaderboardItemInfo info={props.info} /> : <></>}
         </div>

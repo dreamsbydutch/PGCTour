@@ -13,7 +13,7 @@ import ErrorPage from './containers/ErrorPage/ErrorPage';
 import Live from './containers/Live/Live';
 import Standings from './components/Standings/Standings';
 import Rulebook from './containers/Rulebook/Rulebook';
-import GolferStats from './components/pages/GolferStats';
+import GolferStats from './containers/GolferStats/GolferStats';
 import History from './containers/History/History';
 import Tournament from './containers/Tournaments/Tournament';
 

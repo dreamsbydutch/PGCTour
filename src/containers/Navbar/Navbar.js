@@ -6,19 +6,31 @@ import './Navbar.css';
 
 function NavBar() {
     return (
-        <Navbar bg="light" expand="md">
+        <Navbar bg="light" expand="md" fixed="bottom">
             <Container className='navbar-container'>
                 <Navbar.Brand as={Link} to="">
                     <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/PGCsmall.png" height="50" width="50" />
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Brand as={Link} to="/leaderboard">
+                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png" height="50" width="50" />
+                </Navbar.Brand>
+                <Navbar.Brand as={Link} to="/standings">
+                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" height="50" width="50" />
+                </Navbar.Brand>
+                <Navbar.Brand as={Link} to="/golferstats">
+                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/golferstatsIcon.png" height="50" width="50" />
+                </Navbar.Brand>
+                <Navbar.Brand as={Link} to="/rulebook">
+                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" height="50" width="50" />
+                </Navbar.Brand>
+                {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link as={Link} to="">Home</Nav.Link>
                         <Nav.Link as={Link} aria-controls="basic-navbar-nav" to="/leaderboard">Leaderboard</Nav.Link>
                         <Nav.Link as={Link} aria-controls="basic-navbar-nav" to="/standings">Standings</Nav.Link>
                         <Nav.Link as={Link} aria-controls="basic-navbar-nav" to="/golferstats">Golfer Stats</Nav.Link>
-                        <NavDropdown title="Tournaments" id="basic-nav-dropdown">
+                        <NavDropdown title="Tournaments" id="collapsible-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/tournament/6">The Masters</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/tournament/9">PGA Championship</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/tournament/11">U.S. Open</NavDropdown.Item>
@@ -42,7 +54,7 @@ function NavBar() {
                         <Nav.Link as={Link} to="/rulebook">Rulebook</Nav.Link>
                         <Nav.Link as={Link} to="/history">Tour History</Nav.Link>
                     </Nav>
-                </Navbar.Collapse>
+                </Navbar.Collapse> */}
             </Container>
         </Navbar>
     )

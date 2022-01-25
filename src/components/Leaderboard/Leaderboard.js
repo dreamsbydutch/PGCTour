@@ -23,7 +23,7 @@ function Leaderboard(props) {
 
     return (
         <Container>
-            {isLoading ? <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div> : filter_data.map(obj => <LeaderboardItem info={obj} key={obj.RawRk} />)}
+            {isLoading ? <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div> : filter_data.map(obj => <LeaderboardItem info={obj} key={obj.RawRk} live={props.live ? true : false} />)}
         </Container>
     )
 }

@@ -20,7 +20,7 @@ function Live() {
                     <div className="tournament-leaderboard-todaytopar-label">Today</div>
                     <div className="tournament-leaderboard-todaythru-label">Thru</div>
                 </div>
-                {currentTourney.isLoading ? <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div> : <Leaderboard tourneyId={currentTourney.state.id} />}
+                {currentTourney.isLoading ? <div className='loading-spinner'><Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner></div> : <Leaderboard tourneyId={currentTourney.state.id} live={true} />}
             </div>
         </Container>
     )

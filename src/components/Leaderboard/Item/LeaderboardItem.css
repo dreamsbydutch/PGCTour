@@ -1,8 +1,5 @@
 /* Leaderboard Grid Formatting */
 
-#tournament-leaderboard {
-	padding-top: 10px;
-}
 .tournament-leaderboard-slot {
 	display: grid;
 	grid-auto-flow: row;
