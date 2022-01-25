@@ -12,8 +12,8 @@ function LeaderboardItem(props) {
                 <div className='tournament-leaderboard-rank'>{props.info.ShowRk}</div>
                 <div xs={5} className='tournament-leaderboard-teamname'>{props.info.Name}</div>
                 <div className='tournament-leaderboard-totaltopar'>{props.info.ScoreToPar}</div>
-                <div className='tournament-leaderboard-cuppoints'>{props.info.LiveScore}</div>
-                <div className='tournament-leaderboard-earnings'>{props.info.LiveHoles}</div>
+                <div className='tournament-leaderboard-todaytopar'>{props.info.LiveScore}</div>
+                <div className='tournament-leaderboard-todaythru'>{props.info.LiveHoles}</div>
             </div>
             {showInfo ? <LeaderboardItemInfo info={props.info} /> : <></>}
         </div>
