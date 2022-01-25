@@ -1,0 +1,201 @@
+.tournament-leaderboard-slot-extras {
+	width: 90%;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	grid-gap: 3px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.tournament-leaderboard-roundone-label {
+	grid-area: 1/1/2/2;
+	font-size: 0.5rem;
+	font-family: "opensaucelight";
+	place-self: center;
+	font-weight: bold;
+}
+.tournament-leaderboard-roundtwo-label {
+	grid-area: 1/2/2/3;
+	font-size: 0.5rem;
+	font-family: "opensaucelight";
+	place-self: center;
+	font-weight: bold;
+}
+.tournament-leaderboard-roundthree-label {
+	grid-area: 1/3/2/4;
+	font-size: 0.5rem;
+	font-family: "opensaucelight";
+	place-self: center;
+	font-weight: bold;
+}
+.tournament-leaderboard-roundfour-label {
+	grid-area: 1/4/2/5;
+	font-size: 0.5rem;
+	font-family: "opensaucelight";
+	place-self: center;
+	font-weight: bold;
+}
+.tournament-leaderboard-total-label {
+	grid-area: 1/5/2/6;
+	font-size: 0.5rem;
+	font-family: "opensaucelight";
+	place-self: center;
+	font-weight: bold;
+}
+.tournament-leaderboard-roundone {
+	grid-area: 2/1/3/2;
+	font-size: 0.65rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-roundtwo {
+	grid-area: 2/2/3/3;
+	font-size: 0.65rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-roundthree {
+	grid-area: 2/3/3/4;
+	font-size: 0.65rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-roundfour {
+	grid-area: 2/4/3/5;
+	font-size: 0.65rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-total {
+	grid-area: 2/5/3/6;
+	font-size: 0.65rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golferone {
+	grid-area: 3/1/4/2;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golfertwo {
+	grid-area: 3/2/4/3;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golferthree {
+	grid-area: 3/3/4/4;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golferfour {
+	grid-area: 3/4/4/5;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golferfive {
+	grid-area: 3/5/4/6;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golfersix {
+	grid-area: 4/1/5/2;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golferseven {
+	grid-area: 4/2/5/3;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golfereight {
+	grid-area: 4/3/5/4;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golfernine {
+	grid-area: 4/4/5/5;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+.tournament-leaderboard-golferten {
+	grid-area: 4/5/5/6;
+	font-size: 0.525rem;
+	font-family: "opensaucelight";
+	place-self: center;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+	.tournament-leaderboard-roundone-label {
+		font-size: 0.65rem;
+	}
+	.tournament-leaderboard-roundtwo-label {
+		font-size: 0.65rem;
+	}
+	.tournament-leaderboard-roundthree-label {
+		font-size: 0.65rem;
+	}
+	.tournament-leaderboard-roundfour-label {
+		font-size: 0.65rem;
+	}
+	.tournament-leaderboard-total-label {
+		font-size: 0.65rem;
+	}
+	.tournament-leaderboard-roundone {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-roundtwo {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-roundthree {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-roundfour {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-total {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golferone {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golfertwo {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golferthree {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golferfour {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golferfive {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golfersix {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golferseven {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golfereight {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golfernine {
+		font-size: 0.85rem;
+	}
+	.tournament-leaderboard-golferten {
+		font-size: 0.85rem;
+	}
+}

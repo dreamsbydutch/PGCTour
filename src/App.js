@@ -4,35 +4,41 @@ import { Container } from 'react-bootstrap';
 
 import './App.css';
 
-import NavBar from './components/main/Navbar'
-import Home from './components/pages/Home';
-import Leaderboard from './components/pages/Leaderboard';
-import Standings from './components/pages/Standings';
-import ErrorPage from './components/pages/ErrorPage';
-import Rulebook from './components/pages/Rulebook';
+import NavBar from './containers/Navbar/Navbar'
+import Footer from './containers/Footer/Footer';
+
+import Home from './containers/Home/Home';
+import ErrorPage from './containers/ErrorPage/ErrorPage';
+
+import Live from './containers/Live/Live';
+import Standings from './components/Standings/Standings';
+import Rulebook from './containers/Rulebook/Rulebook';
 import GolferStats from './components/pages/GolferStats';
-import History from './components/pages/History';
-import Footer from './components/main/Footer';
-import Tournament from './components/pages/Tournament';
+import History from './containers/History/History';
+import Tournament from './containers/Tournaments/Tournament';
+
+import { TourneyContext } from './context/TournamentContext';
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Container className='main-page-container'>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/tournament/:tourneyId" element={<Tournament />} />
-          <Route path="/standings" element={<Standings />} />
-          <Route path="/golferstats" element={<GolferStats />} />
-          <Route path="/rulebook" element={<Rulebook />} />
-          <Route path="/history" element={<History />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </Container>
-      <Footer />
-    </Router>
+    <TourneyContext>
+      <Router>
+        <NavBar />
+        <Container className='main-page-container'>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/leaderboard" element={<Live />} />
+            <Route path="/tournament/:tourneyId" element={<Tournament />} />
+            <Route path="/standings" element={<Standings />} />
+            <Route path="/golferstats" element={<GolferStats />} />
+            <Route path="/rulebook" element={<Rulebook />} />
+            <Route path="/history" element={<History />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Container>
+        <Footer />
+      </Router>
+    </TourneyContext>
   );
 }
 

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './CountdownTimer.css';
+import { useInterval, twoDigits } from '../../utils/countdown';
 
 
 export default function CountdownApp(props) {
@@ -42,27 +43,3 @@ export default function CountdownApp(props) {
         </div>
     )
 }
-
-// source: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
-function useInterval(callback, delay) {
-    const savedCallback = useRef()
-
-    // Remember the latest callback.
-    useEffect(() => {
-        savedCallback.current = callback
-    }, [callback])
-
-    // Set up the interval.
-    useEffect(() => {
-        function tick() {
-            savedCallback.current()
-        }
-        if (delay !== null) {
-            let id = setInterval(tick, delay)
-            return () => clearInterval(id)
-        }
-    }, [delay])
-}
-
-// https://stackoverflow.com/a/2998874/1673761
-const twoDigits = (num) => String(num).padStart(2, '0')

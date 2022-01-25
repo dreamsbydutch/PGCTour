@@ -1,0 +1,13 @@
+
+.rulescontainer {text-align: center;}
+.ruleslink {
+    margin: 20px 0px;
+}
+
+.rulevideo { margin: 35px 0px 0px 0px; max-width:450px;}
+.rulebook-header {font-size:2rem;font-weight:bolder;text-align:center;margin:50px;}
+.rulebook-subheader {font-size:1.5rem;font-weight:bold;text-align:center;width:90%;margin:auto;margin-top:30px;}
+.rulebook-rules {font-size:1rem;width:85%;margin:auto;text-align:center;margin-top:20px;}
+.rulebook-subrules {font-size:0.8rem;width:75%;margin:auto;text-align:center;padding-top:5px;}
+.bottom {margin-bottom:40px;}
+.distributions-picture {width: 90%; margin: auto; max-width: 650px;}

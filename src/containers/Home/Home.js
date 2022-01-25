@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import CountdownLogic from '../main/CountdownLogic';
+import CountdownLogic from '../../containers/Countdown/CountdownLogic';
 import './Home.css';
 
 function Home() {
