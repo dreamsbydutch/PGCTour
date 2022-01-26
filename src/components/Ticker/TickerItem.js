@@ -14,7 +14,7 @@ function TickerItem(item) {
 
     }
     return (
-        <span className="ticker-team-rk">----  {output} <span className="ticker-team-name">{item.info.TeamName}</span> {item.info.Points} pts, {item.info.Earnings} </span>
+        <span className="ticker-team-rk">-----  {output} <span className="ticker-team-name">{item.info.TeamName}</span> {item.info.Points} pts, {item.info.Earnings} </span>
     )
 }
 
