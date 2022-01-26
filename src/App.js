@@ -26,8 +26,7 @@ function App() {
     <TourneyContext>
       <StandingsContext>
         <Router>
-          <Navbar />
-          <MobileNavbar />
+          {window.innerWidth < 800 ? <MobileNavbar /> : <Navbar />}
           <Container className='main-page-container'>
             <Routes>
               <Route exact path="/" element={<Home />} />
@@ -40,7 +39,7 @@ function App() {
               <Route path="*" element={<ErrorPage />} />
             </Routes>
           </Container>
-          <Footer />
+          {window.innerWidth < 800 ? <></> : <Footer />}
         </Router>
       </StandingsContext>
     </TourneyContext>

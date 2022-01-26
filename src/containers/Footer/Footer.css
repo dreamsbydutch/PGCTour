@@ -1,3 +1,6 @@
+p {
+    color: #fff;
+}
 .footer-middle {
     background: var(--mainGrey);
     padding-top: 2rem;
