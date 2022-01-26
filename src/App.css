@@ -10,11 +10,6 @@
   background: #acacac;
   
 }
-body {
-  margin-top: 35px;
-  margin-bottom: 75px;
-}
-
 
 .main-page-container {
   min-height: 750px;
@@ -26,4 +21,11 @@ body {
   align-items: center;
   justify-content: center;
   padding: 5rem 0;
+}
+
+@media only screen and (max-width: 850px) {  
+  body {
+    margin-top: 35px;
+    margin-bottom: 75px;
+  }
 }
