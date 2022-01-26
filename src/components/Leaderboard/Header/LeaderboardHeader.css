@@ -24,10 +24,14 @@
 	padding-top: 15px;
 	place-self: center;
 }
+.tournament-header-toggleswitch {
+	grid-area: 1/8/2/11;
+	font-size: 0.85rem;
+	place-self: center;
+}
 .tournament-header-tourneydate {
-	grid-area: 1/8/3/11;
-	font-size: 0.9rem;
-	padding-top: 15px;
+	grid-area: 2/8/3/11;
+	font-size: 0.85rem;
 	place-self: center;
 }
 .tournament-header-tourneycity {
@@ -45,7 +49,12 @@
 	font-size: 0.75rem;
 	place-self: center;
 }
-
+.live-button, .dropdown-toggle {
+	font-size: 0.75rem;
+	color: #000;
+	background-color: #bbb;
+	border: 1px solid #aaa;
+}
 
 @media only screen and (min-width: 450px) {
 	.tournament-header-tourneyname {
