@@ -13,7 +13,7 @@ function LeaderboardHeader(props) {
                 <div className='tournament-header-toggleswitch'>
                     <Dropdown as={ButtonGroup}>
                         <Button variant="Secondary" href="/pgctour#/leaderboard" className="live-button">Live</Button>
-                        <Dropdown.Toggle split variant="Secondary" id="dropdown-split-basic" />
+                        <Dropdown.Toggle split variant="Secondary" id="dropdown-split-basic" className="tournament-toggle" />
                         <Dropdown.Menu>
                             <Dropdown.Item href="/pgctour#/tournament/6">The Masters</Dropdown.Item>
                             <Dropdown.Item href="/pgctour#/tournament/9">PGA Championship</Dropdown.Item>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import './GolferStatsComponent.css'
-import GolferStatsItem from './GolferStatsItem';
+import GolferStatsItem from './GolferStatsItem/GolferStatsItem';
 
 function GolferStats(props) {
     const [statType, setStatType] = useState("PGC");

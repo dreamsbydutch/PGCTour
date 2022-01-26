@@ -20,12 +20,14 @@ import Tournament from './containers/Tournaments/Tournament';
 
 import { TourneyContext } from './context/TournamentContext';
 import { StandingsContext } from './context/StandingsContext';
+import TickerContainer from './components/Ticker/TickerContainer';
 
 function App() {
   return (
     <TourneyContext>
       <StandingsContext>
         <Router>
+          <TickerContainer />
           {window.innerWidth < 800 ? <MobileNavbar /> : <Navbar />}
           <Container className='main-page-container'>
             <Routes>

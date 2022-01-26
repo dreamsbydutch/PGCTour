@@ -7,7 +7,7 @@ function StandingsComponent(props) {
     return (
         <Container>
             <div className="refresh-note">Tap on a PGC player to view their stats and tournament history.</div>
-            <div className="w3-panel grid-container">
+            <div className="standings-grid-container">
                 <div className="grid-standings standings-grid">
 
                     <div id="standings-header">

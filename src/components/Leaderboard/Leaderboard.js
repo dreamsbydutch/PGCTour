@@ -5,13 +5,15 @@ import { Container } from 'react-bootstrap';
 import './Leaderboard.css'
 import LeaderboardItem from './Item/LeaderboardItem';
 import LeaderboardHeader from './Header/LeaderboardHeader';
-import { useTourneyById } from '../../context/TournamentContext';
+import { useNextTourney, useTourneyById } from '../../context/TournamentContext';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import CountdownLogic from '../../containers/Countdown/CountdownLogic';
 
 function Leaderboard(props) {
     const [leaderboardData, setLeaderboardData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     var tourney = useTourneyById(props.tourneyId)
+    var nextTourney = useNextTourney()
 
     useEffect(() => {
         axios
@@ -22,6 +24,14 @@ function Leaderboard(props) {
             })
     }, [props.tourneyId])
 
+    if (!tourney.state) {
+        return (
+            <>
+                {tourney.isLoading ? <LoadingSpinner /> : <LeaderboardHeader tourney={nextTourney.state} />}
+                <div className="countdown-timer"><CountdownLogic /></div>
+            </>
+        )
+    }
 
     const filter_data = props.limit > 0 ? leaderboardData.filter(obj => Number(obj.RawRk) <= Number(props.limit)) : leaderboardData;
 

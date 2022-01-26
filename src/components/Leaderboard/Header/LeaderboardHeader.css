@@ -49,7 +49,7 @@
 	font-size: 0.75rem;
 	place-self: center;
 }
-.live-button, .dropdown-toggle {
+.live-button, .tournament-toggle {
 	font-size: 0.75rem;
 	color: #000;
 	background-color: #bbb;
