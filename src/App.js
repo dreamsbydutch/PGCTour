@@ -27,8 +27,7 @@ function App() {
     <TourneyContext>
       <StandingsContext>
         <Router>
-          <TickerContainer />
-          {window.innerWidth < 800 ? <MobileNavbar /> : <Navbar />}
+          {window.innerWidth < 800 ? <><TickerContainer /><MobileNavbar /></> : <Navbar />}
           <Container className='main-page-container'>
             <Routes>
               <Route exact path="/" element={<Home />} />
