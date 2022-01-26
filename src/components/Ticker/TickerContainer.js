@@ -22,7 +22,7 @@ const GetTickerData = () => {
 
 function TickerContainer() {
     var data = GetTickerData()
-    console.log(data)
+
     return (
         <div className='ticker-container fixed-top'>{data === [] ? <LoadingSpinner /> : <div className="marquee"><div>PGC Tour Top 35 {data.map(obj => <TickerItem info={obj} key={obj.RawRk} />)}</div></div>}
         </div>
