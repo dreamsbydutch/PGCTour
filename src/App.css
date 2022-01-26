@@ -10,6 +10,10 @@
   background: #acacac;
   
 }
+body {
+  margin-top: 35px;
+  margin-bottom: 75px;
+}
 
 
 .main-page-container {

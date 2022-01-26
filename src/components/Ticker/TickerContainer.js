@@ -12,7 +12,7 @@ const GetTickerData = () => {
     if (current.isLoading || standings.isLoading) { return [] }
 
     if (Object.keys(current.state).length === 0) {
-        var info = standings.state.data.slice(0, 15)
+        var info = standings.state.data.slice(0, 35)
     } else {
         console.log(false)
     }
@@ -24,7 +24,7 @@ function TickerContainer() {
     var data = GetTickerData()
     console.log(data)
     return (
-        <div className='ticker-container fixed-top'>{data === [] ? <LoadingSpinner /> : <div className="marquee"><div>Top 15 Standings {data.map(obj => <TickerItem info={obj} key={obj.RawRk} />)}</div></div>}
+        <div className='ticker-container fixed-top'>{data === [] ? <LoadingSpinner /> : <div className="marquee"><div>PGC Tour Top 35 {data.map(obj => <TickerItem info={obj} key={obj.RawRk} />)}</div></div>}
         </div>
     )
 }
