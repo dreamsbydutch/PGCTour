@@ -1,7 +1,6 @@
 import React from 'react';
 import './Home.css';
 import { useQuery } from 'react-query';
-import { Container } from 'react-bootstrap';
 import CountdownLogic from '../Countdown/CountdownLogic';
 import Standings from '../Standings/Standings';
 import { fetchCurrentTournamentInfo, fetchNextTournamentInfo, fetchPrevTournamentInfo } from '../../utils/fetchData';
@@ -20,23 +19,24 @@ function Home() {
     date.setDate(date.getDate() + 4)
 
     return (
-        <Container>
+        <>
             {new Date(Date.now()) < date && new Date(Date.now()) > new Date(prevTourney.data.EndDate) && <ChampAlert data={prevTourney.data} />}
-            {currentTourney.data.id === "" ?
-                <div className="countdown-timer">
-                    <CountdownLogic />
-                </div> :
-                <a href="#/leaderboard">
-                    <div className="homescreen-liveleaderboard">
-                        <Live limit={10} />
-                    </div>
-                </a>
+            {
+                currentTourney.data.id === "" ?
+                    <div className="countdown-timer">
+                        <CountdownLogic />
+                    </div> :
+                    <a href="#/leaderboard">
+                        <div className="homescreen-liveleaderboard">
+                            <Live limit={10} />
+                        </div>
+                    </a>
             }
             <a href="#/standings">
                 <div className="homescreen-standings">
                     <Standings limit={10} />
                 </div></a>
-        </Container>
+        </>
     )
 }
 

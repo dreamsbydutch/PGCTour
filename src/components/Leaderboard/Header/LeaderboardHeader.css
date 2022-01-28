@@ -1,60 +1,20 @@
-.tournament-header-header {
-	width: 100%;
+.leaderboard-header-container {
 	display: grid;
-	grid-gap: 5px;
 	grid-auto-flow: row;
-	grid-template-columns: repeat(10, 1fr);
-	text-align: center;
+	grid-template-columns: repeat(20, 1fr);
 	border-bottom: 2px solid #222;
 }
 
-.tournament-header-logo {
-	grid-area: 1/1/5/3;
-	place-self: center;
-}
-.tournament-header-logo img {
-	display: block;
-	max-width: 100%;
-	max-height: 125px;
-}
-.tournament-header-tourneyname {
-	grid-area: 1/3/3/8;
-	font-size: 1rem;
-	font-weight: bolder;
-	padding-top: 15px;
-	place-self: center;
-}
-.tournament-header-toggleswitch {
-	grid-area: 1/8/2/11;
-	font-size: 0.85rem;
-	place-self: center;
-}
-.tournament-header-tourneydate {
-	grid-area: 2/8/3/11;
-	font-size: 0.85rem;
-	place-self: center;
-}
-.tournament-header-tourneycity {
-	grid-area: 3/6/4/9;
-	font-size: 0.75rem;
-	place-self: center;
-}
-.tournament-header-tourneycourse {
-	grid-area: 3/3/4/6;
-	font-size: 0.75rem;
-	place-self: center;
-}
-.tournament-header-tourneypar {
-	grid-area: 3/9/4/11;
-	font-size: 0.75rem;
-	place-self: center;
-}
-.live-button, .tournament-toggle {
-	font-size: 0.75rem;
-	color: #000;
-	background-color: #bbb;
-	border: 1px solid #aaa;
-}
+.leaderboard-header-container div {text-align: center;font-family:"Varela Round";place-self: center;padding:0.25rem 0.1rem;}
+.leaderboard-header-logo {grid-area: 1/1/4/5;place-self: center;}
+.leaderboard-header-logo img {display: block;max-width: 100%;max-height: 150px;}
+.leaderboard-header-tourneyname {grid-area: 1/5/3/16;font-size: 1.3rem;font-weight: bold;}
+.leaderboard-header-toggleswitch {grid-area: 1/16/2/21;}
+.leaderboard-header-tourneydate {grid-area: 2/15/3/21;font-size: 0.9rem;}
+.leaderboard-header-tourneycity {grid-area: 3/11/4/17;font-size: 0.7rem;}
+.leaderboard-header-tourneycourse {grid-area: 3/4/4/11;font-size: 0.7rem;}
+.leaderboard-header-tourneypar {grid-area: 3/17/4/21;font-size: 0.6rem;}
+.leaderboard-header-live-button, .leaderboard-header-tournament-toggle {font-size: 0.7rem;color: #000;background-color: #bbb;border: 1px solid #9a9a9a;}
 
 @media only screen and (min-width: 450px) {
 	.tournament-header-tourneyname {

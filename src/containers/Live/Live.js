@@ -1,10 +1,8 @@
 import React from 'react'
-import './Live.css'
 import { useQuery } from 'react-query'
 import Leaderboard from '../../components/Leaderboard/Leaderboard';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import { fetchCurrentTournamentInfo, fetchLeaderboardData, fetchNextTournamentInfo, fetchLeaderboardById } from '../../utils/fetchData';
-import { Container } from 'react-bootstrap';
 
 function Live(props) {
     var leaderboardQuery = useQuery('LiveLeaderboardData', fetchLeaderboardData)
@@ -20,9 +18,7 @@ function Live(props) {
     leaderboardData = props.limit ? leaderboardData.slice(0, props.limit) : leaderboardData
 
     return (
-        <Container>
-            <Leaderboard tourney={tourney} data={leaderboardData} live={true} />
-        </Container>
+        <Leaderboard tourney={tourney} data={leaderboardData} live={true} />
     )
 }
 

@@ -1,69 +1,31 @@
 /* Overall Grid Formatting */
 
-.standings-header {
-    font-size: 2rem;
-    font-weight: 600;
+#standings-header {
+    font-size:3rem;
+    padding: 0 0 1rem 0;
+    margin:0 0 1.5rem 0;
+    font-family:"Yellowtail";
     text-align: center;
-    font-family: 'Varela Round';
+    line-height:3rem;
+    border-bottom: 3px solid #bbb;
 }
 
-.refresh-note {
-	font-size: 0.65rem;
+.standings-helpertext {
+	font-size: 0.6rem;
 	color: #999;
     text-align: center;
 }
 
-.standings-grid-container {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(12, 1fr);
-    margin: 1rem auto;
-    width: 95%;
-    max-width: 1250px;
-    border-radius: 2rem;
+#standings-container {margin: 1rem 0;}
+.standings-item-labels {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(20, 1fr);
+	text-align: center;
 }
+.standings-item-labels div{font-family: "Varela Round";place-self: center;}
+.standings-item-labels-rank {grid-area: 1/1/2/4;font-size: 0.85rem;font-weight: bold;}
+.standings-item-labels-name {grid-area: 1/4/2/14;font-size: 1rem;font-weight: bold;}
+.standings-item-labels-points {grid-area: 1/14/2/18;font-size: 0.75rem;font-weight: bold;}
+.standings-item-labels-earnings {grid-area: 1/18/2/21;font-size: 0.7rem;}
 
-.grid-standings {grid-area: 1 / 1 / 25 / 13;}
-
-.standings-grid {
-    display: grid;
-    grid-gap: 0px;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(12, 1fr);
-    text-align: center;
-    padding-top: 0px;
-    margin: 0px 0px;
-}
-
-#standings-header {grid-area: 1 / 1 / 5 / 13;}
-#standings-list {grid-area: 5 / 1 / 13 / 13;}
-
-
-#standings-list :nth-child(35) {
-    border-bottom: 2px solid #000;
-}
-
-/* Tournament Info Formatting */
-
-#standings-header {
-    display: grid;
-    grid-gap: 0px;
-    grid-auto-flow: row;
-    grid-template-columns: repeat(19, 1fr);
-    text-align: center;
-    padding-bottom: 4px;
-    border-bottom: 1px dashed #ccc;
-    font-family: "Varela Round";
-}
-
-.standings-header-rank {grid-area:1/1/2/4;font-size:0.8rem;font-weight:bold;place-self:center;}
-.standings-header-name {grid-area:1/4/2/14;font-size:0.85rem;font-weight:bold;place-self:center;}
-.standings-header-points {grid-area:1/14/2/17;font-size:0.8rem;font-weight:bold;place-self:center;padding:5px;}
-.standings-header-earnings {grid-area:1/17/2/20;font-size:0.65rem;place-self:center;}
-
-/* Leaderboard Grid Formatting */
-
-
-@media only screen and (min-width: 675px) {
-    .grid-container {width: 90%;}
-}

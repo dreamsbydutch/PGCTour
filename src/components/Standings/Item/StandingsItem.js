@@ -7,12 +7,13 @@ function StandingsItem(props) {
     const [showInfo, setShowInfo] = useState(false)
 
     return (
-        <div className="standings-slot" onClick={() => setShowInfo(!showInfo)}>
-            <div className="standings-rank">{props.info.ShowRk}</div>
-            {getRkChange(props.info.RkChange)}
-            <div className="standings-teamname">{props.info.TeamName}</div>
-            <div className="standings-points">{props.info.Points}</div>
-            <div className="standings-earnings">{props.info.Earnings}</div>
+        <div className="standings-item-container" onClick={() => setShowInfo(!showInfo)}>
+            <div className='standings-item-maininfo'>
+                <div className="standings-item-maininfo-rank">{props.info.ShowRk}  {getRkChange(props.info.RkChange)}</div>
+                <div className="standings-item-maininfo-name">{props.info.TeamName}</div>
+                <div className="standings-item-maininfo-points">{props.info.Points}</div>
+                <div className="standings-item-maininfo-earnings">{props.info.Earnings}</div>
+            </div>
             {showInfo ? <StandingsItemInfo info={props.info} /> : <></>}
         </div>
     )

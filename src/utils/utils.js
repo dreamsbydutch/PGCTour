@@ -1,3 +1,6 @@
+import './utils.css'
+
+
 export function getRkChange(rkChange) {
     var style = {}
     var arrow = ''
@@ -15,14 +18,16 @@ export function getRkChange(rkChange) {
     }
 
     return (
-        <div className="rankchange" style={style}>
-            {arrow === 'up' ?
-                <i className="fa fa-long-arrow-up" aria-hidden="true"></i> :
-                arrow === 'down' ?
-                    <i className="fa fa-long-arrow-down" aria-hidden="true"></i> :
-                    <i className="fa fa-arrows-h" aria-hidden="true"></i>}
+        <span className="utils-rankchange" style={style}>
+            <span className="utils-rkchange-arrow">
+                {arrow === 'up' ?
+                    <i className="fa fa-long-arrow-up" aria-hidden="true"></i> :
+                    arrow === 'down' ?
+                        <i className="fa fa-long-arrow-down" aria-hidden="true"></i> :
+                        <i className="fa fa-arrows-h" aria-hidden="true"></i>}
+            </span>
             {Math.abs(rkChange) === 0 ?
                 "" : Math.abs(rkChange)}
-        </div>
+        </span>
     )
 }

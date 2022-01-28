@@ -38,8 +38,8 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Container>
-      {window.innerWidth < 850 ? <></> : <Footer />}
-    </Router>
+      {window.innerWidth < 850 ? <div style={{ 'color': '#fff' }}>.</div> : <Footer />}
+    </Router >
   );
 }
 
