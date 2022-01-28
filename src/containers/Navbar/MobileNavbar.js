@@ -25,7 +25,7 @@ function NavBar() {
                 </Navbar.Brand>
                 <span className='nav-border-line' />
                 <Navbar.Brand as={Link} to="/rulebook">
-                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" />
+                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/rulebookIcon.png" />
                 </Navbar.Brand>
             </Container>
         </Navbar>
