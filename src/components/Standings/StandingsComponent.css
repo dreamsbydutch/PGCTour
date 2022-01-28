@@ -39,6 +39,9 @@
 #standings-list {grid-area: 5 / 1 / 13 / 13;}
 
 
+#standings-list :nth-child(35) {
+    border-bottom: 2px solid #000;
+}
 
 /* Tournament Info Formatting */
 

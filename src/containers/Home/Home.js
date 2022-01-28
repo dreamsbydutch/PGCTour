@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import { useQuery } from 'react-query'
+import { useQuery } from 'react-query';
 import { Container } from 'react-bootstrap';
 import CountdownLogic from '../Countdown/CountdownLogic';
 import Standings from '../Standings/Standings';
@@ -26,13 +26,16 @@ function Home() {
                 <div className="countdown-timer">
                     <CountdownLogic />
                 </div> :
-                <div className="homescreen-liveleaderboard">
-                    <Live limit={10} />
-                </div>
+                <a href="#/leaderboard">
+                    <div className="homescreen-liveleaderboard">
+                        <Live limit={10} />
+                    </div>
+                </a>
             }
-            <div className="homescreen-standings">
-                <Standings limit={10} />
-            </div>
+            <a href="#/standings">
+                <div className="homescreen-standings">
+                    <Standings limit={10} />
+                </div></a>
         </Container>
     )
 }
