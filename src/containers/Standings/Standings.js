@@ -1,15 +1,23 @@
 import React from 'react';
+import { useQuery } from 'react-query'
 import { Container } from 'react-bootstrap';
 import StandingsComponent from '../../components/Standings/StandingsComponent';
-import { useCurrentStandings } from '../../context/StandingsContext';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
+import { fetchStandingsData } from '../../utils/fetchData';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
-function Standings() {
-    var standingsState = useCurrentStandings();
+function Standings(props) {
+    var standingsQuery = useQuery('StandingsData', fetchStandingsData)
+    var standingsData = null
+
+    if (standingsQuery.isError) { console.log(standingsQuery.error); return <ErrorPage /> }
+    if (standingsQuery.isLoading) { return <LoadingSpinner /> }
+    standingsData = standingsQuery.data
+    standingsData = props.limit ? standingsData.slice(0, props.limit) : standingsData
 
     return (
         <Container>
-            {standingsState.isLoading ? <LoadingSpinner /> : <StandingsComponent info={standingsState.state} />}
+            <StandingsComponent data={standingsData} />
         </Container>
     )
 }

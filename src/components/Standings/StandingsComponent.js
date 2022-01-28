@@ -17,7 +17,7 @@ function StandingsComponent(props) {
                         <div className="standings-header-earnings">Earnings</div>
                     </div>
                     <div id="standings-list">
-                        {props.info.data.map(obj => <StandingsItem info={obj} key={obj.RawRk} />)}
+                        {props.data.map(obj => <StandingsItem info={obj} key={obj.RawRk} />)}
                     </div>
                 </div>
             </div>

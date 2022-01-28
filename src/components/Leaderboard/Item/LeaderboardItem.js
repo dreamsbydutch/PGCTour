@@ -4,10 +4,9 @@ import LeaderboardItemInfo from './Info/LeaderboardItemInfo';
 
 function LeaderboardItem(props) {
     const [showInfo, setShowInfo] = useState(false)
-    const onClick = () => setShowInfo(!showInfo)
 
     return (
-        <div className='tournament-leaderboard-slot-container' onClick={onClick}>
+        <div className='tournament-leaderboard-slot-container' onClick={() => setShowInfo(!showInfo)}>
             <div className='tournament-leaderboard-slot'>
                 <div className='tournament-leaderboard-rank'>{props.info.ShowRk}</div>
                 <div xs={5} className='tournament-leaderboard-teamname'>{props.info.Name}</div>

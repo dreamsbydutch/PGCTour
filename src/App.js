@@ -17,33 +17,29 @@ import Rulebook from './containers/Rulebook/Rulebook';
 import GolferStats from './containers/GolferStats/GolferStats';
 import History from './containers/History/History';
 import Tournament from './containers/Tournaments/Tournament';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
-import { TourneyContext } from './context/TournamentContext';
-import { StandingsContext } from './context/StandingsContext';
 import TickerContainer from './components/Ticker/TickerContainer';
 
 function App() {
   return (
-    <TourneyContext>
-      <StandingsContext>
-        <Router>
-          {window.innerWidth < 800 ? <><TickerContainer /><MobileNavbar /></> : <Navbar />}
-          <Container className='main-page-container'>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/leaderboard" element={<Live />} />
-              <Route path="/tournament/:tourneyId" element={<Tournament />} />
-              <Route path="/standings" element={<Standings />} />
-              <Route path="/golferstats" element={<GolferStats />} />
-              <Route path="/rulebook" element={<Rulebook />} />
-              <Route path="/history" element={<History />} />
-              <Route path="*" element={<ErrorPage />} />
-            </Routes>
-          </Container>
-          {window.innerWidth < 800 ? <></> : <Footer />}
-        </Router>
-      </StandingsContext>
-    </TourneyContext>
+    <Router>
+      <ScrollToTop />
+      {window.innerWidth < 850 ? <><TickerContainer /><MobileNavbar /></> : <Navbar />}
+      <Container className='main-page-container'>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/leaderboard" element={<Live />} />
+          <Route path="/tournament/:tourneyId" element={<Tournament />} />
+          <Route path="/standings" element={<Standings />} />
+          <Route path="/golferstats" element={<GolferStats />} />
+          <Route path="/rulebook" element={<Rulebook />} />
+          <Route path="/history" element={<History />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Container>
+      {window.innerWidth < 850 ? <></> : <Footer />}
+    </Router>
   );
 }
 

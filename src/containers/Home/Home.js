@@ -1,11 +1,9 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-
-import CountdownLogic from '../../containers/Countdown/CountdownLogic';
 import './Home.css';
+import { Container } from 'react-bootstrap';
+import CountdownLogic from '../Countdown/CountdownLogic';
 
 function Home() {
-
     return (
         <Container>
             <div className="countdown-timer">

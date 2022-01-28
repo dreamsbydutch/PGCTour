@@ -4,7 +4,6 @@ import { Dropdown, Button, ButtonGroup } from 'react-bootstrap';
 import './LeaderboardHeader.css';
 
 function LeaderboardHeader(props) {
-
     return (
         <div id="tournament-header">
             <div className="tournament-header-header">

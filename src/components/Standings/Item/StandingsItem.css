@@ -16,7 +16,7 @@
 
 
 .standings-rank {grid-area:1/1/2/3;font-size:0.8rem;place-self:center;}
-.standings-rankchange {grid-area:1/2/2/4;font-size:0.6rem;place-self:center;}
+.rankchange {grid-area:1/2/2/4;font-size:0.6rem;place-self:center;}
 .standings-teamname {grid-area:1/4/2/14;font-size:0.95rem;place-self:center;}
 .standings-points {grid-area:1/14/2/17;font-size:0.9rem;place-self:center;}
 .standings-earnings {grid-area:1/17/2/20;font-size:0.75rem;place-self:center;}

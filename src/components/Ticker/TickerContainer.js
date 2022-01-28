@@ -1,30 +1,22 @@
 import React from 'react'
-import { useCurrentStandings } from '../../context/StandingsContext';
-import { useCurrentTourney } from '../../context/TournamentContext';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-import TickerItem from "./TickerItem";
+import { useQuery } from 'react-query'
 import './Ticker.css'
 
-const GetTickerData = () => {
-    var current = useCurrentTourney();
-    var standings = useCurrentStandings();
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import TickerItem from "./TickerItem";
 
-    if (current.isLoading || standings.isLoading) { return [] }
+import { fetchStandingsData } from "../../utils/fetchData";
+import ErrorPage from '../../containers/ErrorPage/ErrorPage';
 
-    if (Object.keys(current.state).length === 0) {
-        var info = standings.state.data.slice(0, 35)
-    } else {
-        console.log(false)
-    }
-
-    return info
-}
 
 function TickerContainer() {
-    var data = GetTickerData()
+    var tickerQuery = useQuery('TickerStandingsData', fetchStandingsData)
+
+    if (tickerQuery.isError) { console.log(tickerQuery.error); return <ErrorPage /> }
+    if (tickerQuery.isLoading) { return <LoadingSpinner /> }
 
     return (
-        <div className='ticker-container fixed-top'>{data === [] ? <LoadingSpinner /> : <div className="marquee"><div>PGC Tour Top 35 {data.map(obj => <TickerItem info={obj} key={obj.RawRk} />)}</div></div>}
+        <div className='fixed-top'>{<div className="marquee"><div className="ticker-container">PGC Tour Top 35 {tickerQuery.data.slice(0, 35).map(obj => <TickerItem info={obj} key={obj.RawRk} />)}</div></div>}
         </div>
     )
 }
