@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pgctour/static/css/main.79d1485c.css",
-    "main.js": "/pgctour/static/js/main.96ee16d8.js",
+    "main.css": "/pgctour/static/css/main.0343c8ac.css",
+    "main.js": "/pgctour/static/js/main.29913835.js",
     "static/js/787.0fcbd85f.chunk.js": "/pgctour/static/js/787.0fcbd85f.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/pgctour/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -9,12 +9,12 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/pgctour/index.html",
-    "main.79d1485c.css.map": "/pgctour/static/css/main.79d1485c.css.map",
-    "main.96ee16d8.js.map": "/pgctour/static/js/main.96ee16d8.js.map",
+    "main.0343c8ac.css.map": "/pgctour/static/css/main.0343c8ac.css.map",
+    "main.29913835.js.map": "/pgctour/static/js/main.29913835.js.map",
     "787.0fcbd85f.chunk.js.map": "/pgctour/static/js/787.0fcbd85f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.79d1485c.css",
-    "static/js/main.96ee16d8.js"
+    "static/css/main.0343c8ac.css",
+    "static/js/main.29913835.js"
   ]
 }
