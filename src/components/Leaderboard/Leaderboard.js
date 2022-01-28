@@ -1,7 +1,5 @@
 import React from 'react';
 import './Leaderboard.css'
-import { Container } from 'react-bootstrap';
-
 import LeaderboardItem from './Item/LeaderboardItem';
 import LeaderboardHeader from './Header/LeaderboardHeader';
 
