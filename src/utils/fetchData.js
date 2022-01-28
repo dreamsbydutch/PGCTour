@@ -16,6 +16,11 @@ export async function fetchNextTournamentInfo() {
     return data[19]
 }
 
+export async function fetchPrevTournamentInfo() {
+    const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
+    return data[20]
+}
+
 export async function fetchLeaderboardData() {
     const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
     return data

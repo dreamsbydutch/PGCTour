@@ -1,6 +1,5 @@
 import React from 'react'
 import { useQuery } from 'react-query'
-import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import Leaderboard from '../../components/Leaderboard/Leaderboard';
 import { fetchLeaderboardData, fetchLeaderboardById, fetchTournamentInfoById, fetchTournamentsInfo } from '../../utils/fetchData';
@@ -21,9 +20,7 @@ function Tournament(props) {
     leaderboardData = props.limit ? leaderboardData.slice(0, props.limit) : leaderboardData
 
     return (
-        <Container>
-            {<Leaderboard tourney={tourney} data={leaderboardData} live={false} />}
-        </Container>
+        < Leaderboard tourney={tourney} data={leaderboardData} live={false} />
     )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useQuery } from 'react-query'
-import { Container } from 'react-bootstrap';
 import StandingsComponent from '../../components/Standings/StandingsComponent';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import { fetchStandingsData } from '../../utils/fetchData';
 import ErrorPage from '../ErrorPage/ErrorPage';
+import { Container } from 'react-bootstrap';
 
 function Standings(props) {
     var standingsQuery = useQuery('StandingsData', fetchStandingsData)

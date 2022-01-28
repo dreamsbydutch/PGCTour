@@ -21,11 +21,15 @@
     height: 100px;
 }
 
-.countdown-timer {
-    margin: 1rem 0;
+.countdown-timer, .homescreen-standings, .homescreen-liveleaderboard {
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-radius: 2rem;
     background: #f9f9f9;
-    border-radius: 20px;
 }
+
+
+
 
 @media only screen and (min-width: 768px) {
     .home-nav-buttons {

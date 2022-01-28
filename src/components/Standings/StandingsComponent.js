@@ -1,11 +1,11 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
 import './StandingsComponent.css'
 import StandingsItem from './Item/StandingsItem'
 
 function StandingsComponent(props) {
     return (
-        <Container>
+        <>
+            <div className="standings-header">PGC Tour Standings</div>
             <div className="refresh-note">Tap on a PGC player to view their stats and tournament history.</div>
             <div className="standings-grid-container">
                 <div className="grid-standings standings-grid">
@@ -21,7 +21,7 @@ function StandingsComponent(props) {
                     </div>
                 </div>
             </div>
-        </Container>
+        </>
     )
 }
 

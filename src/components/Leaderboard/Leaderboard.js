@@ -7,7 +7,7 @@ import LeaderboardHeader from './Header/LeaderboardHeader';
 
 function Leaderboard(props) {
     return (
-        <Container>
+        <>
             <LeaderboardHeader tourney={props.tourney} />
             <div id="tournament-leaderboard">
                 <div className="tournament-leaderboard-slot-labels">
@@ -19,7 +19,7 @@ function Leaderboard(props) {
                 </div>
                 {props.data.map(obj => <LeaderboardItem info={obj} key={obj.RawRk} live={props.live} />)}
             </div>
-        </Container>
+        </>
     )
 }
 

@@ -9,23 +9,23 @@ function NavBar() {
         <Navbar bg="light" fixed="bottom">
             <Container className='navbar-container'>
                 <Navbar.Brand as={Link} to="">
-                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/PGCsmall.png" />
+                    <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/PGCsmall.png" />
                 </Navbar.Brand>
                 <span className='nav-border-line' />
                 <Navbar.Brand as={Link} to="/leaderboard">
-                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png" />
+                    <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png" />
                 </Navbar.Brand>
                 <span className='nav-border-line' />
                 <Navbar.Brand as={Link} to="/standings">
-                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" />
+                    <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" />
                 </Navbar.Brand>
                 <span className='nav-border-line' />
                 <Navbar.Brand as={Link} to="/golferstats">
-                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/golferstatsIcon.png" />
+                    <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/golferstatsIcon.png" />
                 </Navbar.Brand>
                 <span className='nav-border-line' />
                 <Navbar.Brand as={Link} to="/rulebook">
-                    <img alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/rulebookIcon.png" />
+                    <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/rulebookIcon.png" />
                 </Navbar.Brand>
             </Container>
         </Navbar>

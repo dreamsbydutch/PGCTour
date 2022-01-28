@@ -1,6 +1,14 @@
 /* Overall Grid Formatting */
+
+.standings-header {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Varela Round';
+}
+
 .refresh-note {
-	font-size: 0.8rem;
+	font-size: 0.65rem;
 	color: #999;
     text-align: center;
 }
@@ -12,7 +20,6 @@
     margin: 1rem auto;
     width: 95%;
     max-width: 1250px;
-    background: #fff;
     border-radius: 2rem;
 }
 
