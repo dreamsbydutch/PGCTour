@@ -6,6 +6,21 @@
 }
 
 #leaderboard-container {margin: 1rem 0;}
+
+.leaderboard-header-togglebuttons {
+    margin: 0.5rem auto;
+    text-align: center;
+}
+.leaderboard-header-togglebuttons button {
+    margin: 0.25rem 1rem;
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.leaderboard-header-activebutton {background: #555;border: 1px solid #555;color: #ddd;}
+.leaderboard-header-inactivebutton {background: #ddd;border: 1px solid #ddd;color: #555;}
+
 .leaderboard-item-labels {
 	display: grid;
 	grid-auto-flow: row;

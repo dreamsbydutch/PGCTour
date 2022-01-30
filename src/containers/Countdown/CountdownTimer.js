@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CountdownTimer.css';
 import { useInterval, twoDigits } from '../../utils/countdown';
 
@@ -7,6 +7,10 @@ export default function CountdownApp(props) {
 
     const [secondsRemaining, setSecondsRemaining] = useState(props.count < 0 ? 0 : props.count);
     const [status, setStatus] = useState('Started');
+
+    useEffect(() => {
+        setSecondsRemaining(props.count < 0 ? 0 : props.count)
+    }, [props.count])
 
     useInterval(
         () => {
@@ -17,7 +21,6 @@ export default function CountdownApp(props) {
             }
         },
         status === 'Started' ? 1000 : null,
-        // passing null stops the interval
     )
 
     const secondsToDisplay = secondsRemaining % 60

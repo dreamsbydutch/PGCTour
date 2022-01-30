@@ -41,6 +41,10 @@ export async function fetchLeaderboardData() {
     const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
     return data
 }
+export async function fetchPGALeaderboardData() {
+    const { data } = await axios.get('https://opensheet.elk.sh/15sKFQVDdaYmXXAqLhBqYAeFLSrE5t4yq0TpJ6wy6pao/1')
+    return data
+}
 
 export async function fetchStandingsData() {
     const { data } = await axios.get('https://opensheet.elk.sh/1w0fLIpGBJQsGA3IcQ5ha4FHdZtZKaZUggDi6sl9OiVg/1')

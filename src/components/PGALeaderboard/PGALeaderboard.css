@@ -5,7 +5,6 @@
     margin-top: 3rem;
 }
 
-#pga-leaderboard-container {margin: 1rem 0;}
 .pga-leaderboard-item-labels {
 	display: grid;
 	grid-auto-flow: row;

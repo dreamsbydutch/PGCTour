@@ -27,7 +27,7 @@ function Home() {
             {currentTourney.data ?
                 <a href="#/leaderboard">
                     <div className="homescreen-liveleaderboard">
-                        <Live limit={10} />
+                        <Live limit={10} link={false} />
                     </div>
                 </a> :
                 <a href="#/leaderboard">

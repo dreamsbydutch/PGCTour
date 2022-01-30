@@ -1,86 +1,68 @@
-.slot-extras-wrapper {grid-area:2/1/3/20;width:100%;}
-.slot-extras {
+
+.standings-item-info-extras-container {
     width: 90%;
     margin: auto;
-    display: flex;
-    flex-direction: column;
-}
-.slot-extras-stats {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
 }
 
-.extra-stats-labels {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-    margin: 3px 0px;
+.standings-item-info-extras-labels-row {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(5, 1fr);
+	text-align: center;
+	padding: 0.4rem 0 0 0;
 }
-.extra-stats-label {
-    font-size: 0.55rem;
-    place-self: center;
+.standings-item-info-extras-labels-row div {font-family: "Varela Round";place-self: center;}
+.standings-item-info-extras-wins-label {font-size:0.5rem;font-weight:600;}
+.standings-item-info-extras-toptens-label {font-size:0.5rem;font-weight:600;}
+.standings-item-info-extras-cutsmade-label {font-size:0.5rem;font-weight:600;}
+.standings-item-info-extras-weekdayscoringaverage-label {font-size:0.5rem;font-weight:600;}
+.standings-item-info-extras-weekendscoringaverage-label {font-size:0.5rem;font-weight:600;}
+
+.standings-item-info-extras-stats-row {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(5, 1fr);
+	text-align: center;
+	padding: 0 0 0.8rem 0;
+}
+.standings-item-info-extras-stats-row div {font-family: "Varela Round";place-self: center;}
+.standings-item-info-extras-wins {font-size:0.75rem;}
+.standings-item-info-extras-toptens {font-size:0.75rem;}
+.standings-item-info-extras-cutsmade {font-size:0.75rem;}
+.standings-item-info-extras-weekdayscoringaverage {font-size:0.75rem;}
+.standings-item-info-extras-weekendscoringaverage {font-size:0.75rem;}
+
+.standings-item-info-extras-tourneyhist-row-one {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(8, 1fr);
+	text-align: center;
+    align-items:flex-end;
+	padding: 0.25rem 0;
+    border-bottom: 1px dashed #ddd;
+    width:90%;
+    margin: auto;
+}
+.standings-item-info-extras-tourneyhist-row-two {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(7, 1fr);
+	text-align: center;
+	padding: 0.25rem 0 1rem 0;
+    width:80%;
+    margin: auto;
 }
 
+.standings-item-info-extras-tourneyhist-tourney {display:grid;align-items:flex-end;justify-items:center;height:100%;border-right: 1px dashed #ddd;}
+.standings-item-info-extras-tourneyhist-row-one :nth-child(8) {border-right: none;}
+.standings-item-info-extras-tourneyhist-row-two :nth-child(7) {border-right: none;}
 
-.extra-stats {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-    margin: 3px 0px;
-}
-.extra-stat {
-    font-size: 0.65rem;
-}
+.standings-item-info-extras-tourneyhist-tourney-logo img {display: block;max-width: 100%;max-height: 50px;padding:0.2rem;}
+.standings-item-info-extras-tourneyhist-tourney-rank {font-family:"Barlow Condensed";font-size: 0.8rem;font-weight: 800;}
 
 
-.slot-extras-tournaments {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-}
-.tournament-history {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    border-left: 1px dotted #ccc;
-}
-.tourney-hist {
-    border-right: 1px dotted #ccc;
-}
-.tourney-logo > img {
-    object-fit: cover;
-    width: 90%;
-    max-width: 50px;
-}
-.tourney-rank {
-    padding: 5px 0px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
 
-
-@media only screen and (min-width: 500px) {
-    .extra-stats-label {font-size: 0.55rem;}
-    .extra-stat {font-size: 0.7em;}
-    .tourney-rank {font-size: 0.85rem;}
-}
-@media only screen and (min-width: 675px) {
-    .extra-stats-label {font-size: 0.6rem;}
-    .extra-stat {font-size: 0.75em;}
-    .tourney-rank {font-size: 0.95rem;}
-}
-@media only screen and (min-width: 850px) {
-    .extra-stats-label {font-size: 0.65rem;}
-    .extra-stat {font-size: 0.85em;}
-    .tourney-rank {font-size: 1rem;}
-}
 @media only screen and (min-width: 1100px) {
-    .extra-stats-label {font-size: 0.8rem;}
-    .extra-stat {font-size: 1em;}
-    .tourney-rank {font-size: 1.1rem;}
+
+    
 }

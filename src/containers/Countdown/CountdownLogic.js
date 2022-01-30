@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CountdownTimer from './CountdownTimer';
 
 
 function CountdownLogic(props) {
 
-    var nextTourney = props.tourney
-    var start_date = new Date(nextTourney.StartDate);
-    var current_date = new Date();
-    const INITIAL_COUNT = Math.round((start_date - current_date) / 1000);
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        const start_date = new Date(props.tourney.StartDate);
+        const current_date = new Date();
+        setCount(Math.round((start_date - current_date) / 1000))
+    }, [props.tourney])
 
     return (
-        <CountdownTimer count={INITIAL_COUNT} tourneyName={nextTourney.Tourney} tourneyLogo={nextTourney.Logo} />
+        <CountdownTimer count={count} tourneyName={props.tourney.Tourney} tourneyLogo={props.tourney.Logo} />
     )
 }
 
