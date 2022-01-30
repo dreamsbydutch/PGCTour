@@ -1,19 +1,10 @@
 import React from 'react';
-import { useQuery } from 'react-query'
 import CountdownTimer from './CountdownTimer';
-import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
-
-import { fetchNextTournamentInfo } from "../../utils/fetchData";
-import ErrorPage from '../ErrorPage/ErrorPage';
 
 
-function CountdownLogic() {
-    var countdownQuery = useQuery('Countdown', fetchNextTournamentInfo)
+function CountdownLogic(props) {
 
-    if (countdownQuery.isError) { console.log(countdownQuery.error); <ErrorPage /> }
-    if (countdownQuery.isLoading) return <LoadingSpinner />;
-
-    var nextTourney = countdownQuery.data
+    var nextTourney = props.tourney
     var start_date = new Date(nextTourney.StartDate);
     var current_date = new Date();
     const INITIAL_COUNT = Math.round((start_date - current_date) / 1000);

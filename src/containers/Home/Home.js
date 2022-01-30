@@ -15,22 +15,26 @@ function Home() {
     var prevTourney = useQuery('LivePrevTourney', fetchPrevTournamentInfo)
     if (currentTourney.isError || nextTourney.isError || prevTourney.isError) { console.log(currentTourney.error, nextTourney.error, prevTourney.error); <ErrorPage /> }
     if (currentTourney.isLoading || nextTourney.isLoading || prevTourney.isLoading) return <LoadingSpinner />;
-    var date = new Date(prevTourney.data.EndDate)
-    date.setDate(date.getDate() + 4)
-
+    var date = prevTourney.data ? new Date(prevTourney.data.EndDate) : new Date(2022, 0, 1)
+    var datePlus = new Date()
+    datePlus.setDate(date.getDate() + 4)
     return (
         <>
-            {new Date(Date.now()) < date && new Date(Date.now()) > new Date(prevTourney.data.EndDate) && <ChampAlert data={prevTourney.data} />}
-            {
-                currentTourney.data.id === "" ?
+            {new Date(Date.now()) < datePlus &&
+                new Date(Date.now()) > date &&
+                <ChampAlert tourney={prevTourney.data} />
+            }
+            {currentTourney.data ?
+                <a href="#/leaderboard">
+                    <div className="homescreen-liveleaderboard">
+                        <Live limit={10} />
+                    </div>
+                </a> :
+                <a href="#/leaderboard">
                     <div className="countdown-timer">
-                        <CountdownLogic />
-                    </div> :
-                    <a href="#/leaderboard">
-                        <div className="homescreen-liveleaderboard">
-                            <Live limit={10} />
-                        </div>
-                    </a>
+                        <CountdownLogic tourney={nextTourney.data} />
+                    </div>
+                </a>
             }
             <a href="#/standings">
                 <div className="homescreen-standings">

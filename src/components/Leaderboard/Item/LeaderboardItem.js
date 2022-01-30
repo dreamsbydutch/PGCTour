@@ -9,13 +9,13 @@ function LeaderboardItem(props) {
     return (
         <div className='leaderboard-item-container' onClick={() => setShowInfo(!showInfo)}>
             <div className='leaderboard-item-maininfo'>
-                <div className='leaderboard-item-maininfo-rank'>{props.info.ShowRk}  {getRkChange(props.info.RkChange)}</div>
-                <div className='leaderboard-item-maininfo-teamname'>{props.info.Name}</div>
-                <div className='leaderboard-item-maininfo-totaltopar'>{props.info.ScoreToPar}</div>
-                <div className='leaderboard-item-maininfo-todaytopar'>{props.live ? props.info.LiveScore : props.info.Points}</div>
-                <div className='leaderboard-item-maininfo-todaythru'>{props.live ? props.info.LiveHoles : props.info.Earnings}</div>
+                <div className='leaderboard-item-maininfo-rank'>{props.data.ShowRk}  {getRkChange(props.data.RkChange)}</div>
+                <div className='leaderboard-item-maininfo-teamname'>{props.data.Name}</div>
+                <div className='leaderboard-item-maininfo-totaltopar'>{props.data.ScoreToPar}</div>
+                <div className='leaderboard-item-maininfo-todaytopar'>{props.live ? props.data.LiveScore : props.data.Points}</div>
+                <div className='leaderboard-item-maininfo-todaythru'>{props.live ? props.data.LiveHoles : props.data.Earnings}</div>
             </div>
-            {showInfo ? <LeaderboardItemInfo info={props.info} /> : <></>}
+            {showInfo ? <LeaderboardItemInfo info={props.data} /> : <></>}
         </div>
     )
 }

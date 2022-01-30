@@ -16,7 +16,7 @@ function Tournament(props) {
     if (leaderboardQuery.isError || tourneys.isError) { console.log(leaderboardQuery.error, tourneys.error); return <ErrorPage /> }
     if (leaderboardQuery.isLoading || tourneys.isLoading) { return <LoadingSpinner /> }
     tourney = fetchTournamentInfoById(tourneys, tourneyId)
-    leaderboardData = fetchLeaderboardById(leaderboardQuery, tourneyId)
+    leaderboardData = fetchLeaderboardById(leaderboardQuery.data, tourneyId)
     leaderboardData = props.limit ? leaderboardData.slice(0, props.limit) : leaderboardData
 
     return (

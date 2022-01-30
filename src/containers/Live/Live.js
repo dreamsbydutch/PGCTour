@@ -13,8 +13,9 @@ function Live(props) {
 
     if (leaderboardQuery.isError || currentTourney.isError || nextTourney.isError) { console.log(leaderboardQuery.error, currentTourney.error, nextTourney.error); return <div>Error</div> }
     if (leaderboardQuery.isLoading || currentTourney.isLoading || nextTourney.isLoading) { return <LoadingSpinner /> }
-    if (currentTourney.data.id === "") { tourney = nextTourney.data } else { tourney = currentTourney.data }
-    leaderboardData = fetchLeaderboardById(leaderboardQuery, tourney.id)
+    tourney = currentTourney.data ? currentTourney.data : nextTourney.data
+
+    leaderboardData = fetchLeaderboardById(leaderboardQuery.data, tourney.id)
     leaderboardData = props.limit ? leaderboardData.slice(0, props.limit) : leaderboardData
 
     return (

@@ -1,0 +1,20 @@
+.no-live-tournament {
+    text-align:center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 3rem;
+}
+
+#pga-leaderboard-container {margin: 1rem 0;}
+.pga-leaderboard-item-labels {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: repeat(20, 1fr);
+	text-align: center;
+}
+.pga-leaderboard-item-labels div{font-family: "Varela Round";place-self: center;}
+.pga-leaderboard-item-labels-rank {grid-area: 1/1/2/4;font-size: 0.825rem;font-weight: bold;}
+.pga-leaderboard-item-labels-teamname {grid-area: 1/4/2/14;font-size: 1rem;font-weight: bold;}
+.pga-leaderboard-item-labels-totaltopar {grid-area: 1/14/2/17;font-size: 0.825rem;font-weight: bold;}
+.pga-leaderboard-item-labels-todaythru {grid-area: 1/17/2/19;font-size: 0.55rem;}
+.pga-leaderboard-item-labels-usage {grid-area: 1/19/2/21;font-size: 0.55rem;}

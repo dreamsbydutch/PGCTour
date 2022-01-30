@@ -8,18 +8,34 @@ export async function fetchTournamentsInfo() {
 
 export async function fetchCurrentTournamentInfo() {
     const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    return data[18]
+    if (!(data[18])) { return null }
+    if (Object.keys(data[18]).length > 0) {
+        return data[18]
+    } else {
+        return null
+    }
 }
 
 export async function fetchNextTournamentInfo() {
     const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    return data[19]
+    if (!(data[19])) { return null }
+    if (Object.keys(data[19]).length > 0) {
+        return data[19]
+    } else {
+        return null
+    }
 }
 
 export async function fetchPrevTournamentInfo() {
     const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    return data[20]
+    if (!(data[20])) { return null }
+    if (Object.keys(data[20]).length > 0) {
+        return data[20]
+    } else {
+        return null
+    }
 }
+
 
 export async function fetchLeaderboardData() {
     const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
@@ -43,6 +59,5 @@ export function fetchTournamentInfoById(tournamentInfo, tourneyId) {
     return tournamentInfo.data.filter(obj => obj.id === tourneyId)[0]
 }
 export function fetchLeaderboardById(leaderboardData, tourneyId) {
-    // return leaderboardData.data.filter(obj => obj.tourneyId === tourneyId)[0]
-    return leaderboardData.data
+    return leaderboardData.filter(obj => obj.TourneyID === tourneyId)
 }

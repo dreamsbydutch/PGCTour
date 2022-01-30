@@ -10,13 +10,13 @@ function ChampAlert(props) {
 
     if (leaderboardQuery.isError) { console.log(leaderboardQuery.error); return <div>Error</div> }
     if (leaderboardQuery.isLoading) { return <LoadingSpinner /> }
-    leaderboardData = fetchLeaderboardById(leaderboardQuery, props.data.id)
+    leaderboardData = fetchLeaderboardById(leaderboardQuery.data, props.tourney.id)
     leaderboardData = leaderboardData.slice(0, 1)[0]
 
     return (
         <div className='champion-alert-container'>
-            <div className="champion-alert-header">{props.data.Tourney} Champion</div>
-            <div className="champion-alert-tourneylogo"><img alt={props.data.Tourney} src={props.data.Logo} /></div>
+            <div className="champion-alert-header">{props.tourney.Tourney} Champion</div>
+            <div className="champion-alert-tourneylogo"><img alt={props.tourney.Tourney} src={props.tourney.Logo} /></div>
             <div className="champion-alert-champname">{leaderboardData.Name}</div>
             <div className="champion-alert-teamscore">{leaderboardData.ScoreToPar}</div>
             <div className="champion-alert-golferone">{leaderboardData.Golfer1Name}<br />({leaderboardData.Golfer1Total})</div>
