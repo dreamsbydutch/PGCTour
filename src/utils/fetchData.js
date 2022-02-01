@@ -47,7 +47,7 @@ export async function fetchPGALeaderboardData() {
 }
 
 export async function fetchStandingsData() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1w0fLIpGBJQsGA3IcQ5ha4FHdZtZKaZUggDi6sl9OiVg/1')
+    const { data } = await axios.get('https://opensheet.elk.sh/1kkJtcX4E4NqTOFPwfSasOVeqbau74epxQGz6QGQN0wo/1')
     return data
 }
 

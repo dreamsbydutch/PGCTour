@@ -12,8 +12,8 @@ function LeaderboardItem(props) {
                 <div className='leaderboard-item-maininfo-rank'>{props.data.ShowRk}  {props.live ? getRkChange(props.data.RkChange) : <></>}</div>
                 <div className='leaderboard-item-maininfo-teamname'>{props.data.Name}</div>
                 <div className='leaderboard-item-maininfo-totaltopar'>{props.data.ScoreToPar}</div>
-                <div className='leaderboard-item-maininfo-todaytopar'>{props.live ? props.data.LiveScore : props.data.Points}</div>
-                <div className='leaderboard-item-maininfo-todaythru'>{props.live ? props.data.LiveHoles : props.data.Earnings}</div>
+                <div className='leaderboard-item-maininfo-todaytopar'>{props.live ? props.data.LiveScore : props.data.CupPoints}</div>
+                <div className='leaderboard-item-maininfo-todaythru'>{props.live ? props.data.LiveHoles : "$" + props.data.Earnings}</div>
             </div>
             {showInfo ? <LeaderboardItemInfo info={props.data} /> : <></>}
         </div >

@@ -16,12 +16,12 @@ function Home() {
     if (currentTourney.isError || nextTourney.isError || prevTourney.isError) { console.log(currentTourney.error, nextTourney.error, prevTourney.error); <ErrorPage /> }
     if (currentTourney.isLoading || nextTourney.isLoading || prevTourney.isLoading) return <LoadingSpinner />;
     var date = prevTourney.data ? new Date(prevTourney.data.EndDate) : new Date(2022, 0, 1)
-    var datePlus = new Date()
+    var datePlus = new Date(date)
     datePlus.setDate(date.getDate() + 4)
     return (
         <>
-            {new Date(Date.now()) < datePlus &&
-                new Date(Date.now()) > date &&
+            {new Date() < datePlus &&
+                new Date() > date &&
                 <ChampAlert tourney={prevTourney.data} />
             }
             {currentTourney.data ?

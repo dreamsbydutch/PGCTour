@@ -17,4 +17,4 @@ function CountdownLogic(props) {
     )
 }
 
-export default CountdownLogic
+export default CountdownLogic;
