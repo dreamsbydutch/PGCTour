@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { useQuery } from 'react-query';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import GolferStatsComponent from '../../components/GolferStats/GolferStatsComponent'
+import { fetchGolferStatsData } from '../../utils/fetchData';
 
 function GolferStats() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [statsData, setStatsData] = useState();
+    var golferStats = useQuery('GolferStatsData', fetchGolferStatsData)
 
-    useEffect(() => {
-        axios
-            .get('https://opensheet.elk.sh/1LyloFyLI-YsPZnAWbmeh6l4KbhMUb1bqHm9Y47-fZOw/7')
-            .then((res) => {
-                setStatsData(res.data)
-                setIsLoading(false)
-            })
-    }, [])
-    if (isLoading) return <LoadingSpinner />;
+    if (golferStats.isLoading) return <LoadingSpinner />;
 
     return (
-        <GolferStatsComponent info={statsData} />
+        <GolferStatsComponent data={golferStats.data} />
     )
 }
 

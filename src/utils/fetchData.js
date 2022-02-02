@@ -51,6 +51,11 @@ export async function fetchStandingsData() {
     return data
 }
 
+export async function fetchGolferStatsData() {
+    const { data } = await axios.get('https://opensheet.elk.sh/1kw_-NpJfwnl5cKMYeWojoMLCZuglSDxd5-W_2LNHWE0/4')
+    return data
+}
+
 
 
 
