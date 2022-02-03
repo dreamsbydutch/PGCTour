@@ -1,7 +1,7 @@
 
 /* Overall Grid Formatting */
 
-.rating-header {
+.golferstats-header {
     font-size:3rem;
     padding: 0 0 1rem 0;
     margin:0 0 1.5rem 0;
@@ -10,9 +10,9 @@
     line-height:3rem;
     border-bottom: 3px solid #bbb;
 }
-.rating-explanation {font-family:"Varela Round";font-size:0.75rem;place-self:center;text-align: center;}
+.golferstats-explanation {font-family:"Varela Round";font-size:0.75rem;place-self:center;text-align: center;}
 
-.labels { 
+.golferstats-labels { 
     margin: 2rem 0 0.25rem 0;
     display:grid;
     grid-auto-flow:row;
@@ -20,6 +20,6 @@
     text-align:center;
     padding: 0;
 }
-.rank-label {grid-area:1/1/2/2;font-size:0.75rem;font-weight:800;font-family:"Varela Round";place-self:center;}
-.name-label {grid-area:1/2/2/7;font-size:1rem;font-weight:800;font-family:"Varela Round";place-self:center;}
-.pgcrating-label {grid-area:1/7/2/9;font-size:0.75rem;font-weight:800;font-family:"Varela Round";place-self:center;}
+.golferstats-rank-label {grid-area:1/1/2/2;font-size:0.75rem;font-weight:800;font-family:"Varela Round";place-self:center;}
+.golferstats-name-label {grid-area:1/2/2/7;font-size:1rem;font-weight:800;font-family:"Varela Round";place-self:center;}
+.golferstats-rating-label {grid-area:1/7/2/9;font-size:0.75rem;font-weight:800;font-family:"Varela Round";place-self:center;}

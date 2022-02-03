@@ -1,0 +1,20 @@
+.golferstatsitem-info-container {margin: 0.25rem auto 1.25rem auto;}
+.golferstatsitem-info-container-row {
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.golferstatsitem-info-container div {font-family: "Varela Round";text-align: center; place-self: center;}
+
+.golferstatsitem-info-worldrank-label {font-size: 0.7rem;font-weight: bold;}
+.golferstatsitem-info-worldrank {font-size: 0.8rem;padding:0.25rem 0;}
+.golferstatsitem-info-strgain-label {font-size: 0.7rem;font-weight: bold;}
+.golferstatsitem-info-strgain {font-size: 0.8rem;padding:0.25rem 0;}
+.golferstatsitem-info-scravg-label {font-size: 0.7rem;font-weight: bold;}
+.golferstatsitem-info-scravg {font-size: 0.8rem;padding:0.25rem 0;}
+.golferstatsitem-info-earnings-label {font-size: 0.7rem;font-weight: bold;}
+.golferstatsitem-info-earnings {font-size: 0.8rem;padding:0.25rem 0;}
+.golferstatsitem-info-fedex-label {font-size: 0.7rem;font-weight: bold;}
+.golferstatsitem-info-fedex {font-size: 0.8rem;padding:0.25rem 0;}
+
