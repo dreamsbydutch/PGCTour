@@ -9,6 +9,7 @@ import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ChampAlert from '../../components/ChampAlert/ChampAlert'
 import SignUpButton from '../../components/SignUpButton/SignUpButton'
+import StudioVideoDisplay from '../../components/StudioVideoDisplay/StudioVideoDisplay';
 
 function Home() {
     var currentTourney = useQuery('LiveCurrentTourney', fetchCurrentTournamentInfo)
@@ -21,6 +22,7 @@ function Home() {
     datePlus.setDate(date.getDate() + 4)
     return (
         <>
+            <StudioVideoDisplay />
             {new Date() < datePlus &&
                 new Date() > date &&
                 <ChampAlert tourney={prevTourney.data} />

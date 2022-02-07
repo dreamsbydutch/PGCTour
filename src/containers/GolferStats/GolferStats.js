@@ -6,7 +6,6 @@ import { fetchGolferStatsData } from '../../utils/fetchData';
 
 function GolferStats() {
     var golferStats = useQuery('GolferStatsData', fetchGolferStatsData)
-    console.log(golferStats.data)
 
     if (golferStats.isLoading) return <LoadingSpinner />;
 
