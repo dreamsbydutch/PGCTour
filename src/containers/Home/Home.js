@@ -8,6 +8,7 @@ import Live from '../Live/Live';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ChampAlert from '../../components/ChampAlert/ChampAlert'
+import SignUpButton from '../../components/SignUpButton/SignUpButton'
 
 function Home() {
     var currentTourney = useQuery('LiveCurrentTourney', fetchCurrentTournamentInfo)
@@ -30,11 +31,14 @@ function Home() {
                         <Live limit={10} link={false} />
                     </div>
                 </a> :
-                <a href="#/leaderboard">
-                    <div className="countdown-timer">
-                        <CountdownLogic tourney={nextTourney.data} />
-                    </div>
-                </a>
+                <>
+                    <a href="#/leaderboard">
+                        <div className="countdown-timer">
+                            <CountdownLogic tourney={nextTourney.data} />
+                        </div>
+                    </a>
+                    <SignUpButton data={nextTourney.data} />
+                </>
             }
             <a href="#/standings">
                 <div className="homescreen-standings">
