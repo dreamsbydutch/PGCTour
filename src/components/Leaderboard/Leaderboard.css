@@ -1,10 +1,3 @@
-.no-live-tournament {
-    text-align:center;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-top: 3rem;
-}
-
 #leaderboard-container {margin: 1rem 0;}
 
 .leaderboard-header-togglebuttons {
@@ -12,7 +5,7 @@
     text-align: center;
 }
 .leaderboard-header-togglebuttons button {
-    margin: 0.25rem 1rem;
+    margin: 0.5rem 1rem;
     padding: 0.25rem 1.5rem;
     border-radius: 0.75rem;
     font-size: 1.1rem;
@@ -28,8 +21,34 @@
 	text-align: center;
 }
 .leaderboard-item-labels div{font-family: "Varela Round";place-self: center;}
-.leaderboard-item-labels-rank {grid-area: 1/1/2/4;font-size: 0.825rem;font-weight: bold;}
+.leaderboard-item-labels-rank {grid-area: 1/1/2/4;font-size: 0.85rem;font-weight: bold;}
 .leaderboard-item-labels-teamname {grid-area: 1/4/2/14;font-size: 1rem;font-weight: bold;}
-.leaderboard-item-labels-totaltopar {grid-area: 1/14/2/17;font-size: 0.825rem;font-weight: bold;}
-.leaderboard-item-labels-todaytopar {grid-area: 1/17/2/19;font-size: 0.55rem;}
-.leaderboard-item-labels-todaythru {grid-area: 1/19/2/21;font-size: 0.55rem;}
+.leaderboard-item-labels-totaltopar {grid-area: 1/14/2/17;font-size: 0.85rem;font-weight: bold;}
+.leaderboard-item-labels-todaytopar {grid-area: 1/17/2/19;font-size: 0.6rem;}
+.leaderboard-item-labels-todaythru {grid-area: 1/19/2/21;font-size: 0.6rem;}
+
+
+
+
+@media only screen and (min-width: 350px) {
+    .leaderboard-header-togglebuttons button {font-size: 1.15rem;padding: 0.35rem 1.6rem;}
+    .leaderboard-item-labels-teamname {font-size: 1.05rem;}
+}
+
+@media only screen and (min-width: 450px) {
+    .leaderboard-header-togglebuttons button {font-size: 1.2rem;padding: 0.5rem 1.75rem;}
+    .leaderboard-item-labels-rank {font-size: 0.95rem;}
+    .leaderboard-item-labels-teamname {font-size: 1.15rem;}
+    .leaderboard-item-labels-totaltopar {font-size: 0.95rem;}
+    .leaderboard-item-labels-todaytopar {font-size: 0.65rem;}
+    .leaderboard-item-labels-todaythru {font-size: 0.65rem;}
+}
+
+@media only screen and (min-width: 550px) {
+    .leaderboard-header-togglebuttons button {font-size: 1.25rem;margin: 0.75rem 1rem;padding: 0.55rem 2rem;}
+    .leaderboard-item-labels-rank {font-size: 1.05rem;}
+    .leaderboard-item-labels-teamname {font-size: 1.25rem;}
+    .leaderboard-item-labels-totaltopar {font-size: 1.05rem;}
+    .leaderboard-item-labels-todaytopar {font-size: 0.75rem;}
+    .leaderboard-item-labels-todaythru {font-size: 0.75rem;}
+}

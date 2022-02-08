@@ -31,16 +31,18 @@ export default function CountdownApp(props) {
     const daysToDisplay = (hoursRemaining - hoursToDisplay) / 24
 
     return (
-        <div className="countdown-timer-container">
-            <h1>Countdown until {props.tourneyName}</h1>
-            <div className="row-container">
-                <div className="tourney_logo">
-                    <img alt="Tourney Logo" src={props.tourneyLogo} />
-                </div>
-                <div className="countdown-timer-div" style={{ padding: 20 }}>
-                    {twoDigits(daysToDisplay)}:{twoDigits(hoursToDisplay)}:{twoDigits(minutesToDisplay)}:
-                    {twoDigits(secondsToDisplay)}
-                    <div className="mini-timer-labels">Days : Hours : Minutes : Seconds</div>
+        <div className="countdown-timer">
+            <div className="countdown-timer-container">
+                <h1>Countdown until {props.tourneyName}</h1>
+                <div className="row-container">
+                    <div className="tourney_logo">
+                        <img alt="Tourney Logo" src={props.tourneyLogo} />
+                    </div>
+                    <div className="countdown-timer-div" style={{ padding: 20 }}>
+                        {twoDigits(daysToDisplay)}:{twoDigits(hoursToDisplay)}:{twoDigits(minutesToDisplay)}:
+                        {twoDigits(secondsToDisplay)}
+                        <div className="mini-timer-labels">Days : Hours : Minutes : Seconds</div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,2 +1,19 @@
 .utils-rankchange {font-size: 0.55rem;place-self:center;}
 .utils-rkchange-arrow {font-size: 0.55rem;}
+
+
+
+@media only screen and (min-width: 350px) {
+	.utils-rankchange {font-size: 0.65rem;}
+    .utils-rkchange-arrow {font-size: 0.65rem;}
+}
+
+@media only screen and (min-width: 450px) {
+	.utils-rankchange {font-size: 0.75rem;}
+    .utils-rkchange-arrow {font-size: 0.75rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.utils-rankchange {font-size: 0.85rem;}
+    .utils-rkchange-arrow {font-size: 0.85rem;}
+}

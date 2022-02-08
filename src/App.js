@@ -4,22 +4,20 @@ import { Container } from 'react-bootstrap';
 
 import './App.css';
 
-import MobileNavbar from './containers/Navbar/MobileNavbar';
-import Navbar from './containers/Navbar/Navbar';
-import Footer from './containers/Footer/Footer';
+import MobileNavbar from './components/Navbar/MobileNavbar';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import TickerContainer from './components/Ticker/TickerContainer';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 import Home from './containers/Home/Home';
 import ErrorPage from './containers/ErrorPage/ErrorPage';
-
 import Live from './containers/Live/Live';
 import Standings from './containers/Standings/Standings';
 import Rulebook from './containers/Rulebook/Rulebook';
 import GolferStats from './containers/GolferStats/GolferStats';
 import History from './containers/History/History';
 import Tournament from './containers/Tournaments/Tournament';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
-import TickerContainer from './components/Ticker/TickerContainer';
 
 function App() {
   return (

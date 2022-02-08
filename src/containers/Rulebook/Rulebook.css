@@ -15,3 +15,26 @@
 .rulebook-rules {font-size:1.1rem;margin:0.75rem 0;}
 .rulebook-subrules {font-size:0.85rem;margin:0.5rem 0;}
 .distributions-picture {width: 100%; margin: 0 auto 3rem auto; max-width: 750px;}
+
+
+
+
+@media only screen and (min-width: 350px) {
+    .rulebook-subheader {font-size:2.15rem;}
+    .rulebook-rules {font-size:1.166rem;}
+    .rulebook-subrules {font-size:0.9rem;}
+}
+
+@media only screen and (min-width: 450px) {
+    .rulebook-header {font-size:3.3rem;}
+    .rulebook-subheader {font-size:2.3rem;}
+    .rulebook-rules {font-size:1.233rem;}
+    .rulebook-subrules {font-size:0.975rem;}
+}
+
+@media only screen and (min-width: 550px) {
+    .rulebook-header {font-size:3.8rem;}
+    .rulebook-subheader {font-size:2.45rem;}
+    .rulebook-rules {font-size:1.3rem;}
+    .rulebook-subrules {font-size:1.05rem;}
+}

@@ -7,7 +7,25 @@
     padding: 0.25rem 0;
 }
 
-.golferstats-maininfo-rank {grid-area:1/1/2/2;font-size:0.8rem;font-family: "Varela Round";place-self:center;}
+.golferstats-maininfo-rank {grid-area:1/1/2/2;font-size:0.85rem;font-family: "Varela Round";place-self:center;}
 .golferstats-maininfo-name {grid-area:1/2/2/7;font-size:1rem;font-family: "Varela Round";place-self:center;}
-.golferstats-maininfo-rating {grid-area:1/7/2/9;font-size:0.95rem;font-family: "Varela Round";place-self:center;}
+.golferstats-maininfo-rating {grid-area:1/7/2/9;font-size:0.9rem;font-family: "Varela Round";place-self:center;}
 
+
+@media only screen and (min-width: 350px) {
+	.golferstats-maininfo-rank {font-size: 0.925rem;}
+	.golferstats-maininfo-name {font-size: 1.1rem;}
+	.golferstats-maininfo-rating {font-size: 1rem;}
+}
+
+@media only screen and (min-width: 450px) {
+	.golferstats-maininfo-rank {font-size: 1.05rem;}
+	.golferstats-maininfo-name {font-size: 1.225rem;}
+	.golferstats-maininfo-rating {font-size: 1.15rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.golferstats-maininfo-rank {font-size: 1.15rem;}
+	.golferstats-maininfo-name {font-size: 1.35rem;}
+	.golferstats-maininfo-rating {font-size: 1.25rem;}
+}

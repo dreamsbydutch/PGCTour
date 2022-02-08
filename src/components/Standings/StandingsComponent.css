@@ -29,3 +29,28 @@
 .standings-labels-points {grid-area: 1/14/2/18;font-size: 0.75rem;font-weight: bold;}
 .standings-labels-earnings {grid-area: 1/18/2/21;font-size: 0.7rem;}
 
+
+
+
+@media only screen and (min-width: 350px) {
+    .standings-helpertext {font-size: 0.75rem;}
+    .standings-labels-name {font-size: 1.15rem;}
+}
+
+@media only screen and (min-width: 450px) {
+    #standings-header {font-size: 3.3rem;}
+    .standings-helpertext {font-size: 0.85rem;}
+    .standings-labels-rank {font-size: 1rem;}
+    .standings-labels-name {font-size: 1.2rem;}
+    .standings-labels-points {font-size: 0.9rem;}
+    .standings-labels-earnings {font-size: 0.8rem;}
+}
+
+@media only screen and (min-width: 550px) {
+    #standings-header {font-size: 3.8rem;}
+    .standings-helpertext {font-size: 0.9rem;}
+    .standings-labels-rank {font-size: 1.05rem;}
+    .standings-labels-name {font-size: 1.4rem;}
+    .standings-labels-points {font-size: 1rem;}
+    .standings-labels-earnings {font-size: 0.9rem;}
+}

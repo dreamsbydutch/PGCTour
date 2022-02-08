@@ -4,90 +4,32 @@
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 }
+.leaderboarditem-info-roundrow {margin: 0 0 0.25rem 0;}
 
 .leaderboarditem-info-container div {font-family: "Varela Round";text-align: center; place-self: center;}
+.leaderboarditem-info-labelrow div {font-size: 0.55rem;font-weight: bold;}
+.leaderboarditem-info-roundrow div {font-size: 0.7rem;padding:0.25rem 0;}
+.leaderboarditem-info-golferrow div {font-size: 0.5rem;padding:0.125rem 0;}
 
-.leaderboarditem-info-roundone-label {font-size: 0.55rem;font-weight: bold;}
-.leaderboarditem-info-roundtwo-label {font-size: 0.55rem;font-weight: bold;}
-.leaderboarditem-info-roundthree-label {font-size: 0.55rem;font-weight: bold;}
-.leaderboarditem-info-roundfour-label {font-size: 0.55rem;font-weight: bold;}
-.leaderboarditem-info-total-label {font-size: 0.55rem;font-weight: bold;}
-.leaderboarditem-info-roundone {font-size: 0.7rem;padding:0.25rem 0;}
-.leaderboarditem-info-roundtwo {font-size: 0.7rem;padding:0.25rem 0;}
-.leaderboarditem-info-roundthree {font-size: 0.7rem;padding:0.25rem 0;}
-.leaderboarditem-info-roundfour {font-size: 0.7rem;padding:0.25rem 0;}
-.leaderboarditem-info-total {font-size: 0.7rem;padding:0.25rem 0;}
-.leaderboarditem-info-golferone {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golfertwo {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golferthree {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golferfour {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golferfive {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golfersix {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golferseven {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golfereight {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golfernine {font-size: 0.475rem;padding:0.125rem 0;}
-.leaderboarditem-info-golferten {font-size: 0.475rem;padding:0.125rem 0;}
 
-@media only screen and (min-width: 600px) {
 
-	.tournament-leaderboard-roundone-label {
-		font-size: 0.65rem;
-	}
-	.tournament-leaderboard-roundtwo-label {
-		font-size: 0.65rem;
-	}
-	.tournament-leaderboard-roundthree-label {
-		font-size: 0.65rem;
-	}
-	.tournament-leaderboard-roundfour-label {
-		font-size: 0.65rem;
-	}
-	.tournament-leaderboard-total-label {
-		font-size: 0.65rem;
-	}
-	.tournament-leaderboard-roundone {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-roundtwo {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-roundthree {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-roundfour {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-total {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golferone {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golfertwo {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golferthree {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golferfour {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golferfive {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golfersix {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golferseven {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golfereight {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golfernine {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-golferten {
-		font-size: 0.85rem;
-	}
+@media only screen and (min-width: 350px) {
+	.leaderboarditem-info-roundrow {margin: 0 0 0.5rem 0;}
+	.leaderboarditem-info-labelrow div {font-size: 0.65rem;}
+	.leaderboarditem-info-roundrow div {font-size: 0.8rem;}
+	.leaderboarditem-info-golferrow div {font-size: 0.6rem;}
+}
+
+@media only screen and (min-width: 450px) {
+	.leaderboarditem-info-roundrow {margin: 0 0 0.75rem 0;}
+	.leaderboarditem-info-labelrow div {font-size: 0.825rem;}
+	.leaderboarditem-info-roundrow div {font-size: 0.975rem;}
+	.leaderboarditem-info-golferrow div {font-size: 0.7rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.leaderboarditem-info-roundrow {margin: 0 0 1rem 0;}
+	.leaderboarditem-info-labelrow div {font-size: 0.95rem;}
+	.leaderboarditem-info-roundrow div {font-size: 1.1rem;}
+	.leaderboarditem-info-golferrow div {font-size: 0.8rem;}
 }

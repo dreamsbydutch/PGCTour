@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 import { useQuery } from 'react-query';
-import CountdownLogic from '../Countdown/CountdownLogic';
+import CountdownLogic from '../../components/Countdown/CountdownLogic';
 import Standings from '../Standings/Standings';
 import { fetchCurrentTournamentInfo, fetchNextTournamentInfo, fetchPrevTournamentInfo } from '../../utils/fetchData';
 import Live from '../Live/Live';
@@ -35,9 +35,7 @@ function Home() {
                 </a> :
                 <>
                     <a href="#/leaderboard">
-                        <div className="countdown-timer">
-                            <CountdownLogic tourney={nextTourney.data} />
-                        </div>
+                        <CountdownLogic tourney={nextTourney.data} />
                     </a>
                     <SignUpButton data={nextTourney.data} />
                 </>

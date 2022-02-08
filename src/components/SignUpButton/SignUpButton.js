@@ -4,7 +4,7 @@ import './SignUpButton.css'
 function SignUpButton(props) {
     return (
         <div className="signupbutton-container">
-            <a href={props.data.FormLink} className="signupbutton">CLICK HERE TO MAKE YOUR {props.data.Tourney} PICKS</a>
+            <a href={props.data.FormLink} className="signupbutton">MAKE YOUR {props.data.Tourney} PICKS HERE</a>
         </div>
     )
 }

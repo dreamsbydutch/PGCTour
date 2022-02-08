@@ -1,25 +1,31 @@
-.pga-leaderboarditem-info-container {
-	width: 100%;
-	margin-top: 0.25rem;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 1.25rem;
+.pga-leaderboarditem-info-container {margin: 0.25rem auto 1.25rem auto;}
+.pga-leaderboarditem-info-container-row {
+	margin: auto;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 }
+.pga-leaderboarditem-info-roundrow {margin: 0 0 0.25rem 0;}
 
 .pga-leaderboarditem-info-container div {font-family: "Varela Round";text-align: center; place-self: center;}
-.pga-leaderboarditem-info-roundone-label {grid-area: 1/1/2/2;font-size: 0.55rem;font-weight: bold;}
-.pga-leaderboarditem-info-roundtwo-label {grid-area: 1/2/2/3;font-size: 0.55rem;font-weight: bold;}
-.pga-leaderboarditem-info-roundthree-label {grid-area: 1/3/2/4;font-size: 0.55rem;font-weight: bold;}
-.pga-leaderboarditem-info-roundfour-label {grid-area: 1/4/2/5;font-size: 0.55rem;font-weight: bold;}
-.pga-leaderboarditem-info-total-label {grid-area: 1/5/2/6;font-size: 0.55rem;font-weight: bold;}
-.pga-leaderboarditem-info-roundone {grid-area: 2/1/3/2;font-size: 0.7rem;padding:0.25rem 0;}
-.pga-leaderboarditem-info-roundtwo {grid-area: 2/2/3/3;font-size: 0.7rem;padding:0.25rem 0;}
-.pga-leaderboarditem-info-roundthree {grid-area: 2/3/3/4;font-size: 0.7rem;padding:0.25rem 0;}
-.pga-leaderboarditem-info-roundfour {grid-area: 2/4/3/5;font-size: 0.7rem;padding:0.25rem 0;}
-.pga-leaderboarditem-info-total {grid-area: 2/5/3/6;font-size: 0.7rem;padding:0.25rem 0;}
+.pga-leaderboarditem-info-labelrow div {font-size: 0.55rem;font-weight: bold;}
+.pga-leaderboarditem-info-roundrow div {font-size: 0.7rem;padding:0.25rem 0;}
 
 
-@media only screen and (min-width: 600px) {
+
+@media only screen and (min-width: 350px) {
+	.pga-leaderboarditem-info-roundrow {margin: 0 0 0.5rem 0;}
+	.pga-leaderboarditem-info-labelrow div {font-size: 0.65rem;}
+	.pga-leaderboarditem-info-roundrow div {font-size: 0.8rem;}
+}
+
+@media only screen and (min-width: 450px) {
+	.pga-leaderboarditem-info-roundrow {margin: 0 0 0.75rem 0;}
+	.pga-leaderboarditem-info-labelrow div {font-size: 0.825rem;}
+	.pga-leaderboarditem-info-roundrow div {font-size: 0.975rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.pga-leaderboarditem-info-roundrow {margin: 0 0 1rem 0;}
+	.pga-leaderboarditem-info-labelrow div {font-size: 0.95rem;}
+	.pga-leaderboarditem-info-roundrow div {font-size: 1.1rem;}
 }

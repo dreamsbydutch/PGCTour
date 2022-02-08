@@ -4,7 +4,7 @@ import './StudioVideoDisplay.css'
 function StudioVideoDisplay() {
     var embedId = "a3OIGIFn1zk"
     return (
-        <>
+        <div className="studiovideo-container">
             <div className="video-responsive">
                 <iframe
                     width="853"
@@ -16,7 +16,7 @@ function StudioVideoDisplay() {
                     title="Embedded youtube"
                 />
             </div>
-        </>
+        </div>
     )
 }
 

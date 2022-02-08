@@ -1,5 +1,6 @@
 .signupbutton-container {
     text-align: center;
+    margin: auto;
 }
 
 a.signupbutton{
@@ -21,4 +22,27 @@ a.signupbutton{
 }
 a.signupbutton:active{
     top:0.1em;
+}
+
+
+
+@media only screen and (min-width: 350px) {
+    a.signupbutton{
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    a.signupbutton{
+        font-size: 1.4rem;
+        font-weight: 800;
+    }
+}
+
+@media only screen and (min-width: 550px) {
+    a.signupbutton{
+        font-size: 1.65rem;
+        font-weight: 800;
+    }
 }

@@ -17,37 +17,27 @@
 .leaderboard-item-maininfo-todaythru {grid-area: 1/19/2/21;font-size: 0.6rem;}
 
 
-@media only screen and (min-width: 600px) {
 
-	.tournament-leaderboard-rank-label {
-		font-size: 0.85rem;
-	}
-	.tournament-leaderboard-teamname-label {
-		font-size: 1rem;
-	}
-	.tournament-leaderboard-totaltopar-label {
-		font-size: 1rem;
-	}
-	.tournament-leaderboard-todaytopar-label {
-		font-size: 0.75rem;
-	}
-	.tournament-leaderboard-todaythru-label {
-		font-size: 0.75rem;
-	}
+@media only screen and (min-width: 350px) {
+	.leaderboard-item-maininfo-rank {font-size: 0.925rem;}
+	.leaderboard-item-maininfo-teamname {font-size: 1.1rem;}
+	.leaderboard-item-maininfo-totaltopar {font-size: 1rem;}
+	.leaderboard-item-maininfo-todaytopar {font-size: 0.8rem;}
+	.leaderboard-item-maininfo-todaythru {font-size: 0.7rem;}
+}
 
-	.tournament-leaderboard-rank {
-		font-size: 1.05rem;
-	}
-	.tournament-leaderboard-teamname {
-		font-size: 1.15rem;
-	}
-	.tournament-leaderboard-totaltopar {
-		font-size: 1.15rem;
-	}
-	.tournament-leaderboard-todaytopar {
-		font-size: 0.95rem;
-	}
-	.tournament-leaderboard-todaythru {
-		font-size: 0.95rem;
-	}
+@media only screen and (min-width: 450px) {
+	.leaderboard-item-maininfo-rank {font-size: 1.05rem;}
+	.leaderboard-item-maininfo-teamname {font-size: 1.225rem;}
+	.leaderboard-item-maininfo-totaltopar {font-size: 1.15rem;}
+	.leaderboard-item-maininfo-todaytopar {font-size: 0.975rem;}
+	.leaderboard-item-maininfo-todaythru {font-size: 0.875rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.leaderboard-item-maininfo-rank {font-size: 1.15rem;}
+	.leaderboard-item-maininfo-teamname {font-size: 1.35rem;}
+	.leaderboard-item-maininfo-totaltopar {font-size: 1.25rem;}
+	.leaderboard-item-maininfo-todaytopar {font-size: 1.1rem;}
+	.leaderboard-item-maininfo-todaythru {font-size: 1rem;}
 }
