@@ -9,7 +9,7 @@ function Leaderboard(props) {
     const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
     return (
         <>
-            {(new Date() > new Date(props.tourney.StartDate)) ?
+            {(new Date() < new Date(props.tourney.StartDate)) ?
                 <>
                     <LeaderboardHeader tourney={props.tourney} />
                     <CountdownLogic tourney={props.tourney} />
