@@ -17,7 +17,9 @@ function Rulebook() {
                 <div className="rulebook-subheader">Rosters</div>
                 <div className="rulebook-rules">The field for each tournament will be split into five groups that will be finalized on the Monday morning prior to each tournament. Groups will be chosen based on the <a href="/pgctour/#/golferstats">PGC Rating</a>.</div>
                 <div className="rulebook-rules">Players choose 2 golfers from each of the 5 groupings to create your 10 golfer team for the tournament. You will make new picks and have a new team for each tournament on the schedule.</div>
-                <div className="rulebook-subrules">If a golfer on your roster withdraws prior to the tournament teeing off and you do not edit your roster prior to tee off, then that golfer will be replaced on your roster with the highest world ranked golfer in that group.</div>
+                <div className="rulebook-rules">Groups are set on Monday morning of tournament week.</div>
+                <div className="rulebook-subrules">Golfers that are added to the tournament field after Monday morning will be left out of the PGC field.</div>
+                <div className="rulebook-subrules">If a golfer withdraws prior to the tournament teeing off and remains on your roster at tee off, then that golfer will be replaced with the highest world ranked golfer from that group.</div>
 
                 <div className="rulebook-subheader">Scoring</div>
                 <div className="rulebook-rules">During Rounds 1 and 2 of the tournament your team’s score will be the average strokes of all 10 golfers on your team.</div>

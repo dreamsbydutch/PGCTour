@@ -7,7 +7,7 @@
 
 .golferstatsitem-info-container div {font-family: "Varela Round";text-align: center; place-self: center;}
 
-.golferstatsitem-info-container-row {border-bottom: 1px dashed #bbb; width: 80%;}
+.golferstatsitem-info-container-row {border-bottom: 1px dashed #ddd; width: 80%;}
 .golferstatsitem-info-container-row:nth-child(5) {border-bottom: none;}
 
 .golferstatsitem-info-label {font-size: 0.7rem;font-weight: bold;}
