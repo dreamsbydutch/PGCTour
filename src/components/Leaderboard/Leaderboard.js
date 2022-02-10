@@ -21,7 +21,7 @@ function Leaderboard(props) {
             fetchLiveLeaderboardData(props.tourney.id).then((res) => setPgcData(res))
             fetchLivePGALeaderboardData(props.tourney.id).then((res) => setPgaData(res))
         }
-    }, 60000);
+    }, 30000);
 
 
     return (
