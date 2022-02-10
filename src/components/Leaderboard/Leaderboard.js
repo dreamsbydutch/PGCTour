@@ -5,6 +5,7 @@ import LeaderboardHeader from './Header/LeaderboardHeader';
 import CountdownLogic from '../Countdown/CountdownLogic';
 import PGALeaderboard from '../PGALeaderboard/PGALeaderboard';
 import { useInterval } from '../../utils/countdown';
+import { fetchLiveLeaderboardData, fetchLivePGALeaderboardData } from '../../utils/fetchData';
 
 function Leaderboard(props) {
     const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
@@ -16,9 +17,11 @@ function Leaderboard(props) {
         setPgaData(props.PGAdata)
     }, [props]);
     useInterval(() => {
-        setPgcData(props.data)
-        setPgaData(props.PGAdata)
-    }, 5000);
+        if (props.live === true) {
+            fetchLiveLeaderboardData(props.tourney.id).then((res) => setPgcData(res))
+            fetchLivePGALeaderboardData(props.tourney.id).then((res) => setPgaData(res))
+        }
+    }, 60000);
 
 
     return (

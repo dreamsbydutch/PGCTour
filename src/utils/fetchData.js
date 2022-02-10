@@ -41,9 +41,17 @@ export async function fetchLeaderboardData() {
     const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
     return data
 }
+export async function fetchLiveLeaderboardData(tourneyId) {
+    const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
+    return data.filter(obj => obj.TourneyID === tourneyId)
+}
 export async function fetchPGALeaderboardData() {
     const { data } = await axios.get('https://opensheet.elk.sh/15sKFQVDdaYmXXAqLhBqYAeFLSrE5t4yq0TpJ6wy6pao/1')
     return data
+}
+export async function fetchLivePGALeaderboardData(tourneyId) {
+    const { data } = await axios.get('https://opensheet.elk.sh/15sKFQVDdaYmXXAqLhBqYAeFLSrE5t4yq0TpJ6wy6pao/1')
+    return data.filter(obj => obj.TourneyID === tourneyId)
 }
 
 export async function fetchStandingsData() {
