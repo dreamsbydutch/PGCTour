@@ -4,9 +4,19 @@ import LeaderboardItem from './Item/LeaderboardItem';
 import LeaderboardHeader from './Header/LeaderboardHeader';
 import CountdownLogic from '../Countdown/CountdownLogic';
 import PGALeaderboard from '../PGALeaderboard/PGALeaderboard';
+import { useInterval } from '../../utils/countdown';
 
 function Leaderboard(props) {
     const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
+    const [pgcData, setPgcData] = useState(props.data);
+    const [pgaData, setPgaData] = useState(props.PGAdata);
+
+    useInterval(() => {
+        setPgcData(props.data)
+        setPgaData(props.PGAdata)
+    }, 30000);
+
+
     return (
         <>
             {(new Date() < new Date(props.tourney.StartDate)) ?
@@ -34,10 +44,10 @@ function Leaderboard(props) {
                                     <div className="leaderboard-item-labels-todaytopar">{props.live ? 'Today' : 'Pts'}</div>
                                     <div className="leaderboard-item-labels-todaythru">{props.live ? 'Thru' : '$$'}</div>
                                 </div>
-                                {props.data.map(obj => <LeaderboardItem data={obj} key={obj.RawRk} live={props.live} />)}
+                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.RawRk} live={props.live} />)}
                             </>
                             :
-                            <PGALeaderboard data={props.PGAdata} live={props.live} />
+                            <PGALeaderboard data={pgaData} live={props.live} />
                         }
                     </div>
                 </>}
