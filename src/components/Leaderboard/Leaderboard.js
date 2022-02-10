@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Leaderboard.css'
 import LeaderboardItem from './Item/LeaderboardItem';
 import LeaderboardHeader from './Header/LeaderboardHeader';
@@ -11,10 +11,14 @@ function Leaderboard(props) {
     const [pgcData, setPgcData] = useState(props.data);
     const [pgaData, setPgaData] = useState(props.PGAdata);
 
+    useEffect(() => {
+        setPgcData(props.data)
+        setPgaData(props.PGAdata)
+    }, [props]);
     useInterval(() => {
         setPgcData(props.data)
         setPgaData(props.PGAdata)
-    }, 30000);
+    }, 5000);
 
 
     return (
