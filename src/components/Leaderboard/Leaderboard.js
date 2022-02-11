@@ -51,7 +51,7 @@ function Leaderboard(props) {
                                     <div className="leaderboard-item-labels-todaytopar">{props.live ? 'Today' : 'Pts'}</div>
                                     <div className="leaderboard-item-labels-todaythru">{props.live ? 'Thru' : '$$'}</div>
                                 </div>
-                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.RawRk} live={props.live} />)}
+                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.Name} live={props.live} />)}
                             </>
                             :
                             <PGALeaderboard data={pgaData} live={props.live} />
