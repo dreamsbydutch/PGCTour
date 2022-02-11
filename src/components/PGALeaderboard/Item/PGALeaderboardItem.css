@@ -13,30 +13,30 @@
 .pga-leaderboard-item-maininfo-rank {grid-area: 1/1/2/4;font-size: 0.85rem;}
 .pga-leaderboard-item-maininfo-teamname {grid-area: 1/4/2/14;font-size: 1rem;}
 .pga-leaderboard-item-maininfo-totaltopar {grid-area: 1/14/2/17;font-size: 0.9rem;}
-.pga-leaderboard-item-maininfo-todaythru {grid-area: 1/17/2/19;font-size: 0.7rem;}
-.pga-leaderboard-item-maininfo-usage {grid-area: 1/19/2/21;font-size: 0.6rem;}
+.pga-leaderboard-item-maininfo-todaythru {grid-area: 1/17/2/19;font-size: 0.625rem;}
+.pga-leaderboard-item-maininfo-usage {grid-area: 1/19/2/21;font-size: 0.525rem;}
 
 
 @media only screen and (min-width: 350px) {
 	.pga-leaderboard-item-maininfo-rank {font-size: 0.925rem;}
 	.pga-leaderboard-item-maininfo-teamname {font-size: 1.1rem;}
 	.pga-leaderboard-item-maininfo-totaltopar {font-size: 1rem;}
-	.pga-leaderboard-item-maininfo-todaythru {font-size: 0.8rem;}
-	.pga-leaderboard-item-maininfo-usage {font-size: 0.7rem;}
+	.pga-leaderboard-item-maininfo-todaythru {font-size: 0.7rem;}
+	.pga-leaderboard-item-maininfo-usage {font-size: 0.6rem;}
 }
 
 @media only screen and (min-width: 450px) {
 	.pga-leaderboard-item-maininfo-rank {font-size: 1.05rem;}
 	.pga-leaderboard-item-maininfo-teamname {font-size: 1.225rem;}
 	.pga-leaderboard-item-maininfo-totaltopar {font-size: 1.15rem;}
-	.pga-leaderboard-item-maininfo-todaythru {font-size: 0.975rem;}
-	.pga-leaderboard-item-maininfo-usage {font-size: 0.875rem;}
+	.pga-leaderboard-item-maininfo-todaythru {font-size: 0.875rem;}
+	.pga-leaderboard-item-maininfo-usage {font-size: 0.775rem;}
 }
 
 @media only screen and (min-width: 550px) {
 	.pga-leaderboard-item-maininfo-rank {font-size: 1.15rem;}
 	.pga-leaderboard-item-maininfo-teamname {font-size: 1.35rem;}
 	.pga-leaderboard-item-maininfo-totaltopar {font-size: 1.25rem;}
-	.pga-leaderboard-item-maininfo-todaythru {font-size: 1.1rem;}
-	.pga-leaderboard-item-maininfo-usage {font-size: 1rem;}
+	.pga-leaderboard-item-maininfo-todaythru {font-size: 1rem;}
+	.pga-leaderboard-item-maininfo-usage {font-size: 0.9rem;}
 }

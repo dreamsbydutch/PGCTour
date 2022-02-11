@@ -10,7 +10,7 @@ function PGALeaderboard(props) {
                 <div className="pga-leaderboard-item-labels-rank">Rank</div>
                 <div className="pga-leaderboard-item-labels-teamname">Name</div>
                 <div className="pga-leaderboard-item-labels-totaltopar">Score</div>
-                <div className="pga-leaderboard-item-labels-todaythru">{props.live ? 'Thru' : '$$'}</div>
+                <div className="pga-leaderboard-item-labels-todaythru">{props.live ? 'Today' : '$$'}</div>
                 <div className="pga-leaderboard-item-labels-usage">Usage</div>
             </div>
             {props.data.map(obj => <PGALeaderboardItem info={obj} key={obj.id} live={props.live} />)}
