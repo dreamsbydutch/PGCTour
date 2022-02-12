@@ -2,7 +2,7 @@ import React from 'react'
 import './LeaderboardItemInfo.css'
 
 function LeaderboardItemInfo(props) {
-    var style = { borderBottom: "1px dashed #ddd" }
+    var style = { borderBottom: "1px dashed #bbb" }
 
     return (
         <div className="leaderboarditem-info-container">
