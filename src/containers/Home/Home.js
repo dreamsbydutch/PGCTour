@@ -22,7 +22,7 @@ function Home() {
     datePlus.setDate(date.getDate() + 4)
     return (
         <>
-            <StudioVideoDisplay />
+            <StudioVideoDisplay embedId="" />
             {new Date() < datePlus &&
                 new Date() > date &&
                 <ChampAlert tourney={prevTourney.data} />
@@ -34,10 +34,10 @@ function Home() {
                     </div>
                 </a> :
                 <>
+                    <SignUpButton data={nextTourney.data} />
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={nextTourney.data} />
                     </a>
-                    <SignUpButton data={nextTourney.data} />
                 </>
             }
             <a href="#/standings">

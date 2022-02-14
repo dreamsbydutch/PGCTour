@@ -1,4 +1,5 @@
 import React from 'react'
+import StudioVideoDisplay from '../../components/StudioVideoDisplay/StudioVideoDisplay'
 import './Rulebook.css'
 
 function Rulebook() {
@@ -6,6 +7,7 @@ function Rulebook() {
     return (
         <>
             <div className="rulebook-header">PGC Tour Rulebook</div>
+            <StudioVideoDisplay embedId="a3OIGIFn1zk" />
             <div className='rulescontainer'>
                 <div className="rulebook-subheader">Schedule</div>
                 <div className="rulebook-rules">The fifteen tournaments on the PGC Tour schedule that will be split into 3 tiers.</div>
