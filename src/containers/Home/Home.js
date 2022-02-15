@@ -22,7 +22,7 @@ function Home() {
     datePlus.setDate(date.getDate() + 4)
     return (
         <>
-            <StudioVideoDisplay embedId="5ROZVByYpAw" />
+            <StudioVideoDisplay embedId="iyiQCz3TuA8" />
             {new Date() < datePlus &&
                 new Date() > date &&
                 <ChampAlert tourney={prevTourney.data} />
