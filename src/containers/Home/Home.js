@@ -19,7 +19,7 @@ function Home() {
     if (currentTourney.isLoading || nextTourney.isLoading || prevTourney.isLoading) return <LoadingSpinner />;
     var date = prevTourney.data ? new Date(prevTourney.data.EndDate) : new Date(2022, 0, 1)
     var datePlus = new Date(date)
-    datePlus.setDate(date.getDate() + 4)
+    datePlus.setDate(date.getDate() + 3)
     return (
         <>
             <StudioVideoDisplay embedId="" />
