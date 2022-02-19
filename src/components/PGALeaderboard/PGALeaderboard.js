@@ -13,7 +13,7 @@ function PGALeaderboard(props) {
                 <div className="pga-leaderboard-item-labels-todaythru">{props.live ? 'Today' : '$$'}</div>
                 <div className="pga-leaderboard-item-labels-usage">Usage</div>
             </div>
-            {props.data.map(obj => <PGALeaderboardItem info={obj} key={obj.id} live={props.live} />)}
+            {props.data.map(obj => <PGALeaderboardItem info={obj} key={obj.Player} live={props.live} />)}
         </>
     )
 }
