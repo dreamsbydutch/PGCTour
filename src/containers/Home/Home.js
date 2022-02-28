@@ -8,7 +8,7 @@ import Live from '../Live/Live';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ChampAlert from '../../components/ChampAlert/ChampAlert'
-// import SignUpButton from '../../components/SignUpButton/SignUpButton'
+import SignUpButton from '../../components/SignUpButton/SignUpButton'
 import StudioVideoDisplay from '../../components/StudioVideoDisplay/StudioVideoDisplay';
 
 function Home() {
