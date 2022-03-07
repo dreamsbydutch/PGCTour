@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pgctour/static/css/main.d17a24b8.css",
+    "main.css": "/pgctour/static/css/main.bcda421c.css",
     "main.js": "/pgctour/static/js/main.0fcd2a90.js",
     "static/js/787.0fcbd85f.chunk.js": "/pgctour/static/js/787.0fcbd85f.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
@@ -9,12 +9,12 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/pgctour/index.html",
-    "main.d17a24b8.css.map": "/pgctour/static/css/main.d17a24b8.css.map",
+    "main.bcda421c.css.map": "/pgctour/static/css/main.bcda421c.css.map",
     "main.0fcd2a90.js.map": "/pgctour/static/js/main.0fcd2a90.js.map",
     "787.0fcbd85f.chunk.js.map": "/pgctour/static/js/787.0fcbd85f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d17a24b8.css",
+    "static/css/main.bcda421c.css",
     "static/js/main.0fcd2a90.js"
   ]
 }
