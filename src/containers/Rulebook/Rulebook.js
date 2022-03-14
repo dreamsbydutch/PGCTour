@@ -27,7 +27,7 @@ function Rulebook() {
                 <div className="rulebook-rules">During Rounds 1 and 2 of the tournament your team’s score will be the average strokes of all 10 golfers on your team.</div>
                 <div className="rulebook-rules">Rounds 3 and 4 of the tournament your team’s score will be the average strokes of the 5 lowest golfers on your team that day.</div>
                 <div className="rulebook-rules">The leaderboard will look just like a PGA leaderboard and tracked live on the Live Leaderboard page.</div>
-                <div className="rulebook-subrules">Teams must have 5 golfers make the weekend cut line or their team will be cut from the PGC tournament. Any golfers that withdraw before cut day will receive a score of 8-over par until cut day.</div>
+                <div className="rulebook-subrules">Teams must have 5 golfers make the weekend cut line or their team will be cut from the PGC tournament. Any golfers that withdraw before cut day will receive a score of 8-over par until cut day. Any golfer that withdraws after cut day receives a score of 8-over par on the day they participated but did not finish and then CUT on the days they do not participate at all.</div>
 
                 <div className="rulebook-subheader">Playoffs</div>
                 <div className="rulebook-rules">After every tournament of the season the top 35 finishers will receive playoff points.</div>
