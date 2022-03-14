@@ -34,7 +34,7 @@ function Home() {
                     </div>
                 </a> :
                 <>
-                    <SignUpButton data={nextTourney.data} />
+                    {/* <SignUpButton data={nextTourney.data} /> */}
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={nextTourney.data} />
                     </a>
