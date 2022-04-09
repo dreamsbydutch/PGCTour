@@ -13,6 +13,10 @@
 .standings-item-maininfo-points {grid-area: 1/14/2/18;font-size: 0.9rem;}
 .standings-item-maininfo-earnings {grid-area: 1/18/2/21;font-size: 0.65rem;}
 
+.little-fucker > img {
+	height: 1.8rem;
+	margin: 0 8px;
+}
 
 @media only screen and (min-width: 350px) {
 	.standings-item-maininfo-rank {font-size: 0.925rem;}

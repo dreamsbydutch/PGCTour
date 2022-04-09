@@ -14,7 +14,7 @@ function StandingsComponent(props) {
                     <div className="standings-labels-points">Cup Points</div>
                     <div className="standings-labels-earnings">Earnings</div>
                 </div>
-                {props.data.map(obj => <StandingsItem info={obj} key={obj.RawRk} />)}
+                {props.data.map(obj => <StandingsItem info={obj} key={obj.RawRk} tourneys={props.tourneys} />)}
             </div>
         </>
     )
