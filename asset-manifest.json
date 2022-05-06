@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pgctour/static/css/main.6cd97af6.css",
+    "main.css": "/pgctour/static/css/main.acd4bbe8.css",
     "main.js": "/pgctour/static/js/main.80bea47d.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/pgctour/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -8,11 +8,11 @@
     "static/media/fontawesome-webfont.woff?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/pgctour/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/pgctour/index.html",
-    "main.6cd97af6.css.map": "/pgctour/static/css/main.6cd97af6.css.map",
+    "main.acd4bbe8.css.map": "/pgctour/static/css/main.acd4bbe8.css.map",
     "main.80bea47d.js.map": "/pgctour/static/js/main.80bea47d.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cd97af6.css",
+    "static/css/main.acd4bbe8.css",
     "static/js/main.80bea47d.js"
   ]
 }
