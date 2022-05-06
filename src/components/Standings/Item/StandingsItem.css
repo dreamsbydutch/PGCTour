@@ -1,3 +1,7 @@
+.standings-item-container:nth-child(37) .standings-item-maininfo {
+	border-top: 3px solid #444;
+}
+
 .standings-item-maininfo {
 	display: grid;
 	grid-auto-flow: row;
