@@ -9,6 +9,7 @@ import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ChampAlert from '../../components/ChampAlert/ChampAlert'
 import SignUpButton from '../../components/SignUpButton/SignUpButton'
+import SeasonSignUpButton from '../../components/SignUpButton/SeasonSignUpButton'
 import StudioVideoDisplay from '../../components/StudioVideoDisplay/StudioVideoDisplay';
 
 function Home() {
@@ -44,6 +45,7 @@ function Home() {
                 <div className="homescreen-standings">
                     <Standings limit={10} />
                 </div></a>
+            <SeasonSignUpButton data="https://forms.gle/K9aRCRG56V384wpAA" />
         </>
     )
 }
