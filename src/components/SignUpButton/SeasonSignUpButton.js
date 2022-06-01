@@ -9,4 +9,4 @@ function SeasonSignUpButton(props) {
     )
 }
 
-export default SignUpButton;
+export default SeasonSignUpButton;
