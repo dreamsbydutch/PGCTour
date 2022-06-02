@@ -1,9 +1,9 @@
-.signupbutton-container {
+.seasonsignupbutton-container {
     text-align: center;
     margin: auto;
 }
 
-a.signupbutton{
+a.seasonsignupbutton{
     display: inline-block;
     width: 85%;
     padding: 1rem 1rem;
@@ -15,33 +15,33 @@ a.signupbutton{
     text-transform:uppercase;
     font-size: 1rem;
     font-weight: 800;
-    color:#023923;
-    background-color: #837D79;
+    color:#111;
+    background-color: #f9f9f9;
     box-shadow:inset 0.2rem -0.6rem 0.2rem -0.15rem rgba(0,0,0,0.27);
     position:relative;
 }
-a.signupbutton:active{
+a.seasonsignupbutton:active{
     top:0.1em;
 }
 
 
 
 @media only screen and (min-width: 350px) {
-    a.signupbutton{
+    a.seasonsignupbutton{
         font-size: 1.25rem;
         font-weight: 800;
     }
 }
 
 @media only screen and (min-width: 400px) {
-    a.signupbutton{
+    a.seasonsignupbutton{
         font-size: 1.4rem;
         font-weight: 800;
     }
 }
 
 @media only screen and (min-width: 550px) {
-    a.signupbutton{
+    a.seasonsignupbutton{
         font-size: 1.65rem;
         font-weight: 800;
     }
