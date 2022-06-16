@@ -60,8 +60,8 @@ function playoffTeam(rank) {
 }
 
 function addNumberSuffix(number) {
-    if (number[0] === "T") { number = +number.slice(1) } else { number = +number}
-    return ordinal_suffix_of(number)
+    if (number[0] === "T") { number = "T"+ordinal_suffix_of(+number.slice(1)) } else { number = ordinal_suffix_of(+number)}
+    return number
 }
 
 function ordinal_suffix_of(i) {
