@@ -23,7 +23,6 @@ function Leaderboard(props) {
         }
     }, 30000);
 
-
     return (
         <>
             {(new Date() < new Date(props.tourney.StartDate)) ?
@@ -51,7 +50,7 @@ function Leaderboard(props) {
                                     <div className="leaderboard-item-labels-todaytopar">{props.live ? 'Today' : 'Pts'}</div>
                                     <div className="leaderboard-item-labels-todaythru">{props.live ? 'Thru' : '$$'}</div>
                                 </div>
-                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.Name} live={props.live} />)}
+                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.Name} live={props.live} PGCstdg={props.live?props.PGCstdg.filter(team => team.TeamName===obj.Name)[0]:null}/>)}
                             </>
                             :
                             <PGALeaderboard data={pgaData} live={props.live} />
