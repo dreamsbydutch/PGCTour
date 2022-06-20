@@ -43,6 +43,7 @@ export async function fetchLeaderboardData() {
 }
 export async function fetchLiveLeaderboardData(tourneyId) {
     const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
+    if (tourneyId > 15) return data.filter(obj => obj.TourneyID > 15)
     return data.filter(obj => obj.TourneyID === tourneyId)
 }
 export async function fetchPGALeaderboardData() {
