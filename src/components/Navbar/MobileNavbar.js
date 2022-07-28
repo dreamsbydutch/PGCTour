@@ -1,34 +1,33 @@
 import React from 'react';
-import { Container, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './MobileNavbar.css';
 
 
 function NavBar() {
     return (
-        <Navbar bg="light" fixed="bottom">
-            <Container className='navbar-container'>
-                <Navbar.Brand as={Link} to="">
+        <div className='mobile-navbar'>
+            <div className='mobile-navbar-container'>
+                <NavLink to="" activeclassname="active">
                     <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/PGCsmall.png" />
-                </Navbar.Brand>
+                </NavLink>
                 <span className='nav-border-line' />
-                <Navbar.Brand as={Link} to="/leaderboard">
+                <NavLink to="/leaderboard" activeclassname="active">
                     <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/leaderboardIcon.png" />
-                </Navbar.Brand>
+                </NavLink>
                 <span className='nav-border-line' />
-                <Navbar.Brand as={Link} to="/standings">
+                <NavLink to="/standings" activeclassname="active">
                     <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" />
-                </Navbar.Brand>
+                </NavLink>
                 <span className='nav-border-line' />
-                <Navbar.Brand as={Link} to="/golferstats">
+                <NavLink to="/golferstats" activeclassname="active">
                     <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/golferstatsIcon.png" />
-                </Navbar.Brand>
+                </NavLink>
                 <span className='nav-border-line' />
-                <Navbar.Brand as={Link} to="/rulebook">
+                <NavLink to="/rulebook" activeclassname="active">
                     <img className="mobile-navbar-img" alt="PGC logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/rulebookIcon.png" />
-                </Navbar.Brand>
-            </Container>
-        </Navbar>
+                </NavLink>
+            </div>
+        </div>
     )
 }
 

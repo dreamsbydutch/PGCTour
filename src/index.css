@@ -1,21 +1,8 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 *{
   color: #555555;
   font: normal 16px Arial, Helvetica, sans-serif; 
   line-height: 1.6em;
-  --shadow: 3px 3px 2px rgba(104,104,104,0.8);
 }
 
 html, body{
@@ -31,4 +18,24 @@ a {
 a:hover {
   text-decoration:none; 
   cursor:pointer;  
+}
+
+:root{
+  --hotelcolour: 119, 38, 28;
+  --sunviewcolour: 26, 76, 131;
+  --mainDark: #161616;
+  --mainGrey: #8b8b8b;
+  --mainLightGrey: #e2e2e2;
+  --mainWhite: #f3f3f3;
+  --shadow: 0 1px 5px var(--mainDark);
+  --font-size: 9px;
+  --embossShadow:
+    inset 0 1px 0 rgba(255,255,255,0.5),
+    0 2px 2px rgba(0,0,0,0.3),
+    0 0 4px 1px rgba(0,0,0,0.2),
+    inset 0 3px 2px rgba(255,255,255,.22), 
+    inset 0 -3px 2px rgba(0,0,0,.15), 
+    inset 0 20px 10px rgba(255,255,255,.12), 
+    0 0 4px 1px rgba(0,0,0,.1), 
+    0 3px 2px rgba(0,0,0,.2);   
 }
