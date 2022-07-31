@@ -8,6 +8,7 @@
     align-items: center;
     position: fixed;
     bottom: 0%;
+    z-index: 10;
 }
 
 .mobile-navbar-container>a>img {
@@ -34,7 +35,7 @@
     -moz-border-radius: 30%;
     -webkit-border-radius: 30%;
     border-radius: 30%;
-    background-color: var(--mainLightGrey);
     z-index: -1;
+    background-color: var(--mainLightGrey);
     transform: translate(-8px,-8px);
 }
