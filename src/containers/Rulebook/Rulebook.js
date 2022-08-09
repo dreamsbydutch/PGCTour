@@ -41,6 +41,7 @@ function Rulebook() {
                 <div className="rulebook-subrules">The FedEx-StJude Championship will run just like a normal tournament.</div>
                 <div className="rulebook-subrules">The BMW Championship will only count your top 5 golfers in all 4 rounds.</div>
                 <div className="rulebook-subrules">The TOUR Championship will only count your top 3 golfers in all 4 rounds.</div>
+                <div className="rulebook-subrules">The TOUR Championship will only count the golfer's actual score and not their starting strokes awarded by the PGA</div>
 
                 <div className="rulebook-subheader">Payouts</div>
                 <div className="rulebook-rules">After every tournament the top 15 finishers will win money earnings. Earnings will accumulate during the season and will be paid out at the end of the year.</div>
