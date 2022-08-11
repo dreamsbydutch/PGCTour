@@ -1,14 +1,14 @@
 import React from 'react';
 import './Home.css';
 import { useQuery } from 'react-query';
-import CountdownLogic from '../../components/Countdown/CountdownLogic';
+// import CountdownLogic from '../../components/Countdown/CountdownLogic';
 import Standings from '../Standings/Standings';
 import { fetchCurrentTournamentInfo, fetchNextTournamentInfo, fetchPrevTournamentInfo } from '../../utils/fetchData';
 import Live from '../Live/Live';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import ErrorPage from '../ErrorPage/ErrorPage';
-import ChampAlert from '../../components/ChampAlert/ChampAlert'
-import SignUpButton from '../../components/SignUpButton/SignUpButton'
+// import ChampAlert from '../../components/ChampAlert/ChampAlert'
+// import SignUpButton from '../../components/SignUpButton/SignUpButton'
 import SeasonSignUpButton from '../../components/SignUpButton/SeasonSignUpButton'
 // import StudioVideoDisplay from '../../components/StudioVideoDisplay/StudioVideoDisplay';
 
@@ -24,23 +24,21 @@ function Home() {
     return (
         <>
             {/* <StudioVideoDisplay embedId="" /> */}
-            {new Date() < datePlus &&
+            {/* {new Date() < datePlus &&
                 new Date() > date &&
                 <ChampAlert tourney={prevTourney.data} />
-            }
-            {currentTourney.data ?
-                <a href="#/leaderboard">
-                    <div className="homescreen-liveleaderboard">
-                        <Live limit={10} link={false} />
-                    </div>
-                </a> :
-                <>
+            } */}
+            <a href="#/leaderboard">
+                <div className="homescreen-liveleaderboard">
+                    <Live limit={10} link={false} />
+                </div>
+            </a>
+            {/* <>
                     <SignUpButton data={nextTourney.data} />
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={nextTourney.data} />
                     </a>
-                </>
-            }
+                </> */}
             <SeasonSignUpButton data="https://forms.gle/K9aRCRG56V384wpAA" />
             <a href="#/standings">
                 <div className="homescreen-standings">
