@@ -34,7 +34,7 @@ function LeaderboardItemInfo(props) {
                 <div className="leaderboarditem-info-golfernine">{props.info.Golfer9Name}<br />({props.info.Golfer9Total}{(props.info.Golfer9Score && props.info.Golfer9Total !== "CUT" && props.info.Golfer9Total !== "WD" && props.info.Golfer9Total !== "DQ") ? " / " + props.info.Golfer9Score : ""})</div>
                 <div className="leaderboarditem-info-golferten">{props.info.Golfer10Name}<br />({props.info.Golfer10Total}{(props.info.Golfer10Score && props.info.Golfer10Total !== "CUT" && props.info.Golfer10Total !== "WD" && props.info.Golfer10Total !== "DQ") ? " / " + props.info.Golfer10Score : ""})</div>
             </div>
-            {props.live ?
+            {/* {props.live ?
                 <>
                     <div className="leaderboarditem-info-container-row leaderboarditem-info-projstdg-labelrow">
                         <div className="leaderboardItem-info-currentstdg-label">Current Standing</div>
@@ -45,36 +45,36 @@ function LeaderboardItemInfo(props) {
                         <div className={"leaderboardItem-info-projstdg "+playoffTeam(props.PGCstdg.ProjRk)}>{addNumberSuffix(props.PGCstdg.ProjRk)+" ("+props.PGCstdg.ProjPoints+" pts)"}</div>
                     </div>
                 </>
-                : <></>}
+                : <></>} */}
         </div>
     )
 }
 
 export default LeaderboardItemInfo
 
-function playoffTeam(rank) {
-    if (rank[0] === "T") { rank = +rank.slice(1) } else { rank = +rank}
-    if (rank <= 35) { return "playoff"}
-    return "nonPlayoff"
+// function playoffTeam(rank) {
+//     if (rank[0] === "T") { rank = +rank.slice(1) } else { rank = +rank}
+//     if (rank <= 35) { return "playoff"}
+//     return "nonPlayoff"
 
-}
+// }
 
-function addNumberSuffix(number) {
-    if (number[0] === "T") { number = "T"+ordinal_suffix_of(+number.slice(1)) } else { number = ordinal_suffix_of(+number)}
-    return number
-}
+// function addNumberSuffix(number) {
+//     if (number[0] === "T") { number = "T"+ordinal_suffix_of(+number.slice(1)) } else { number = ordinal_suffix_of(+number)}
+//     return number
+// }
 
-function ordinal_suffix_of(i) {
-    var j = i % 10,
-        k = i % 100;
-    if (j === 1 && k !== 11) {
-        return i + "st";
-    }
-    if (j === 2 && k !== 12) {
-        return i + "nd";
-    }
-    if (j === 3 && k !== 13) {
-        return i + "rd";
-    }
-    return i + "th";
-}
+// function ordinal_suffix_of(i) {
+//     var j = i % 10,
+//         k = i % 100;
+//     if (j === 1 && k !== 11) {
+//         return i + "st";
+//     }
+//     if (j === 2 && k !== 12) {
+//         return i + "nd";
+//     }
+//     if (j === 3 && k !== 13) {
+//         return i + "rd";
+//     }
+//     return i + "th";
+// }
