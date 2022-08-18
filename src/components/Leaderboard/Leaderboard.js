@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Leaderboard.css'
 import LeaderboardItem from './Item/LeaderboardItem';
 import LeaderboardHeader from './Header/LeaderboardHeader';
-import CountdownLogic from '../Countdown/CountdownLogic';
+// import CountdownLogic from '../Countdown/CountdownLogic';
 import PGALeaderboard from '../PGALeaderboard/PGALeaderboard';
 import { useInterval } from '../../utils/countdown';
-import { fetchLiveLeaderboardData, fetchLivePGALeaderboardData } from '../../utils/fetchData';
+import { fetchPlayoffLeaderboardData, fetchLivePGALeaderboardData } from '../../utils/fetchData';
 
 function Leaderboard(props) {
     const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
-    const [pgcData, setPgcData] = useState(props.data);
+    const [pgcData, setPgcData] = useState([]);
     const [pgaData, setPgaData] = useState(props.PGAdata);
 
     useEffect(() => {
@@ -18,19 +18,19 @@ function Leaderboard(props) {
     }, [props]);
     useInterval(() => {
         if (props.live === true) {
-            fetchLiveLeaderboardData(props.tourney.id).then((res) => setPgcData(res))
+            fetchPlayoffLeaderboardData(props.tourney.id).then((res) => setPgcData(res))
             fetchLivePGALeaderboardData(props.tourney.id).then((res) => setPgaData(res))
         }
     }, 30000);
 
     return (
         <>
-            {(new Date() < new Date(props.tourney.StartDate)) ?
+            {/* {(new Date() < new Date(props.tourney.StartDate)) ?
                 <>
                     <LeaderboardHeader tourney={props.tourney} />
                     <CountdownLogic tourney={props.tourney} />
                 </>
-                :
+                : */}
                 <>
                     <LeaderboardHeader tourney={props.tourney} link={props.link} />
                     <div id="leaderboard-container">
@@ -50,15 +50,16 @@ function Leaderboard(props) {
                                     <div className="leaderboard-item-labels-todaytopar">{props.live ? 'Today' : 'Pts'}</div>
                                     <div className="leaderboard-item-labels-todaythru">{props.live ? 'Thru' : '$$'}</div>
                                 </div>
-                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.Name} live={props.live} PGCstdg={props.live?props.PGCstdg.filter(team => team.TeamName===obj.Name)[0]:null}/>)}
+                                {pgcData.map(obj => <LeaderboardItem data={obj} key={obj.Name + obj.ScoreToPar} live={props.live} PGCstdg={props.live?props.PGCstdg.filter(team => team.TeamName===obj.Name)[0]:null}/>)}
                             </>
                             :
                             <PGALeaderboard data={pgaData} live={props.live} />
                         }
                     </div>
-                </>}
+                </>
         </>
     )
 }
 
 export default Leaderboard
+

@@ -20,6 +20,18 @@ function LeaderboardItemInfo(props) {
                 <div className="leaderboarditem-info-roundfour">{props.info.R4Score}</div>
                 <div className="leaderboarditem-info-total">{props.info.TotalScore}</div>
             </div>
+            <div className="leaderboarditem-info-container-row leaderboarditem-info-labelrow">
+                <div className="leaderboarditem-info-roundone-label">Rd 5</div>
+                <div className="leaderboarditem-info-roundtwo-label">Rd 6</div>
+                <div className="leaderboarditem-info-roundthree-label">Rd 7</div>
+                <div className="leaderboarditem-info-roundfour-label">Rd 8</div>
+            </div>
+            <div className="leaderboarditem-info-container-row leaderboarditem-info-roundrow">
+                <div className="leaderboarditem-info-roundone">{props.info.R5Score}</div>
+                <div className="leaderboarditem-info-roundtwo">{props.info.R6Score}</div>
+                <div className="leaderboarditem-info-roundthree">{props.info.R7Score}</div>
+                <div className="leaderboarditem-info-roundfour">{props.info.R8Score}</div>
+            </div>
             <div className="leaderboarditem-info-container-row leaderboarditem-info-golferrow" style={props.info.R2Score !== "--" && props.info.R4Score === "--" ? style : {}}>
                 <div className="leaderboarditem-info-golferone">{props.info.Golfer1Name}<br />({props.info.Golfer1Total}{(props.info.Golfer1Score && props.info.Golfer1Total !== "CUT" && props.info.Golfer1Total !== "WD" && props.info.Golfer1Total !== "DQ") ? " / " + props.info.Golfer1Score : ""})</div>
                 <div className="leaderboarditem-info-golfertwo">{props.info.Golfer2Name}<br />({props.info.Golfer2Total}{(props.info.Golfer2Score && props.info.Golfer2Total !== "CUT" && props.info.Golfer2Total !== "WD" && props.info.Golfer2Total !== "DQ") ? " / " + props.info.Golfer2Score : ""})</div>
