@@ -18,7 +18,7 @@ function Leaderboard(props) {
     }, [props]);
     useInterval(() => {
         if (props.live === true) {
-            fetchPlayoffLeaderboardData(props.tourney.id).then((res) => setPgcData(res))
+            fetchPlayoffLeaderboardData(props.tourney.id).then((res) => setPgcData(res.sort((a,b) => a.RawRk - b.RawRk)))
             fetchLivePGALeaderboardData(props.tourney.id).then((res) => setPgaData(res))
         }
     }, 30000);
