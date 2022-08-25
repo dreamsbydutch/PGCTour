@@ -11,26 +11,38 @@ function LeaderboardItemInfo(props) {
                 <div className="leaderboarditem-info-roundtwo-label">Rd 2</div>
                 <div className="leaderboarditem-info-roundthree-label">Rd 3</div>
                 <div className="leaderboarditem-info-roundfour-label">Rd 4</div>
-                <div className="leaderboarditem-info-total-label">Total</div>
             </div>
             <div className="leaderboarditem-info-container-row leaderboarditem-info-roundrow">
                 <div className="leaderboarditem-info-roundone">{props.info.R1Score}</div>
                 <div className="leaderboarditem-info-roundtwo">{props.info.R2Score}</div>
                 <div className="leaderboarditem-info-roundthree">{props.info.R3Score}</div>
                 <div className="leaderboarditem-info-roundfour">{props.info.R4Score}</div>
-                <div className="leaderboarditem-info-total">{props.info.TotalScore}</div>
             </div>
             <div className="leaderboarditem-info-container-row leaderboarditem-info-labelrow">
                 <div className="leaderboarditem-info-roundone-label">Rd 5</div>
                 <div className="leaderboarditem-info-roundtwo-label">Rd 6</div>
                 <div className="leaderboarditem-info-roundthree-label">Rd 7</div>
                 <div className="leaderboarditem-info-roundfour-label">Rd 8</div>
+                <div className="leaderboarditem-info-total-label">Total</div>
             </div>
             <div className="leaderboarditem-info-container-row leaderboarditem-info-roundrow">
                 <div className="leaderboarditem-info-roundone">{props.info.R5Score}</div>
                 <div className="leaderboarditem-info-roundtwo">{props.info.R6Score}</div>
                 <div className="leaderboarditem-info-roundthree">{props.info.R7Score}</div>
                 <div className="leaderboarditem-info-roundfour">{props.info.R8Score}</div>
+                <div className="leaderboarditem-info-total">{props.info.TotalScore}</div>
+            </div>
+            <div className="leaderboarditem-info-container-row leaderboarditem-info-labelrow">
+                <div className="leaderboarditem-info-roundone-label">Rd 9</div>
+                <div className="leaderboarditem-info-roundtwo-label">Rd 10</div>
+                <div className="leaderboarditem-info-roundthree-label">Rd 11</div>
+                <div className="leaderboarditem-info-roundfour-label">Rd 12</div>
+            </div>
+            <div className="leaderboarditem-info-container-row leaderboarditem-info-roundrow">
+                <div className="leaderboarditem-info-roundone">{props.info.R9Score}</div>
+                <div className="leaderboarditem-info-roundtwo">{props.info.R10Score}</div>
+                <div className="leaderboarditem-info-roundthree">{props.info.R11Score}</div>
+                <div className="leaderboarditem-info-roundfour">{props.info.R12Score}</div>
             </div>
             <div className="leaderboarditem-info-container-row leaderboarditem-info-golferrow" style={props.info.R2Score !== "--" && props.info.R4Score === "--" ? style : {}}>
                 <div className="leaderboarditem-info-golferone">{props.info.Golfer1Name}<br />({props.info.Golfer1Total}{(props.info.Golfer1Score && props.info.Golfer1Total !== "CUT" && props.info.Golfer1Total !== "WD" && props.info.Golfer1Total !== "DQ") ? " / " + props.info.Golfer1Score : ""})</div>
