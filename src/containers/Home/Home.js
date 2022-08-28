@@ -28,6 +28,7 @@ function Home() {
                 new Date() > date &&
                 <ChampAlert tourney={prevTourney.data} />
             } */}
+            <SeasonSignUpButton data="https://forms.gle/K9aRCRG56V384wpAA" />
             <a href="#/leaderboard">
                 <div className="homescreen-liveleaderboard">
                     <Live limit={10} link={false} />
@@ -39,7 +40,6 @@ function Home() {
                         <CountdownLogic tourney={nextTourney.data} />
                     </a>
                 </> */}
-            <SeasonSignUpButton data="https://forms.gle/K9aRCRG56V384wpAA" />
             <a href="#/standings">
                 <div className="homescreen-standings">
                     <Standings limit={10} />
