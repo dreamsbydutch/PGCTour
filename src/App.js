@@ -4,7 +4,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import MobileNavbar from './components/MobileNavbar';
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer';
 import TickerContainer from './components/Ticker/TickerContainer';
 import ScrollToTop from './utils/ScrollToTop';
@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      {window.innerWidth < 850 ? <><TickerContainer /><MobileNavbar /></> : <Navbar />}
+      {window.innerWidth < 850 ? <><TickerContainer /><MobileNavbar /></> : <MobileNavbar />}
       <div className='main-page-container'>
         <Routes>
           <Route exact path="/" element={<Home />} />
