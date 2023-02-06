@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 
 import './App.css';
 
@@ -23,7 +22,7 @@ function App() {
     <Router>
       <ScrollToTop />
       {window.innerWidth < 850 ? <><TickerContainer /><MobileNavbar /></> : <Navbar />}
-      <Container className='main-page-container'>
+      <div className='main-page-container'>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
@@ -34,7 +33,7 @@ function App() {
           {/* <Route path="/history" element={<History />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-      </Container>
+      </div>
       {window.innerWidth < 850 ? <div style={{ 'color': '#fff' }}>.</div> : <Footer />}
     </Router >
   );
