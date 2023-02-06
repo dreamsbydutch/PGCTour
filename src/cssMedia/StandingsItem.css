@@ -1,0 +1,20 @@
+@media only screen and (min-width: 350px) {
+	.standings-item-maininfo-rank {font-size: 0.925rem;}
+	.standings-item-maininfo-name {font-size: 1.1rem;}
+	.standings-item-maininfo-points {font-size: 1rem;}
+	.standings-item-maininfo-earnings {font-size: 0.75rem;}
+}
+
+@media only screen and (min-width: 450px) {
+	.standings-item-maininfo-rank {font-size: 1.05rem;}
+	.standings-item-maininfo-name {font-size: 1.225rem;}
+	.standings-item-maininfo-points {font-size: 1.15rem;}
+	.standings-item-maininfo-earnings {font-size: 0.85rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.standings-item-maininfo-rank {font-size: 1.15rem;}
+	.standings-item-maininfo-name {font-size: 1.35rem;}
+	.standings-item-maininfo-points {font-size: 1.25rem;}
+	.standings-item-maininfo-earnings {font-size: 1.05rem;}
+}

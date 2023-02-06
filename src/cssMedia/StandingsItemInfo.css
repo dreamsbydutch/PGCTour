@@ -1,0 +1,17 @@
+@media only screen and (min-width: 350px) {
+	.standings-item-info-labels-row div {font-size:0.625rem;}
+	.standings-item-info-stats-row div {font-size:0.875rem;}
+	.standings-item-info-tourneyhist-tourney-rank {font-size:1.05rem;}
+}
+
+@media only screen and (min-width: 450px) {
+	.standings-item-info-labels-row div {font-size:0.7rem;}
+	.standings-item-info-stats-row div {font-size:0.95rem;}
+	.standings-item-info-tourneyhist-tourney-rank {font-size:1.2rem;}
+}
+
+@media only screen and (min-width: 550px) {
+	.standings-item-info-labels-row div {font-size:0.775rem;}
+	.standings-item-info-stats-row div {font-size:1.025rem;}
+	.standings-item-info-tourneyhist-tourney-rank {font-size:1.35rem;}
+}

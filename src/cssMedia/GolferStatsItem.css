@@ -1,0 +1,41 @@
+@media only screen and (min-width: 350px) {
+	.golferstats-maininfo-rank {
+		font-size: 0.925rem;
+	}
+
+	.golferstats-maininfo-name {
+		font-size: 1.1rem;
+	}
+
+	.golferstats-maininfo-rating {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (min-width: 450px) {
+	.golferstats-maininfo-rank {
+		font-size: 1.05rem;
+	}
+
+	.golferstats-maininfo-name {
+		font-size: 1.225rem;
+	}
+
+	.golferstats-maininfo-rating {
+		font-size: 1.15rem;
+	}
+}
+
+@media only screen and (min-width: 550px) {
+	.golferstats-maininfo-rank {
+		font-size: 1.15rem;
+	}
+
+	.golferstats-maininfo-name {
+		font-size: 1.35rem;
+	}
+
+	.golferstats-maininfo-rating {
+		font-size: 1.25rem;
+	}
+}

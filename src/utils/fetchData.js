@@ -1,94 +1,77 @@
-import axios from 'axios';
+import { useQuery } from "react-query"
 
-
-export async function fetchTournamentsInfo() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    return data.slice(0, 18)
+const sheets = {
+    'pgcLeaderboard': ['1X5f0TtmTKKTK21SQn8pFu9Zmm6eekE-GvavnxaY6EHc', 'Leaderboards'],
+    'pgaLeaderboard': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'Tournaments'],
+    'golferStats': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'GolferStats'],
+    'pgcStandings': ['1X5f0TtmTKKTK21SQn8pFu9Zmm6eekE-GvavnxaY6EHc', 'Standings'],
+    'tournaments': ['1EhRq77hWT0w_chnNVYhOq5_W_FQ--mPbliDyv3YHWG4', 'Tournaments'],
+}
+async function queryFunc({ queryKey }) {
+    const [, sheetsKey] = queryKey
+    const data = await fetch('https://opensheet.elk.sh/' + sheets[sheetsKey][0] + '/' + sheets[sheetsKey][1])
+    return data.json()
 }
 
-export async function fetchCurrentTournamentInfo() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    if (!(data[18])) { return null }
-    if (Object.keys(data[18]).length > 0) {
-        return data[18]
-    } else {
-        return null
+export function useLeagueData() {
+    var tourneys = usePGCTournaments()
+    var standings = usePGCStandings()
+    return {
+        'allTourneys': tourneys.data,
+        'previousTourney': tourneys.previousTourney,
+        'currentTourney': tourneys.currentTourney,
+        'nextTourney': tourneys.nextTourney,
+        'standings': standings.data,
+        'isLoading': tourneys.isLoading || standings.isLoading,
+        'isError': tourneys.isError || standings.isError,
     }
 }
-
-export async function fetchNextTournamentInfo() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    if (!(data[19])) { return null }
-    if (Object.keys(data[19]).length > 0) {
-        return data[19]
-    } else {
-        return null
+export function usePGCStandings() {
+    const standings = useQuery(['standings', 'pgcStandings'], queryFunc)
+    const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
+    return {
+        'allTourneys': allTourneys.data || null,
+        'standings': standings.data || null,
+        'isLoading': allTourneys.isLoading || standings.isLoading,
+        'isError': allTourneys.isError || standings.isError,
     }
 }
-
-export async function fetchPlayoffTournamentInfo() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    if (!(data[16])) { return null }
-    if (Object.keys(data[16]).length > 0) {
-        return data[16]
-    } else {
-        return null
+export function usePGCTournaments() {
+    const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
+    const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 30_000, })
+    const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 30_000, })
+    const now = new Date()
+    var output = {
+        'allTourneys': null,
+        'previousTourney': null,
+        'currentTourney': null,
+        'nextTourney': null,
+        'isLoading': allTourneys.isLoading,
+        'isError': allTourneys.isError,
     }
+    if (!allTourneys.data) { return output }
+    allTourneys.data.forEach((obj, i) => {
+        obj['pgaLeaderboard'] = pgaLeaderboard.data ? pgaLeaderboard.data.filter(a => a.tourneyID === obj.tourneyID) : null
+        obj['pgcLeaderboard'] = pgcLeaderboard.data ? pgcLeaderboard.data.filter(a => a.tourneyID === obj.tourneyID) : null
+        var start = new Date(obj['StartDate'])
+        var end = new Date(obj['EndDate'])
+        var prevEnd = new Date(obj['EndDate'])
+        prevEnd.setDate(prevEnd.getDate() + 4)
+        var nextStart = new Date(obj['StartDate'])
+        nextStart.setDate(nextStart.getDate() - 4)
+        if (now < start && now > nextStart) {
+            output.nextTourney = obj
+        } else if (now > end && now < prevEnd) {
+            output.previousTourney = obj
+        } else if (now < end && now > start) {
+            output.currentTourney = obj
+        }
+    })
+    output.allTourneys = allTourneys.data
+    return output
 }
+export function useGolferStats() {
+    const golferStats = useQuery(['golferStats', 'golferStats'], queryFunc)
+    return golferStats
 
-export async function fetchPrevTournamentInfo() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1yw27UrtfNwCHFjPM3nZASXsnxWdptmRhuqe9xKJsSh8/1')
-    if (!(data[20])) { return null }
-    if (Object.keys(data[20]).length > 0) {
-        return data[20]
-    } else {
-        return null
-    }
-}
-
-
-export async function fetchLeaderboardData() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
-    return data
-}
-export async function fetchLiveLeaderboardData(tourneyId) {
-    const { data } = await axios.get('https://opensheet.elk.sh/1TYcMVDftohm9MqfgKDv2DHMTSbFE6JCfCzcYKB8IA1Y/1')
-    return data.filter(obj => obj.TourneyID === tourneyId)
-}
-export async function fetchPlayoffLeaderboardData() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1yCm41aGbMO3lQGmfhDfGCUku77JE9t5fz_ur3_B64S0/1')
-    return data
-}
-export async function fetchPGALeaderboardData() {
-    const { data } = await axios.get('https://opensheet.elk.sh/15sKFQVDdaYmXXAqLhBqYAeFLSrE5t4yq0TpJ6wy6pao/1')
-    return data
-}
-export async function fetchLivePGALeaderboardData(tourneyId) {
-    const { data } = await axios.get('https://opensheet.elk.sh/15sKFQVDdaYmXXAqLhBqYAeFLSrE5t4yq0TpJ6wy6pao/1')
-    return data.filter(obj => obj.TourneyID === tourneyId)
-}
-
-export async function fetchStandingsData() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1kkJtcX4E4NqTOFPwfSasOVeqbau74epxQGz6QGQN0wo/1')
-    return data
-}
-
-export async function fetchGolferStatsData() {
-    const { data } = await axios.get('https://opensheet.elk.sh/1kw_-NpJfwnl5cKMYeWojoMLCZuglSDxd5-W_2LNHWE0/4')
-    return data
-}
-
-
-
-
-
-
-
-
-
-export function fetchTournamentInfoById(tournamentInfo, tourneyId) {
-    return tournamentInfo.data.filter(obj => obj.id === tourneyId)[0]
-}
-export function fetchLeaderboardById(leaderboardData, tourneyId) {
-    return leaderboardData.filter(obj => obj.TourneyID === tourneyId)
 }
