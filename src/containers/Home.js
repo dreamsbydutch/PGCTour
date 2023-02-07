@@ -3,14 +3,14 @@ import CountdownLogic from '../components/CountdownLogic';
 import Standings from './Standings';
 import ChampAlert from '../components/ChampAlert/ChampAlert'
 import SignUpButton from '../components/SignUpButton'
-// import SeasonSignUpButton from '../components/SeasonSignUpButton'
 import Leaderboard from './Leaderboard';
 
 function Home(props) {
     return (
         <>
-            {/* <SeasonSignUpButton url={"https://docs.google.com/forms/d/e/1FAIpQLSdkdLlEGI0QF1QiPrMBqzrOfFmyFSSfuzrTmAN9oXpJyiN4-A/viewform?usp=sf_link"} /> */}
-            {props.data.prevTourney && <ChampAlert tourney={props.data.prevTourney} />}
+            {props.data.prevTourney &&
+                <ChampAlert tourney={props.data.prevTourney} />
+            }
             {props.data.currentTourney &&
                 <>
                     <a href="#/leaderboard">
