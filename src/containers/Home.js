@@ -1,44 +1,38 @@
 import React from 'react';
 import CountdownLogic from '../components/CountdownLogic';
 import Standings from './Standings';
-import { usePGCTournaments } from '../utils/fetchData';
-import LoadingSpinner from '../components/LoadingSpinner'
-import ErrorPage from './ErrorPage';
 import ChampAlert from '../components/ChampAlert/ChampAlert'
 import SignUpButton from '../components/SignUpButton'
 // import SeasonSignUpButton from '../components/SeasonSignUpButton'
 import Leaderboard from './Leaderboard';
 
-function Home() {
-    const tourneys = usePGCTournaments()
-
-    if (tourneys.isLoading) { return <LoadingSpinner /> }
-    if (tourneys.isError) { return <ErrorPage /> }
+function Home(props) {
     return (
         <>
             {/* <SeasonSignUpButton url={"https://docs.google.com/forms/d/e/1FAIpQLSdkdLlEGI0QF1QiPrMBqzrOfFmyFSSfuzrTmAN9oXpJyiN4-A/viewform?usp=sf_link"} /> */}
-            {tourneys.prevTourney && <ChampAlert tourney={tourneys.prevTourney} />}
-            {tourneys.currentTourney &&
+            {props.data.prevTourney && <ChampAlert tourney={props.data.prevTourney} />}
+            {props.data.currentTourney &&
                 <>
                     <a href="#/leaderboard">
                         <div className="my-8 py-4 px-1 rounded-2xl bg-gray-100">
-                            <Leaderboard limit={10} link={false} />
+                            <Leaderboard data={props.data} limit={10} link={false} />
                         </div>
                     </a>
                 </>
             }
-            {tourneys.nextTourney &&
+            {props.data.nextTourney &&
                 <>
-                    <SignUpButton tourney={tourneys.nextTourney} />
+                    <SignUpButton tourney={props.data.nextTourney} />
                     <a href="#/leaderboard">
-                        <CountdownLogic tourney={tourneys.nextTourney} />
+                        <CountdownLogic tourney={props.data.nextTourney} />
                     </a>
                 </>
             }
             <a href="#/standings">
                 <div className="my-8 py-4 px-2 rounded-2xl bg-gray-100 shadow-md">
-                    <Standings limit={10} />
-                </div></a>
+                    <Standings data={props.data} limit={10} />
+                </div>
+            </a>
         </>
     )
 }

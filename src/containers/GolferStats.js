@@ -1,13 +1,6 @@
 import React, { useState } from 'react'
-import LoadingSpinner from '../components/LoadingSpinner';
-import { useGolferStats } from '../utils/fetchData';
-import ErrorPage from './ErrorPage';
 
-export default function GolferStats() {
-    var golferStats = useGolferStats()
-    if (golferStats.isLoading) return <LoadingSpinner />;
-    if (golferStats.isError) return <ErrorPage />;
-
+export default function GolferStats(props) {
     return (
         <>
             <div className="text-5xl pb-4 mb-6 font-yellowtail text-center border-b-2 border-gray-500">PGC Golfer Ratings</div>
@@ -18,7 +11,7 @@ export default function GolferStats() {
                     <div className="font-varela place-self-center font-extrabold text-base col-span-5">Golfer</div>
                     <div className="font-varela place-self-center font-extrabold text-xs col-span-2">PGC Rating</div>
                 </div>
-                {golferStats.data.map(obj => <GolferStatsItem data={obj} key={obj['PGCRK']} />)}
+                {props.data.map(obj => <GolferStatsItem data={obj} key={obj['PGCRK']} />)}
             </div>
         </>
     )

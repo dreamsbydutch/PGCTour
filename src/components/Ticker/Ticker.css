@@ -12,8 +12,8 @@
   padding-left: 100%;
   -webkit-animation-name: ticker-animation;
   animation-name: ticker-animation;
-  -webkit-animation-duration: 240s;
-  animation-duration: 200s;
+  -webkit-animation-duration: 195s;
+  animation-duration: 195s;
   -webkit-animation-delay: 3s;
   animation-delay: 3s;
   -webkit-animation-iteration-count: infinite;

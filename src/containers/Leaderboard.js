@@ -4,31 +4,25 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 // import { Link, useParams } from 'react-router-dom'
 import CountdownLogic from '../components/CountdownLogic'
-import LoadingSpinner from '../components/LoadingSpinner'
 // import { useInterval } from '../utils/countdown'
-import { useLeagueData } from '../utils/fetchData'
 // import { useWindowDimensions } from '../utils/utils'
-import ErrorPage from './ErrorPage'
 
 export default function Leaderboard(props) {
     let { tourneyId } = useParams();
-    let data = useLeagueData(), tourney = null
-
-    if (data.isLoading) { return <LoadingSpinner /> }
-    if (data.isError) { return <ErrorPage /> }
+    var tourney = null
 
     if (tourneyId) {
-        tourney = data.allTourneys.filter(obj => obj.tourneyID === tourneyId)[0]
-    } else if (data.currentTourney) {
-        tourney = data.currentTourney
-    } else if (data.prevTourney) {
-        tourney = data.prevTourney
-    } else if (data.nextTourney) {
-        tourney = data.nextTourney
+        tourney = props.data.allTourneys.filter(obj => obj.tourneyID === tourneyId)[0]
+    } else if (props.data.currentTourney) {
+        tourney = props.data.currentTourney
+    } else if (props.data.prevTourney) {
+        tourney = props.data.prevTourney
+    } else if (props.data.nextTourney) {
+        tourney = props.data.nextTourney
     }
 
     return (
-        <TourneyLeaderboard tourney={tourney} standings={data.standings} />
+        <TourneyLeaderboard tourney={tourney} standings={props.data.standings} />
     )
 }
 

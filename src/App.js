@@ -3,6 +3,8 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
+import { useLeagueData } from './utils/fetchData';
+import LoadingSpinner from './components/LoadingSpinner'
 import MobileNavbar from './components/MobileNavbar';
 // import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer';
@@ -18,17 +20,22 @@ import GolferStats from './containers/GolferStats';
 // import History from './containers/History/History';
 
 function App() {
+  const data = useLeagueData()
+
+  if (data.isLoading) { return <LoadingSpinner /> }
+  if (data.isError) { return <ErrorPage /> }
+
   return (
     <Router>
       <ScrollToTop />
-      {window.innerWidth < 850 ? <><TickerContainer /><MobileNavbar /></> : <MobileNavbar />}
-      <div className='mx-3'>
+      {window.innerWidth < 850 ? <><TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} /><MobileNavbar /></> : <MobileNavbar />}
+      <div className='p-3'>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/tournament/:tourneyId" element={<Leaderboard />} />
-          <Route path="/standings" element={<Standings />} />
-          <Route path="/golferstats" element={<GolferStats />} />
+          <Route exact path="/" element={<Home data={data} />} />
+          <Route path="/leaderboard" element={<Leaderboard data={data} />} />
+          <Route path="/tournament/:tourneyId" element={<Leaderboard data={data} />} />
+          <Route path="/standings" element={<Standings data={data} />} />
+          <Route path="/golferstats" element={<GolferStats data={data.golferStats} />} />
           <Route path="/rulebook" element={<Rulebook />} />
           {/* <Route path="/history" element={<History />} /> */}
           <Route path="*" element={<ErrorPage />} />

@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
-import LoadingSpinner from '../components/LoadingSpinner';
-import { usePGCStandings } from '../utils/fetchData';
-import ErrorPage from './ErrorPage';
 import { getRkChange, useWindowDimensions } from '../utils/utils'
 
 export default function Standings(props) {
-    var standingsData = usePGCStandings()
     var { width } = useWindowDimensions()
-    if (standingsData.isError) { console.log(standingsData.error); return <ErrorPage /> }
-    if (standingsData.isLoading) { return <LoadingSpinner /> }
-    standingsData.standings = props.limit ? standingsData.standings.slice(0, props.limit) : standingsData.standings
     return (
         <>
             <div className="mb-2 pb-2 text-5xl font-yellowtail text-center">PGC Tour Standings</div>
@@ -21,7 +14,11 @@ export default function Standings(props) {
                     <div className="font-varela place-self-center font-bold text-xs grid-span-2">{width < 400 ? 'Points' : 'Cup Points'}</div>
                     <div className="font-varela place-self-center text-2xs">{width < 360 ? '$$' : 'Earnings'}</div>
                 </div>
-                {standingsData.standings.map(obj => <StandingsItem info={obj} key={obj.RawRk} tourneys={standingsData.allTourneys} />)}
+                {
+                    props.limit ?
+                        props.data.standings.slice(0, props.limit).map(obj => <StandingsItem info={obj} key={obj.RawRk} tourneys={props.data.allTourneys} />) :
+                        props.data.standings.map(obj => <StandingsItem info={obj} key={obj.RawRk} tourneys={props.data.allTourneys} />)
+                }
             </div>
         </>
     )

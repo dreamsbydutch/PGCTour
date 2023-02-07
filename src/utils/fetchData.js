@@ -16,30 +16,30 @@ async function queryFunc({ queryKey }) {
 export function useLeagueData() {
     var tourneys = usePGCTournaments()
     var standings = usePGCStandings()
+    var golferStats = useGolferStats()
     return {
-        'allTourneys': tourneys.data,
+        'allTourneys': tourneys.allTourneys,
         'previousTourney': tourneys.previousTourney,
         'currentTourney': tourneys.currentTourney,
         'nextTourney': tourneys.nextTourney,
-        'standings': standings.data,
-        'isLoading': tourneys.isLoading || standings.isLoading,
-        'isError': tourneys.isError || standings.isError,
+        'standings': standings.standings,
+        'golferStats': golferStats.data,
+        'isLoading': tourneys.isLoading || standings.isLoading || golferStats.isLoading,
+        'isError': tourneys.isError || standings.isError || golferStats.isError,
     }
 }
 export function usePGCStandings() {
     const standings = useQuery(['standings', 'pgcStandings'], queryFunc)
-    const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
     return {
-        'allTourneys': allTourneys.data || null,
         'standings': standings.data || null,
-        'isLoading': allTourneys.isLoading || standings.isLoading,
-        'isError': allTourneys.isError || standings.isError,
+        'isLoading': standings.isLoading,
+        'isError': standings.isError,
     }
 }
 export function usePGCTournaments() {
     const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
-    const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 30_000, })
-    const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 30_000, })
+    const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 30000, })
+    const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 30000, })
     const now = new Date()
     var output = {
         'allTourneys': null,
@@ -68,6 +68,8 @@ export function usePGCTournaments() {
         }
     })
     output.allTourneys = allTourneys.data
+    output.isLoading = allTourneys.isLoading
+    output.isError = allTourneys.isError
     return output
 }
 export function useGolferStats() {
