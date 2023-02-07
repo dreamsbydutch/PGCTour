@@ -6,7 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorPage from './ErrorPage';
 import ChampAlert from '../components/ChampAlert/ChampAlert'
 import SignUpButton from '../components/SignUpButton'
-import SeasonSignUpButton from '../components/SeasonSignUpButton'
+// import SeasonSignUpButton from '../components/SeasonSignUpButton'
 import Leaderboard from './Leaderboard';
 
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
     if (tourneys.isError) { return <ErrorPage /> }
     return (
         <>
-            <SeasonSignUpButton url={"https://docs.google.com/forms/d/e/1FAIpQLSdkdLlEGI0QF1QiPrMBqzrOfFmyFSSfuzrTmAN9oXpJyiN4-A/viewform?usp=sf_link"} />
+            {/* <SeasonSignUpButton url={"https://docs.google.com/forms/d/e/1FAIpQLSdkdLlEGI0QF1QiPrMBqzrOfFmyFSSfuzrTmAN9oXpJyiN4-A/viewform?usp=sf_link"} /> */}
             {tourneys.prevTourney && <ChampAlert tourney={tourneys.prevTourney} />}
             {tourneys.currentTourney &&
                 <>

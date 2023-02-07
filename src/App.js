@@ -22,7 +22,7 @@ function App() {
     <Router>
       <ScrollToTop />
       {window.innerWidth < 850 ? <><TickerContainer /><MobileNavbar /></> : <MobileNavbar />}
-      <div className='main-page-container'>
+      <div className='mx-3'>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />

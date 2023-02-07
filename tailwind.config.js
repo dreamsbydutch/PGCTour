@@ -39,8 +39,8 @@ module.exports = {
         barlow: 'Barlow Condensed',
       },
       translate: {
-        navbarActive: '-0.25rem',
-        navbarActiveLg: '-0.25rem',
+        navbarActive: '-8px',
+        navbarActiveLg: '-4px',
       },
       keyframes: {
         btnClick: {
