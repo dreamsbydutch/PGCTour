@@ -70,7 +70,6 @@ export function usePGCTournaments() {
     output.allTourneys = allTourneys.data
     output.isLoading = allTourneys.isLoading
     output.isError = allTourneys.isError
-    output.currentTourney = allTourneys.data[0]
     return output
 }
 export function useGolferStats() {
