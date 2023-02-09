@@ -1,45 +1,137 @@
-.leaderboarditem-info-container {margin: 0.25rem auto 1.25rem auto;}
+.leaderboarditem-info-container {
+	margin: 0.25rem auto 1.25rem auto;
+}
+
 .leaderboarditem-info-container-row {
 	margin: auto;
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
 }
-.leaderboarditem-info-roundrow {margin: 0 0 0.25rem 0;}
 
-.leaderboarditem-info-container div {font-family: "Varela Round";text-align: center; place-self: center;}
-.leaderboarditem-info-labelrow div {font-size: 0.55rem;font-weight: bold;grid-column: span 2;}
-.leaderboarditem-info-roundrow div {font-size: 0.7rem;padding:0.25rem 0;grid-column: span 2;}
-.leaderboarditem-info-golferrow div {font-size: 0.5rem;padding:0.125rem 0;grid-column: span 2;}
-.leaderboarditem-info-projstdg-labelrow div {font-size: 0.5rem;font-weight:bold;padding:1rem 0 0.125rem 0;grid-column: span 5;}
-.leaderboarditem-info-projstdg div {font-size: 0.7rem;padding:0.25rem 0;grid-column: span 5;}
+.leaderboarditem-info-roundrow {
+	margin: 0 0 0.25rem 0;
+}
 
-.playoff { color: rgb(0, 125, 0) }
-.nonPlayoff { color: rgb(105, 0, 0) }
+.leaderboarditem-info-container div {
+	font-family: "Varela Round";
+	text-align: center;
+	place-self: center;
+}
+
+.leaderboarditem-info-labelrow div {
+	font-size: 0.55rem;
+	font-weight: bold;
+	grid-column: span 2;
+}
+
+.leaderboarditem-info-roundrow div {
+	font-size: 0.7rem;
+	padding: 0.25rem 0;
+	grid-column: span 2;
+}
+
+.leaderboarditem-info-golferrow div {
+	font-size: 0.5rem;
+	padding: 0.125rem 0;
+	grid-column: span 2;
+}
+
+.leaderboarditem-info-projstdg-labelrow div {
+	font-size: 0.5rem;
+	font-weight: bold;
+	padding: 1rem 0 0.125rem 0;
+	grid-column: span 5;
+}
+
+.leaderboarditem-info-projstdg div {
+	font-size: 0.7rem;
+	padding: 0.25rem 0;
+	grid-column: span 5;
+}
+
+.playoff {
+	color: rgb(0, 125, 0)
+}
+
+.nonPlayoff {
+	color: rgb(105, 0, 0)
+}
 
 
 @media only screen and (min-width: 350px) {
-	.leaderboarditem-info-roundrow {margin: 0 0 0.5rem 0;}
-	.leaderboarditem-info-labelrow div {font-size: 0.65rem;}
-	.leaderboarditem-info-roundrow div {font-size: 0.8rem;}
-	.leaderboarditem-info-golferrow div {font-size: 0.6rem;}
-	.leaderboarditem-info-projstdg-labelrow div {font-size: 0.6rem;}
-	.leaderboarditem-info-projstdg div {font-size: 0.8rem;}
+	.leaderboarditem-info-roundrow {
+		margin: 0 0 0.5rem 0;
+	}
+
+	.leaderboarditem-info-labelrow div {
+		font-size: 0.65rem;
+	}
+
+	.leaderboarditem-info-roundrow div {
+		font-size: 0.8rem;
+	}
+
+	.leaderboarditem-info-golferrow div {
+		font-size: 0.6rem;
+	}
+
+	.leaderboarditem-info-projstdg-labelrow div {
+		font-size: 0.6rem;
+	}
+
+	.leaderboarditem-info-projstdg div {
+		font-size: 0.8rem;
+	}
 }
 
 @media only screen and (min-width: 450px) {
-	.leaderboarditem-info-roundrow {margin: 0 0 0.75rem 0;}
-	.leaderboarditem-info-labelrow div {font-size: 0.825rem;}
-	.leaderboarditem-info-roundrow div {font-size: 0.975rem;}
-	.leaderboarditem-info-golferrow div {font-size: 0.7rem;}
-	.leaderboarditem-info-projstdg-labelrow div {font-size: 0.7rem;}
-	.leaderboarditem-info-projstdg div {font-size: 0.975rem;}
+	.leaderboarditem-info-roundrow {
+		margin: 0 0 0.75rem 0;
+	}
+
+	.leaderboarditem-info-labelrow div {
+		font-size: 0.825rem;
+	}
+
+	.leaderboarditem-info-roundrow div {
+		font-size: 0.975rem;
+	}
+
+	.leaderboarditem-info-golferrow div {
+		font-size: 0.7rem;
+	}
+
+	.leaderboarditem-info-projstdg-labelrow div {
+		font-size: 0.7rem;
+	}
+
+	.leaderboarditem-info-projstdg div {
+		font-size: 0.975rem;
+	}
 }
 
 @media only screen and (min-width: 550px) {
-	.leaderboarditem-info-roundrow {margin: 0 0 1rem 0;}
-	.leaderboarditem-info-labelrow div {font-size: 0.95rem;}
-	.leaderboarditem-info-roundrow div {font-size: 1.1rem;}
-	.leaderboarditem-info-golferrow div {font-size: 0.8rem;}
-	.leaderboarditem-info-projstdg-labelrow div {font-size: 0.8rem;}
-	.leaderboarditem-info-projstdg div {font-size: 1.1rem;}
+	.leaderboarditem-info-roundrow {
+		margin: 0 0 1rem 0;
+	}
+
+	.leaderboarditem-info-labelrow div {
+		font-size: 0.95rem;
+	}
+
+	.leaderboarditem-info-roundrow div {
+		font-size: 1.1rem;
+	}
+
+	.leaderboarditem-info-golferrow div {
+		font-size: 0.8rem;
+	}
+
+	.leaderboarditem-info-projstdg-labelrow div {
+		font-size: 0.8rem;
+	}
+
+	.leaderboarditem-info-projstdg div {
+		font-size: 1.1rem;
+	}
 }

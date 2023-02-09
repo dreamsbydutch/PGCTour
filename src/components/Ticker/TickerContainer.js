@@ -5,7 +5,6 @@ import './Ticker.css'
 
 function TickerContainer(props) {
     let data = props.data.pgcLeaderboard ? props.data.pgcLeaderboard : props.data
-    console.log(data)
 
     return (
         <div className='fixed-top'>
@@ -54,6 +53,6 @@ function LeaderboardTickerItem(item) {
 
     }
     return (
-        <span className="ticker-team-rk">  -----  {output} <span className="ticker-team-name">{item.data.Name}</span> {item.data.Score} - {item.Today} thru {item.Thru}</span>
+        <span className="ticker-team-rk">  -----  {output} <span className="ticker-team-name">{item.data.Name}</span> {item.data.Score} - {item.Today} &#40;{item.Thru}&#41;</span>
     )
 }

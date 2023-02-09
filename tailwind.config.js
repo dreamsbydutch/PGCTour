@@ -45,11 +45,16 @@ module.exports = {
       keyframes: {
         btnClick: {
           "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(0.8)" }
-        }
+          "50%": { transform: "scale(0.85)" }
+        },
+        toggleClick: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(0.9)" }
+        },
       },
       animation: {
-        btnClick: "btnClick 200ms ease-in-out"
+        btnClick: "btnClick 150ms ease-in-out",
+        toggleClick: "toggleClick 75ms ease-in-out",
       },
     },
   },

@@ -1,0 +1,51 @@
+
+
+@media only screen and (min-width: 350px) {
+    .pga-leaderboard-item-labels-teamname {
+        font-size: 1.05rem;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .pga-leaderboard-item-labels-rank {
+        font-size: 0.95rem;
+    }
+
+    .pga-leaderboard-item-labels-teamname {
+        font-size: 1.15rem;
+    }
+
+    .pga-leaderboard-item-labels-totaltopar {
+        font-size: 0.95rem;
+    }
+
+    .pga-leaderboard-item-labels-todaythru {
+        font-size: 0.65rem;
+    }
+
+    .pga-leaderboard-item-labels-usage {
+        font-size: 0.65rem;
+    }
+}
+
+@media only screen and (min-width: 550px) {
+    .pga-leaderboard-item-labels-rank {
+        font-size: 1.05rem;
+    }
+
+    .pga-leaderboard-item-labels-teamname {
+        font-size: 1.25rem;
+    }
+
+    .pga-leaderboard-item-labels-totaltopar {
+        font-size: 1.05rem;
+    }
+
+    .pga-leaderboard-item-labels-todaythru {
+        font-size: 0.75rem;
+    }
+
+    .pga-leaderboard-item-labels-usage {
+        font-size: 0.75rem;
+    }
+}

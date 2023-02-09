@@ -15,7 +15,7 @@ function Home(props) {
                 <>
                     <a href="#/leaderboard">
                         <div className="my-8 py-4 px-1 rounded-2xl bg-gray-100">
-                            <Leaderboard data={props.data} limit={10} link={false} />
+                            <Leaderboard data={props.data} limit={10} home={true} live={true} />
                         </div>
                     </a>
                 </>

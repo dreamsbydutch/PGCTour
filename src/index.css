@@ -5,7 +5,7 @@
 
 .grid-span-2 {grid-column: span 2}
 .grid-span-4 {grid-column: span 4}
-
+/* 
 *{
   color: #555555;
   font: normal 16px Arial, Helvetica, sans-serif; 
@@ -16,7 +16,7 @@ html, body{
   margin: 0;
   padding: 0;
   font-family: "varelaround";
-}
+} */
 
 a {
   text-decoration: none;
@@ -26,7 +26,7 @@ a:hover {
   text-decoration:none; 
   cursor:pointer;  
 }
-
+/* 
 :root{
   --hotelcolour: 119, 38, 28;
   --sunviewcolour: 26, 76, 131;
@@ -45,4 +45,4 @@ a:hover {
     inset 0 20px 10px rgba(255,255,255,.12), 
     0 0 4px 1px rgba(0,0,0,.1), 
     0 3px 2px rgba(0,0,0,.2);   
-}
+} */

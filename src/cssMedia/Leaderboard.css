@@ -1,0 +1,22 @@
+@media only screen and (min-width: 350px) {
+    .leaderboard-header-togglebuttons button {font-size: 1.15rem;padding: 0.35rem 1.6rem;}
+    .leaderboard-item-labels-teamname {font-size: 1.05rem;}
+}
+
+@media only screen and (min-width: 450px) {
+    .leaderboard-header-togglebuttons button {font-size: 1.2rem;padding: 0.5rem 1.75rem;}
+    .leaderboard-item-labels-rank {font-size: 0.95rem;}
+    .leaderboard-item-labels-teamname {font-size: 1.15rem;}
+    .leaderboard-item-labels-totaltopar {font-size: 0.95rem;}
+    .leaderboard-item-labels-todaytopar {font-size: 0.65rem;}
+    .leaderboard-item-labels-todaythru {font-size: 0.65rem;}
+}
+
+@media only screen and (min-width: 550px) {
+    .leaderboard-header-togglebuttons button {font-size: 1.25rem;margin: 0.75rem 1rem;padding: 0.55rem 2rem;}
+    .leaderboard-item-labels-rank {font-size: 1.05rem;}
+    .leaderboard-item-labels-teamname {font-size: 1.25rem;}
+    .leaderboard-item-labels-totaltopar {font-size: 1.05rem;}
+    .leaderboard-item-labels-todaytopar {font-size: 0.75rem;}
+    .leaderboard-item-labels-todaythru {font-size: 0.75rem;}
+}
