@@ -25,8 +25,8 @@ function PGALeaderboardItem(props) {
             <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
                 <div className='font-varela place-self-center text-sm col-span-2'>{props.info.POS}</div>
                 <div className='font-varela place-self-center text-md col-span-4'>{props.info.PLAYER}</div>
-                <div className='font-varela place-self-center text-sm col-span-2'>{props.info.SCORE}</div>
-                <div className='font-varela place-self-center text-2xs col-span-1'>{props.live ? props.info.THRU ? props.info.TODAY + " (" + props.info.THRU + ")" : props.info.THRU : props.info.EARNINGS}</div>
+                <div className='font-varela place-self-center text-sm col-span-2'>{props.info.SCORE > 0 ? '+'+props.info.SCORE : props.info.SCORE}</div>
+                <div className='font-varela place-self-center text-2xs col-span-1'>{props.live ? props.info.THRU ? props.info.TODAY > 0 ? '+'+props.info.TODAY : props.info.TODAY + " (" + props.info.THRU + ")" : props.info.THRU : props.info.EARNINGS}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1'>{props.info.Usage}</div>
             </div>
             {showInfo ? <PGALeaderboardItemInfo info={props.info} /> : <></>}
@@ -44,11 +44,11 @@ function PGALeaderboardItemInfo(props) {
                 <div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
             </div>
             <div className="mx-auto grid grid-cols-5 mb-1">
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R3}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R4}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.TOT}</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1 ? props.info.R1 : "-"}</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2 ? props.info.R2 : "-"}</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R3 ? props.info.R3 : "-"}</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R4 ? props.info.R4 : "-"}</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.TOT ? props.info.TOT : "-"}</div>
             </div>
         </div>
     )
