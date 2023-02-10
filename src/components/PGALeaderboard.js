@@ -26,7 +26,7 @@ function PGALeaderboardItem(props) {
                 <div className='font-varela place-self-center text-sm col-span-2'>{props.info.POS}</div>
                 <div className='font-varela place-self-center text-md col-span-4'>{props.info.PLAYER}</div>
                 <div className='font-varela place-self-center text-sm col-span-2'>{props.info.SCORE > 0 ? '+'+props.info.SCORE : props.info.SCORE}</div>
-                <div className='font-varela place-self-center text-2xs col-span-1'>{props.live ? props.info.THRU ? props.info.TODAY > 0 ? '+'+props.info.TODAY : props.info.TODAY + " (" + props.info.THRU + ")" : props.info.THRU : props.info.EARNINGS}</div>
+                <div className='font-varela place-self-center text-2xs col-span-1'>{props.live ? props.info.THRU ? (props.info.TODAY > 0 ? '+'+props.info.TODAY : props.info.TODAY) + " (" + props.info.THRU + ")" : props.info.THRU : props.info.EARNINGS}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1'>{props.info.Usage}</div>
             </div>
             {showInfo ? <PGALeaderboardItemInfo info={props.info} /> : <></>}
