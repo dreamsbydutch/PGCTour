@@ -14,7 +14,7 @@ function Home(props) {
             {props.data.currentTourney &&
                 <>
                     <a href="#/leaderboard">
-                        <div className="my-8 py-4 px-1 rounded-2xl bg-gray-100">
+                        <div className="my-8 py-4 px-1 rounded-2xl bg-gray-100 hover:text-gray-800 shadow-md">
                             <Leaderboard data={props.data} limit={10} home={true} live={true} />
                         </div>
                     </a>
@@ -29,7 +29,7 @@ function Home(props) {
                 </>
             }
             <a href="#/standings">
-                <div className="my-8 py-4 px-2 rounded-2xl bg-gray-100 shadow-md">
+                <div className="my-8 py-4 px-2 rounded-2xl bg-gray-100 hover:text-gray-800 shadow-md">
                     <Standings data={props.data} limit={10} />
                 </div>
             </a>

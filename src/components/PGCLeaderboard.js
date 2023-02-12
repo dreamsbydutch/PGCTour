@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getRkChange } from '../utils/utils';
 
 export default function PGCLeaderboard(props) {
     var data = props.limit ? props.tourney.pgcLeaderboard.slice(0, props.limit) : props.tourney.pgcLeaderboard
@@ -21,7 +22,7 @@ function PGCLeaderboardItem(props) {
     return (
         <div className='border-b border-dashed border-gray-200' onClick={() => setShowInfo(!showInfo)}>
             <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
-                <div className='font-varela place-self-center text-sm col-span-2'>{props.info.ShowRk}</div>
+                <div className='font-varela place-self-center text-sm col-span-2'>{props.info.ShowRk}   {getRkChange(props.info.RkChange)}</div>
                 <div className='font-varela place-self-center text-md col-span-4'>{props.info.Name}</div>
                 <div className='font-varela place-self-center text-sm col-span-2'>{props.info.Score}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1'>{props.live ? props.info.Today : props.info.Points}</div>
