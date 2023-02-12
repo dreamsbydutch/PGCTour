@@ -3,7 +3,6 @@ import './utils.css'
 
 
 export function getRkChange(rkChange) {
-  console.log(rkChange)
   var style = {}
   var arrow = ''
 
