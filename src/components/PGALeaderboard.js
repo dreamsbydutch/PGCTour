@@ -4,7 +4,7 @@ export default function PGALeaderboard(props) {
     console.log(props)
     return (
         <>
-            <div className="grid grid-flow-row grid-cols-10 text-center">
+            <div className="grid grid-flow-row grid-cols-10 text-center max-w-xl mx-auto">
                 <div className="col-span-2 text-sm font-bold font-varela place-self-center">Rank</div>
                 <div className="col-span-4 text-md font-bold font-varela place-self-center">Name</div>
                 <div className="col-span-2 text-sm font-bold font-varela place-self-center">Score</div>
@@ -21,7 +21,7 @@ function PGALeaderboardItem(props) {
     const [showInfo, setShowInfo] = useState(false)
 
     return (
-        <div className='border-b border-dashed border-gray-200' onClick={() => setShowInfo(!showInfo)}>
+        <div className='border-b border-dashed border-gray-200 max-w-xl mx-auto' onClick={() => setShowInfo(!showInfo)}>
             <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
                 <div className='font-varela place-self-center text-sm col-span-2'>{props.info.POS}</div>
                 <div className='font-varela place-self-center text-md col-span-4'>{props.info.PLAYER}</div>
