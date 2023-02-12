@@ -56,9 +56,9 @@ export function usePGCTournaments() {
         var start = new Date(obj['StartDate'])
         var end = new Date(obj['EndDate'])
         var prevEnd = new Date(obj['EndDate'])
-        prevEnd.setDate(prevEnd.getDate() + 4)
+        prevEnd.setDate(prevEnd.getDate() + 3)
         var nextStart = new Date(obj['StartDate'])
-        nextStart.setDate(nextStart.getDate() - 4)
+        nextStart.setDate(nextStart.getDate() - 3)
         if (now < start && now > nextStart) {
             output.nextTourney = obj
         } else if (now > end && now < prevEnd) {
