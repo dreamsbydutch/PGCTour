@@ -29,7 +29,7 @@ function App() {
     <Router>
       <ScrollToTop />
       {window.innerWidth < 850 ? <><TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} /><MobileNavbar /></> : <MobileNavbar />}
-      <div className='p-3'>
+      <div className='p-3 mx-auto max-w-3xl'>
         <Routes>
           <Route exact path="/" element={<Home data={data} />} />
           <Route path="/leaderboard" element={<Leaderboard data={data} />} />
