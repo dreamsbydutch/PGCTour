@@ -22,7 +22,7 @@ function PGCLeaderboardItem(props) {
     return (
         <div className='border-b border-dashed border-gray-200 max-w-xl mx-auto' onClick={() => setShowInfo(!showInfo)}>
             <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
-                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.ShowRk}   {getRkChange(props.info.RkChange)}</div>
+                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.ShowRk}&nbsp;&nbsp;&nbsp;{getRkChange(props.info.RkChange)}</div>
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.Name}</div>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? props.info.Today : props.info.Points}</div>
