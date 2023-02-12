@@ -10,7 +10,7 @@ function TickerContainer(props) {
         <div className='fixed-top'>
             <div className="marquee">
                 <div className="ticker-container">
-                    PGC Tour Top 35 {
+                    {props.data.pgcLeaderboard ? 'Leaderboard' : 'PGC Tour Top 35'} {
                         data.slice(0, 35).map(obj => props.data.pgcLeaderboard ? <LeaderboardTickerItem data={obj} key={obj.RawRk} /> : <StandingsTickerItem data={obj} key={obj.RawRk} />)
                     }
                 </div>
@@ -36,7 +36,7 @@ function StandingsTickerItem(item) {
 
     }
     return (
-        <span className="ticker-team-rk">  -----  {output} <span className="ticker-team-name">{item.data.TeamName}</span> {item.data.Points} pts{item.data.Earnings > 0 ? ', ' + Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.data.Earnings) : ''}</span>
+        <span className="ticker-team-rk">-----&nbsp;&nbsp;{output}&nbsp;<span className="ticker-team-name">{item.data.TeamName}</span>&nbsp;{item.data.Points}&nbsp;pts{item.data.Earnings > 0 ? ', ' + Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.data.Earnings) : ''}&nbsp;&nbsp;</span>
     )
 }
 function LeaderboardTickerItem(item) {
@@ -53,6 +53,6 @@ function LeaderboardTickerItem(item) {
 
     }
     return (
-        <span className="ticker-team-rk">  -----  {output} <span className="ticker-team-name">{item.data.Name}</span> {item.data.Score} - {item.data.Today} &#40;{item.data.Thru}&#41;</span>
+        <span className="ticker-team-rk">------&nbsp;&nbsp;{output}&nbsp;<span className="ticker-team-name">{item.data.Name}</span>&nbsp;{item.data.Score}&nbsp;&nbsp;&nbsp;{item.data.Today} &#40;{item.data.Thru}&#41;&nbsp;&nbsp;</span>
     )
 }
