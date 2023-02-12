@@ -13,7 +13,7 @@ function SignUpButton(props) {
                 }}
                 onAnimationEnd={() => setEffect(false)}
             >
-                MAKE YOUR {props.tourney.Tourney} PICKS HERE
+                MAKE/EDIT YOUR {props.tourney.Tourney} PICKS HERE
             </a>
         </div>
     )

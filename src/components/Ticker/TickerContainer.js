@@ -53,6 +53,6 @@ function LeaderboardTickerItem(item) {
 
     }
     return (
-        <span className="ticker-team-rk">  -----  {output} <span className="ticker-team-name">{item.data.Name}</span> {item.data.Score} - {item.Today} &#40;{item.Thru}&#41;</span>
+        <span className="ticker-team-rk">  -----  {output} <span className="ticker-team-name">{item.data.Name}</span> {item.data.Score} - {item.data.Today} &#40;{item.data.Thru}&#41;</span>
     )
 }
