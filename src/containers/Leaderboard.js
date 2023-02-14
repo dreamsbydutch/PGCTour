@@ -138,7 +138,7 @@ function DropdownComponent(props) {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <div className='mx-3 my-2 grid grid-flow-rows grid-cols-10'>
-                                        <img className='w-8 h-6 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                        <img className='w-8 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
                                         <a
                                             href={"#/leaderboard/"+obj.tourneyID}
                                             className={classNames(
@@ -161,7 +161,7 @@ function DropdownComponent(props) {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <div className='mx-3 my-2 grid grid-flow-rows grid-cols-10'>
-                                        <img className='w-8 h-6 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                        <img className='w-8 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
                                         <a
                                             href={"#/leaderboard/"+obj.tourneyID}
                                             className={classNames(
@@ -184,7 +184,7 @@ function DropdownComponent(props) {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <div className='mx-3 my-2 grid grid-flow-rows grid-cols-10'>
-                                        <img className='w-8 h-6 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                        <img className='w-8 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
                                         <a
                                             href={"#/leaderboard/"+obj.tourneyID}
                                             className={classNames(
@@ -199,21 +199,6 @@ function DropdownComponent(props) {
                                 </Menu.Item>
                             )
                         })}
-                    </div>
-                    <div className="py-1">
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#/standings"
-                                    className={classNames(
-                                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                        'block px-4 py-2 text-sm'
-                                    )}
-                                >
-                                    Standings
-                                </a>
-                            )}
-                        </Menu.Item>
                     </div>
                 </Menu.Items>
             </Transition>
