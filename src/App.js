@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home data={data} />} />
           <Route path="/leaderboard" element={<Leaderboard data={data} />} />
-          <Route path="/tournament/:tourneyId" element={<Leaderboard data={data} />} />
+          <Route path="/leaderboard/:tourneyId" element={<Leaderboard data={data} />} />
           <Route path="/standings" element={<Standings data={data} />} />
           <Route path="/golferstats" element={<GolferStats data={data.golferStats} />} />
           <Route path="/rulebook" element={<Rulebook />} />
