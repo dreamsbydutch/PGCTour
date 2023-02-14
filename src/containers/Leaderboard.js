@@ -130,20 +130,20 @@ function DropdownComponent(props) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-56 md:w-64 xl:w-72 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
                         <div className="font-extrabold font-varela text-sm text-left mx-6 my-2">Majors</div>
                         {props.allTourneys.filter(obj => obj.Class === 'Major').map(obj => {
                             return (
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <div className='mx-3 my-2 grid grid-flow-rows grid-cols-10'>
-                                        <img className='w-8 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                        <div className='mx-3 my-2 grid grid-flow-rows grid-cols-8'>
+                                        <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
                                         <a
                                             href={"#/leaderboard/"+obj.tourneyID}
                                             className={classNames(
                                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'col-span-9 p-1 text-sm'
+                                                'col-span-7 p-1 text-xs md:text-sm xl:text-base'
                                             )}
                                         >
                                             {obj.Tourney}
@@ -160,13 +160,13 @@ function DropdownComponent(props) {
                             return (
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <div className='mx-3 my-2 grid grid-flow-rows grid-cols-10'>
-                                        <img className='w-8 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                        <div className='mx-3 my-2 grid grid-flow-rows grid-cols-8'>
+                                        <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
                                         <a
                                             href={"#/leaderboard/"+obj.tourneyID}
                                             className={classNames(
                                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'col-span-9 p-1 text-sm'
+                                                'col-span-7 p-1 text-xs md:text-sm xl:text-base'
                                             )}
                                         >
                                             {obj.Tourney}
@@ -183,13 +183,13 @@ function DropdownComponent(props) {
                             return (
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <div className='mx-3 my-2 grid grid-flow-rows grid-cols-10'>
-                                        <img className='w-8 place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                        <div className='mx-3 my-2 grid grid-flow-rows grid-cols-8'>
+                                        <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
                                         <a
                                             href={"#/leaderboard/"+obj.tourneyID}
                                             className={classNames(
                                                 active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'col-span-9 p-1 text-sm'
+                                                'col-span-7 p-1 text-xs md:text-sm xl:text-base'
                                             )}
                                         >
                                             {obj.Tourney}
