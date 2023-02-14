@@ -100,17 +100,17 @@ function PGCTeamTable(props) {
         </table>
     )
 }
-function ProjStandings(props) {
-    return (
-        <>
-            <div className="mx-auto grid grid-cols-2">
-                <div className="font-varela font-bold text-xs text-center place-self-center">Current</div>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Projected</div>
-            </div>
-            <div className="mx-auto grid grid-cols-2 mb-1">
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
-            </div>
-        </>
-    )
+// function ProjStandings(props) {
+//     return (
+//         <>
+//             <div className="mx-auto grid grid-cols-2">
+//                 <div className="font-varela font-bold text-xs text-center place-self-center">Current</div>
+//                 <div className="font-varela font-bold text-xs text-center place-self-center">Projected</div>
+//             </div>
+//             <div className="mx-auto grid grid-cols-2 mb-1">
+//                 <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
+//                 <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
+//             </div>
+//         </>
+//     )
 }
