@@ -37,9 +37,9 @@ function PGCLeaderboardItemInfo(props) {
         <div className="mt-1 mb-6 mx-auto">
             <TeamRounds {...props} />
             <PGCTeamTable {...props} />
-            {props.info.tourneyID > 1 &&
+            {/* {props.info.tourneyID > 1 &&
                 <ProjStandings {...props} />
-            }
+            } */}
         </div>
     )
 }
