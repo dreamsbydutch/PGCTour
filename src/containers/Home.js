@@ -1,7 +1,7 @@
 import React from 'react';
 import CountdownLogic from '../components/CountdownLogic';
 import Standings from './Standings';
-import ChampAlert from '../components/ChampAlert/ChampAlert'
+import ChampAlert from '../components/ChampAlert'
 import SignUpButton from '../components/SignUpButton'
 import Leaderboard from './Leaderboard';
 
