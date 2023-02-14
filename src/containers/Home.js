@@ -8,8 +8,8 @@ import Leaderboard from './Leaderboard';
 function Home(props) {
     return (
         <>
-            {props.data.prevTourney &&
-                <ChampAlert tourney={props.data.prevTourney} />
+            {props.data.previousTourney &&
+                <ChampAlert tourney={props.data.previousTourney} />
             }
             {props.data.currentTourney &&
                 <>
