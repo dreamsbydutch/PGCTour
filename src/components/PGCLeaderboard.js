@@ -13,7 +13,7 @@ export default function PGCLeaderboard(props) {
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : 'Pts'}</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Thru' : '$$'}</div>
             </div>
-            {data.map(obj => <PGCLeaderboardItem info={obj} key={obj.Player} live={props.live} />)}
+            {data.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} />)}
         </>
     )
 }
