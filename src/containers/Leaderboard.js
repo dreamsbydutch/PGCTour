@@ -11,16 +11,26 @@ export default function Leaderboard(props) {
     let { tourneyId } = useParams();
 
     if (tourneyId) {
-        return (
-            <TourneyLeaderboard
-                tourney={props.data.allTourneys.filter(obj => obj.tourneyID === tourneyId)[0]}
-                allTourneys={props.data.allTourneys}
-                standings={props.data.standings}
-                live={false}
-                limit={props.limit ?? null}
-                home={props.home ?? null}
-            />
-        )
+        let tourney = props.data.allTourneys.filter(obj => obj.tourneyID === tourneyId)[0]
+        if (new Date(tourney['StartDate']) > new Date()) {
+            return (
+                <>
+                    <LeaderboardHeader tourney={tourney} allTourneys={props.data.allTourneys} />
+                    <CountdownLogic tourney={tourney} />
+                </>
+            )
+        } else {
+            return (
+                <TourneyLeaderboard
+                    tourney={tourney}
+                    allTourneys={props.data.allTourneys}
+                    standings={props.data.standings}
+                    live={false}
+                    limit={props.limit ?? null}
+                    home={props.home ?? null}
+                />
+            )
+        }
     } else if (props.data.currentTourney) {
         return (
             <TourneyLeaderboard
@@ -138,16 +148,16 @@ function DropdownComponent(props) {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <div className='mx-3 my-2 grid grid-flow-rows grid-cols-8'>
-                                        <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
-                                        <a
-                                            href={"#/leaderboard/"+obj.tourneyID}
-                                            className={classNames(
-                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'col-span-7 p-1 text-xs md:text-sm xl:text-base'
-                                            )}
-                                        >
-                                            {obj.Tourney}
-                                        </a>
+                                            <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                            <a
+                                                href={"#/leaderboard/" + obj.tourneyID}
+                                                className={classNames(
+                                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                    'col-span-7 p-1 text-xs md:text-sm xl:text-base'
+                                                )}
+                                            >
+                                                {obj.Tourney}
+                                            </a>
                                         </div>
                                     )}
                                 </Menu.Item>
@@ -161,16 +171,16 @@ function DropdownComponent(props) {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <div className='mx-3 my-2 grid grid-flow-rows grid-cols-8'>
-                                        <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
-                                        <a
-                                            href={"#/leaderboard/"+obj.tourneyID}
-                                            className={classNames(
-                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'col-span-7 p-1 text-xs md:text-sm xl:text-base'
-                                            )}
-                                        >
-                                            {obj.Tourney}
-                                        </a>
+                                            <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                            <a
+                                                href={"#/leaderboard/" + obj.tourneyID}
+                                                className={classNames(
+                                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                    'col-span-7 p-1 text-xs md:text-sm xl:text-base'
+                                                )}
+                                            >
+                                                {obj.Tourney}
+                                            </a>
                                         </div>
                                     )}
                                 </Menu.Item>
@@ -184,16 +194,16 @@ function DropdownComponent(props) {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <div className='mx-3 my-2 grid grid-flow-rows grid-cols-8'>
-                                        <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
-                                        <a
-                                            href={"#/leaderboard/"+obj.tourneyID}
-                                            className={classNames(
-                                                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                                'col-span-7 p-1 text-xs md:text-sm xl:text-base'
-                                            )}
-                                        >
-                                            {obj.Tourney}
-                                        </a>
+                                            <img className='w-full place-self-center text-center' src={obj.Logo} alt={obj.Tourney} />
+                                            <a
+                                                href={"#/leaderboard/" + obj.tourneyID}
+                                                className={classNames(
+                                                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                                                    'col-span-7 p-1 text-xs md:text-sm xl:text-base'
+                                                )}
+                                            >
+                                                {obj.Tourney}
+                                            </a>
                                         </div>
                                     )}
                                 </Menu.Item>

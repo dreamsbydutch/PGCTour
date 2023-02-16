@@ -49,17 +49,17 @@ function CountdownTimer(props) {
     const daysToDisplay = (hoursRemaining - hoursToDisplay) / 24
 
     return (
-        <div className="my-8 py-4 px-2 rounded-2xl bg-gray-100 shadow-md">
+        <div className="my-8 p-2 rounded-2xl bg-gray-100 shadow-md">
             <div className="py-4 text-center">
-                <h1 className="font-bold text-2xl font-varela">Countdown until {props.tourneyName}</h1>
+                <h1 className="font-bold text-2xl px-3 sm:text-3xl md:text-4xl font-varela">Countdown until {props.tourneyName}</h1>
                 <div className="w-full flex items-center justify-center py-3">
                     <div className="">
-                        <img className="w-full max-h-28" alt="Tourney Logo" src={props.tourneyLogo} />
+                        <img className="w-full max-h-32 md:max-h-40" alt="Tourney Logo" src={props.tourneyLogo} />
                     </div>
-                    <div className="text-2xl font-bold font-varela" style={{ padding: 20 }}>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-varela">
                         {twoDigits(daysToDisplay)}:{twoDigits(hoursToDisplay)}:{twoDigits(minutesToDisplay)}:
                         {twoDigits(secondsToDisplay)}
-                        <div className="text-2xs">{width < 420 ? 'Days : Hrs : Mins : Secs' : 'Days : Hours : Minutes : Seconds'}</div>
+                        <div className="text-2xs md:text-xs">{width < 420 ? 'Days : Hrs : Mins : Secs' : 'Days : Hours : Minutes : Seconds'}</div>
                     </div>
                 </div>
             </div>

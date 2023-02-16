@@ -4,7 +4,7 @@ function Rulebook() {
 
     return (
         <>
-            <div className="text-5xl pb-4 mb-6 font-yellowtail text-center border-b-2 border-gray-500">PGC Tour Rulebook</div>
+            <div className="text-5xl sm:text-6xl md:text-7xl pb-4 mb-6 font-yellowtail text-center border-b-2 border-gray-500">PGC Tour Rulebook</div>
             <div className='text-center'>
                 <div className="font-varela place-self-center text-3xl font-bold mt-12">Schedule</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">The sixteen tournaments on the PGC Tour schedule that will be split into 3 tiers.</div>

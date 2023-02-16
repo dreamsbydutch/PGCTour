@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getRkChange } from '../utils/utils';
+import { formatMoney, getRkChange } from '../utils/utils';
 
 export default function PGCLeaderboard(props) {
     var data = props.limit ? props.tourney.pgcLeaderboard.slice(0, props.limit) : props.tourney.pgcLeaderboard
@@ -26,7 +26,7 @@ function PGCLeaderboardItem(props) {
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.Name}</div>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? props.info.Today : props.info.Points}</div>
-                <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? props.info.Thru : props.info.Earnings}</div>
+                <div className='font-varela place-self-center text-2xs col-span-1 whitespace-nowrap xs:text-2xs sm:text-xs'>{props.live ? props.info.Thru : formatMoney(props.info.Earnings)}</div>
             </div>
             {showInfo ? <PGCLeaderboardItemInfo {...props} /> : <></>}
         </div>
@@ -100,17 +100,17 @@ function PGCTeamTable(props) {
         </table>
     )
 }
-function ProjStandings(props) {
-    return (
-        <>
-            <div className="mx-auto grid grid-cols-2">
-                <div className="font-varela font-bold text-xs text-center place-self-center">Current</div>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Projected</div>
-            </div>
-            <div className="mx-auto grid grid-cols-2 mb-1">
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
-            </div>
-        </>
-    )
-}
+// function ProjStandings(props) {
+//     return (
+//         <>
+//             <div className="mx-auto grid grid-cols-2">
+//                 <div className="font-varela font-bold text-xs text-center place-self-center">Current</div>
+//                 <div className="font-varela font-bold text-xs text-center place-self-center">Projected</div>
+//             </div>
+//             <div className="mx-auto grid grid-cols-2 mb-1">
+//                 <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
+//                 <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
+//             </div>
+//         </>
+//     )
+// }

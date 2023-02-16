@@ -57,3 +57,17 @@ export function useWindowDimensions() {
 
   return windowDimensions;
 }
+
+
+export function formatMoney(number) {
+    number = Number(number)
+    if (Math.abs(number) >= 1e6) {
+        return '$' + (number / 1e6).toFixed(1) + 'M';
+    } else if (Math.abs(number) >= 1e4) {
+        return '$' + (number / 1e3).toFixed(0) + 'k';
+    } else if (Math.abs(number) === 0 || isNaN(number)) {
+        return '-'
+    } else {
+        return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
+    }
+}

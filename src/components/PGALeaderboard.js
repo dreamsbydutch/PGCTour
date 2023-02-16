@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { formatMoney } from '../utils/utils';
 
 export default function PGALeaderboard(props) {
     console.log(props)
@@ -26,7 +27,7 @@ function PGALeaderboardItem(props) {
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.POS}</div>
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.PLAYER}</div>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.SCORE > 0 ? '+' + props.info.SCORE : props.info.SCORE}</div>
-                <div className='font-varela place-self-center whitespace-nowrap text-2xs col-span-1 sm:text-xs'>{props.live ? !(props.info.THRU.includes("PM") || props.info.THRU.includes("CUT") || props.info.THRU.includes("WD")) ? (props.info.TODAY > 0 ? '+' + props.info.TODAY : props.info.TODAY) + " (" + props.info.THRU + ")" : props.info.THRU : props.info.EARNINGS}</div>
+                <div className='font-varela place-self-center whitespace-nowrap text-2xs col-span-1 sm:text-xs'>{props.live ? !(props.info.THRU.includes("AM") || props.info.THRU.includes("PM") || props.info.THRU.includes("CUT") || props.info.THRU.includes("WD")) ? (props.info.TODAY > 0 ? '+' + props.info.TODAY : props.info.TODAY) + " (" + props.info.THRU + ")" : props.info.THRU : formatMoney(props.info.EARNINGS)}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.info.Usage}</div>
             </div>
             {showInfo ? <PGALeaderboardItemInfo info={props.info} /> : <></>}
