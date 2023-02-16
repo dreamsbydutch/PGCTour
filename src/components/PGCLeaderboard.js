@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { formatMoney, getRkChange } from '../utils/utils';
 
 export default function PGCLeaderboard(props) {
-    var data = props.limit ? props.tourney.pgcLeaderboard.slice(0, props.limit) : props.tourney.pgcLeaderboard
+    console.log(props)
+    var data = (props.limit && props.tourney.pgcLeaderboard) ? props.tourney.pgcLeaderboard.slice(0, props.limit) : props.tourney.pgcLeaderboard
     return (
         <>
             <div className="grid grid-flow-row grid-cols-10 text-center max-w-xl mx-auto">
