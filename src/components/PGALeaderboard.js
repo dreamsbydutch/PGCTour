@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { formatMoney } from '../utils/utils';
 
 export default function PGALeaderboard(props) {
-    console.log(props)
     return (
         <>
             <div className="grid grid-flow-row grid-cols-10 text-center max-w-xl mx-auto">
@@ -23,7 +22,7 @@ function PGALeaderboardItem(props) {
 
     return (
         <div className='border-b border-dashed border-gray-200 max-w-xl mx-auto' onClick={() => setShowInfo(!showInfo)}>
-            <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
+            <div className={`grid grid-flow-row grid-cols-10 text-center py-1 ${(props.info.SCORE === "CUT" || props.info.SCORE === "WD" || props.info.SCORE === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.POS}</div>
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.PLAYER}</div>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.SCORE > 0 ? '+' + props.info.SCORE : props.info.SCORE}</div>
@@ -37,14 +36,14 @@ function PGALeaderboardItem(props) {
 function PGALeaderboardItemInfo(props) {
     return (
         <div className="mt-1 mb-6 mx-auto">
-            <div className="mx-auto grid grid-cols-5 sm:w-10/12 md:w-9/12">
+            <div className={`mx-auto grid grid-cols-5 sm:w-10/12 md:w-9/12 ${(props.info.SCORE === "CUT" || props.info.SCORE === "WD" || props.info.SCORE === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
             </div>
-            <div className="mx-auto grid grid-cols-5 mb-1 sm:w-10/12 md:w-9/12">
+            <div className={`mx-auto grid grid-cols-5 mb-1 sm:w-10/12 md:w-9/12 ${(props.info.SCORE === "CUT" || props.info.SCORE === "WD" || props.info.SCORE === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R1}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R2}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R3}</div>

@@ -89,7 +89,7 @@ function PGCTeamTable(props) {
             <tbody className={`bg-gray-50 ${(props.info["R3"] !== "-") ? '[&>*:nth-child(5)]:border-b border-gray-400' : ''}`}>
                 {golfers.map(obj => {
                     return (
-                        <tr className={`${((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9) && (+(obj[0].replace("T","")) > 65)) ? 'text-gray-400' : 'text-gray-800'}`}>
+                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9) && (+(obj[0].replace("T","")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
                             <td className="text-xs md:text-sm">{obj[2]}</td>
