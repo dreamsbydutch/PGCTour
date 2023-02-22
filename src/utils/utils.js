@@ -71,3 +71,16 @@ export function formatMoney(number) {
         return Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
     }
 }
+
+
+export function addRankingSuffix(rank) {
+  if (rank % 10 === 1 && rank % 100 !== 11) {
+    return rank + 'st';
+  } else if (rank % 10 === 2 && rank % 100 !== 12) {
+    return rank + 'nd';
+  } else if (rank % 10 === 3 && rank % 100 !== 13) {
+    return rank + 'rd';
+  } else {
+    return rank + 'th';
+  }
+}

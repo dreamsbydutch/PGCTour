@@ -22,6 +22,7 @@ export function useLeagueData() {
         'previousTourney': tourneys.previousTourney,
         'currentTourney': tourneys.currentTourney,
         'nextTourney': tourneys.nextTourney,
+        'futureTourney': tourneys.futureTourney,
         'standings': standings.standings,
         'golferStats': golferStats.data,
         'isLoading': tourneys.isLoading || standings.isLoading || golferStats.isLoading,
@@ -46,6 +47,7 @@ export function usePGCTournaments() {
         'previousTourney': null,
         'currentTourney': null,
         'nextTourney': null,
+        'futureTourney': null,
         'isLoading': allTourneys.isLoading,
         'isError': allTourneys.isError,
     }
@@ -59,12 +61,16 @@ export function usePGCTournaments() {
         prevEnd.setDate(prevEnd.getDate() + 2)
         var nextStart = new Date(obj['StartDate'])
         nextStart.setDate(nextStart.getDate() - 3)
+        var futureStart = new Date(obj['StartDate'])
+        futureStart.setDate(futureStart.getDate() - 17)
         if (now < start && now > nextStart) {
             output.nextTourney = obj
         } else if (now > end && now < prevEnd) {
             output.previousTourney = obj
         } else if (now < end && now > start) {
             output.currentTourney = obj
+        } else if (now <= nextStart && now > futureStart && !output.futureTourney) {
+            output.futureTourney = obj
         }
     })
     output.allTourneys = allTourneys.data

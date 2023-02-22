@@ -6,6 +6,7 @@ import SignUpButton from '../components/SignUpButton'
 import Leaderboard from './Leaderboard';
 
 function Home(props) {
+    console.log(props)
     return (
         <>
             {props.data.previousTourney &&
@@ -25,6 +26,13 @@ function Home(props) {
                     <SignUpButton tourney={props.data.nextTourney} />
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={props.data.nextTourney} />
+                    </a>
+                </>
+            }
+            {!props.data.nextTourney && props.data.futureTourney &&
+                <>
+                    <a href="#/leaderboard">
+                        <CountdownLogic tourney={props.data.futureTourney} />
                     </a>
                 </>
             }

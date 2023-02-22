@@ -60,6 +60,13 @@ export default function Leaderboard(props) {
                 home={props.home ?? null}
             />
         )
+    } else if (props.data.futureTourney) {
+        return (
+            <>
+                <LeaderboardHeader tourney={props.data.futureTourney} allTourneys={props.data.allTourneys} />
+                <CountdownLogic tourney={props.data.futureTourney} />
+            </>
+        )
     } else {
         return (
             <ErrorPage />
@@ -100,7 +107,6 @@ function TourneyLeaderboard(props) {
 
 
 function LeaderboardHeader(props) {
-    // var show = props.home ? false : true
     return (
         <div id="leaderboard-header">
             <div className="grid grid-flow-row grid-cols-10 border-b-2 border-gray-800 max-w-2xl mx-auto">
@@ -122,7 +128,6 @@ function LeaderboardHeader(props) {
 
 
 function DropdownComponent(props) {
-    console.log(props)
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>

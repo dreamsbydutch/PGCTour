@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { formatMoney, getRkChange } from '../utils/utils';
+import { addRankingSuffix, formatMoney, getRkChange } from '../utils/utils';
 
 export default function PGCLeaderboard(props) {
-    console.log(props)
     var data = (props.limit && props.tourney.pgcLeaderboard) ? props.tourney.pgcLeaderboard.slice(0, props.limit) : props.tourney.pgcLeaderboard
     return (
         <>
@@ -13,7 +12,7 @@ export default function PGCLeaderboard(props) {
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : 'Pts'}</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Thru' : '$$'}</div>
             </div>
-            {data.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} />)}
+            {data.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings.filter(a => a.TeamName === obj.Name)[0]} />)}
         </>
     )
 }
@@ -38,9 +37,9 @@ function PGCLeaderboardItemInfo(props) {
         <div className="mt-1 mb-6 mx-auto">
             <TeamRounds {...props} />
             <PGCTeamTable {...props} />
-            {/* {props.info.tourneyID > 1 &&
+            {props.info.tourneyID > 1 &&
                 <ProjStandings {...props} />
-            } */}
+            }
         </div>
     )
 }
@@ -89,7 +88,7 @@ function PGCTeamTable(props) {
             <tbody className={`bg-gray-50 ${(props.info["R2"] !== "-") ? '[&>*:nth-child(5)]:border-b border-gray-400' : ''}`}>
                 {golfers.map(obj => {
                     return (
-                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T","")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>
+                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
                             <td className="text-xs md:text-sm">{obj[2]}</td>
@@ -101,17 +100,22 @@ function PGCTeamTable(props) {
         </table>
     )
 }
-// function ProjStandings(props) {
-//     return (
-//         <>
-//             <div className="mx-auto grid grid-cols-2">
-//                 <div className="font-varela font-bold text-xs text-center place-self-center">Current</div>
-//                 <div className="font-varela font-bold text-xs text-center place-self-center">Projected</div>
-//             </div>
-//             <div className="mx-auto grid grid-cols-2 mb-1">
-//                 <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
-//                 <div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
-//             </div>
-//         </>
-//     )
-// }
+function ProjStandings(props) {
+    return (
+        <div className='w-3/6 mx-auto bg-gray-50 rounded-lg'>
+            <div className="text-center py-1 font-varela text-gray-800 font-bold text-base md:text-lg">Standings</div>
+            <div className="mx-auto grid grid-cols-2">
+                <div className="font-varela font-bold text-xs md:text-sm text-center place-self-center">Current</div>
+                <div className="font-varela font-bold text-xs md:text-sm text-center place-self-center">Projected</div>
+            </div>
+            <div className="mx-auto grid grid-cols-2 mb-1">
+                <div className={`font-varela py-1 text-sm md:text-base text-center place-self-center ${+(props.standings.ShowRk[0] === "T" ? props.standings.ShowRk.slice(1) : props.standings.ShowRk) <=35 ? 'text-green-700' : 'text-rose-800'}`}>
+                    {props.standings.ShowRk[0] === "T" ? "T" + addRankingSuffix(props.standings.ShowRk.slice(1)) : addRankingSuffix(props.standings.ShowRk)}
+                </div>
+                <div className={`font-varela py-1 text-sm md:text-base text-center place-self-center ${+(props.standings.ProjRk[0] === "T" ? props.standings.ProjRk.slice(1) : props.standings.ProjRk) <=35 ? 'text-green-700' : 'text-rose-800'}`}>
+                    {props.standings.ProjRk[0] === "T" ? "T" + addRankingSuffix(props.standings.ProjRk.slice(1)) : addRankingSuffix(props.standings.ProjRk)}
+                    </div>
+            </div>
+        </div>
+    )
+}
