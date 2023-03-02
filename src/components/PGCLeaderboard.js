@@ -12,7 +12,7 @@ export default function PGCLeaderboard(props) {
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : 'Pts'}</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Thru' : '$$'}</div>
             </div>
-            {data.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings.filter(a => a.TeamName === obj.Name)[0]} />)}
+            {data?.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
         </>
     )
 }
@@ -86,7 +86,7 @@ function PGCTeamTable(props) {
                 </tr>
             </thead>
             <tbody className={`bg-gray-50 ${(props.info["R2"] !== "-") ? '[&>*:nth-child(5)]:border-b border-gray-400' : ''}`}>
-                {golfers.map(obj => {
+                {golfers?.map(obj => {
                     return (
                         <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>

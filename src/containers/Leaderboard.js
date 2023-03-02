@@ -11,7 +11,7 @@ export default function Leaderboard(props) {
     let { tourneyId } = useParams();
 
     if (tourneyId) {
-        let tourney = props.data.allTourneys.filter(obj => obj.tourneyID === tourneyId)[0]
+        let tourney = props.data.allTourneys?.filter(obj => obj.tourneyID === tourneyId)[0]
         if (new Date(tourney['StartDate']) > new Date()) {
             return (
                 <>

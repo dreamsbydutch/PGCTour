@@ -11,7 +11,7 @@ export default function PGALeaderboard(props) {
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : '$$'}</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">Usage</div>
             </div>
-            {props.tourney.pgaLeaderboard.map(obj => <PGALeaderboardItem info={obj} key={obj.PLAYER} live={props.live} />)}
+            {props.tourney.pgaLeaderboard?.map(obj => <PGALeaderboardItem info={obj} key={obj.PLAYER} live={props.live} />)}
         </>
     )
 }
