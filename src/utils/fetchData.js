@@ -52,9 +52,9 @@ export function usePGCTournaments() {
         'isError': allTourneys.isError,
     }
     if (!allTourneys.data) { return output }
-    allTourneys.data.forEach((obj, i) => {
-        obj['pgaLeaderboard'] = pgaLeaderboard.data ? pgaLeaderboard.data.filter(a => a.tourneyID === obj.tourneyID) : null
-        obj['pgcLeaderboard'] = pgcLeaderboard.data ? pgcLeaderboard.data.filter(a => a.tourneyID === obj.tourneyID) : null
+    allTourneys.data?.forEach(obj => {
+        obj['pgaLeaderboard'] = pgaLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)
+        obj['pgcLeaderboard'] = pgcLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)
         var start = new Date(obj['StartDate'])
         var end = new Date(obj['EndDate'])
         var prevEnd = new Date(obj['EndDate'])
