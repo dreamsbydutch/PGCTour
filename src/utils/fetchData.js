@@ -51,7 +51,7 @@ export function usePGCTournaments() {
         'isLoading': allTourneys.isLoading,
         'isError': allTourneys.isError,
     }
-    if (!allTourneys.data) { return output }
+    if (!allTourneys.data || !pgaLeaderboard.data || !pgcLeaderboard.data) { return output }
     allTourneys.data?.forEach(obj => {
         obj['pgaLeaderboard'] = pgaLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)
         obj['pgcLeaderboard'] = pgcLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)
