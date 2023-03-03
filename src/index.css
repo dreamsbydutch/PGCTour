@@ -3,27 +3,6 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Varela+Round&family=Yellowtail&display=swap");
 
-.grid-span-2 {
-  grid-column: span 2
-}
-
-.grid-span-4 {
-  grid-column: span 4
-}
-
-/* 
-*{
-  color: #555555;
-  font: normal 16px Arial, Helvetica, sans-serif; 
-  line-height: 1.6em;
-}
-
-html, body{
-  margin: 0;
-  padding: 0;
-  font-family: "varelaround";
-} */
-
 a,
 a.div {
   text-decoration: none;

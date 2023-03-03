@@ -1,8 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-import './App.css';
-
 import { useLeagueData } from './utils/fetchData';
 import LoadingSpinner from './components/LoadingSpinner'
 import MobileNavbar from './components/MobileNavbar';
@@ -24,7 +22,8 @@ function App() {
 
   if (data.isLoading) { return <LoadingSpinner /> }
   if (data.isError) { return <ErrorPage /> }
-
+  if (!data.allTourneys || !data.standings || !data.golferStats) { return <ErrorPage /> }
+  
   return (
     <Router>
       <ScrollToTop />
