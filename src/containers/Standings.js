@@ -10,8 +10,8 @@ export default function Standings(props) {
             <div id="my-4">
                 <div className='grid grid-flow-row grid-cols-8 text-center'>
                     <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
-                    <div className="font-varela place-self-center font-bold text-base sm:text-lg  grid-span-4">Name</div>
-                    <div className="font-varela place-self-center font-bold text-xs grid-span-2 xs:text-sm sm:text-base">{width < 400 ? 'Points' : 'Cup Points'}</div>
+                    <div className="font-varela place-self-center font-bold text-base sm:text-lg  col-span-4">Name</div>
+                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">{width < 400 ? 'Points' : 'Cup Points'}</div>
                     <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm">{width < 360 ? '$$' : 'Earnings'}</div>
                 </div>
                 {
@@ -33,14 +33,14 @@ function StandingsItem(props) {
         <div className="[&:nth-child(37)]:border-t-2 [&:nth-child(37)]:border-gray-600" onClick={() => setShowInfo(!showInfo)}>
             <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400'>
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{props.info.ShowRk}  {getRkChange(props.info.RkChange)}</div>
-                <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl grid-span-4 [&>:nth-child(1)]:ml-1.5">
+                <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl col-span-4 [&>:nth-child(1)]:ml-1.5">
                     {props.info.TeamName}
                     {props.info.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
                     {props.info.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
                     {props.info.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
                     {props.info.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
                 </div>
-                <div className="font-varela place-self-center text-xs grid-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
+                <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-base lg:text-lg">{formatMoney(props.info.Earnings)}</div>
             </div>
             {showInfo ? <StandingsItemInfo info={props.info} tourneys={props.tourneys} /> : <></>}

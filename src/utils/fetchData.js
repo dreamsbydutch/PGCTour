@@ -9,6 +9,7 @@ const sheets = {
 }
 async function queryFunc({ queryKey }) {
     const [, sheetsKey] = queryKey
+    console.log('query: '+sheetsKey)
     const data = await fetch('https://opensheet.elk.sh/' + sheets[sheetsKey][0] + '/' + sheets[sheetsKey][1])
     return data.json()
 }
