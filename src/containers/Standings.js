@@ -35,10 +35,10 @@ function StandingsItem(props) {
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{props.info.ShowRk}  {getRkChange(props.info.RkChange)}</div>
                 <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl col-span-4 [&>:nth-child(1)]:ml-1.5">
                     {props.info.TeamName}
-                    {props.info.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-8" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
                 </div>
                 <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-base lg:text-lg">{formatMoney(props.info.Earnings)}</div>
@@ -70,8 +70,8 @@ function StandingsItemInfo(props) {
                 {props.tourneys.slice(0, 8).map(obj => {
                     return (
                         <div className="grid h-full items-end justify-items-center border-r border-dotted border-gray-400">
-                            <div className="block max-w-full max-h-14 p-0.5">
-                                <img className="max-h-12" src={obj.Logo} alt={obj.Tourney} /></div>
+                            <a href={"#/leaderboard/" + obj.tourneyID} className="block max-w-full max-h-14 p-0.5">
+                                <img className="max-h-12" src={obj.Logo} alt={obj.Tourney} /></a>
                             <div className="font-barlow font-extrabold text-base xs:text-lg sm:text-xl md:text-2xl">{props.info['Tourney' + obj.tourneyID + 'Rk']}</div>
                         </div>
                     )
@@ -81,8 +81,8 @@ function StandingsItemInfo(props) {
                 {props.tourneys.slice(8, 16).map(obj => {
                     return (
                         <div className="grid h-full items-end justify-items-center border-r border-dotted border-gray-400">
-                            <div className="block max-w-full max-h-14 p-0.5">
-                                <img className="max-h-12" src={obj.Logo} alt={obj.Tourney} /></div>
+                            <a href={"#/leaderboard/" + obj.tourneyID}  className="block max-w-full max-h-14 p-0.5">
+                                <img className="max-h-12" src={obj.Logo} alt={obj.Tourney} /></a>
                             <div className="font-barlow font-extrabold text-base xs:text-lg sm:text-xl md:text-2xl">{props.info['Tourney' + obj.tourneyID + 'Rk']}</div>
                         </div>
                     )
