@@ -5,6 +5,9 @@ import ChampAlert from '../components/ChampAlert'
 import SignUpButton from '../components/SignUpButton'
 import Leaderboard from './Leaderboard';
 
+import ReactGA from 'react-ga4';
+ReactGA.send({ hitType: "pageview", page: "/home" });
+
 function Home(props) {
     console.log(props)
     return (

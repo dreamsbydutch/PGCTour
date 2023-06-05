@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 
+import ReactGA from 'react-ga4';
+ReactGA.send({ hitType: "pageview", page: "/golferstats" });
+
 export default function GolferStats(props) {
     return (
         <>

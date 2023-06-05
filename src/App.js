@@ -17,6 +17,9 @@ import Rulebook from './containers/Rulebook';
 import GolferStats from './containers/GolferStats';
 // import History from './containers/History/History';
 
+import ReactGA from 'react-ga4';
+ReactGA.initialize("G-5G8C0WCN60");
+
 function App() {
   const data = useLeagueData()
 

@@ -7,6 +7,9 @@ import PGALeaderboard from '../components/PGALeaderboard';
 import PGCLeaderboard from '../components/PGCLeaderboard';
 import ErrorPage from './ErrorPage';
 
+import ReactGA from 'react-ga4';
+ReactGA.send({ hitType: "pageview", page: "/leaderboard" });
+
 export default function Leaderboard(props) {
     let { tourneyId } = useParams();
 

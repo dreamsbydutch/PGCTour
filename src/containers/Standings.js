@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { formatMoney, getRkChange, useWindowDimensions } from '../utils/utils'
 
+import ReactGA from 'react-ga4';
+ReactGA.send({ hitType: "pageview", page: "/standings" });
+
 export default function Standings(props) {
     var { width } = useWindowDimensions()
     return (
