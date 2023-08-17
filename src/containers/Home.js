@@ -1,8 +1,8 @@
 import React from 'react';
 import CountdownLogic from '../components/CountdownLogic';
 import Standings from './Standings';
-import ChampAlert from '../components/ChampAlert'
-import SignUpButton from '../components/SignUpButton'
+// import ChampAlert from '../components/ChampAlert'
+// import SignUpButton from '../components/SignUpButton'
 import Leaderboard from './Leaderboard';
 
 import ReactGA from 'react-ga4';
