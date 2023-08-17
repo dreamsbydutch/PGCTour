@@ -12,9 +12,9 @@ function Home(props) {
     console.log(props)
     return (
         <>
-            {props.data.previousTourney &&
-                <ChampAlert tourney={props.data.previousTourney} />
-            }
+            {/* {props.data.previousTourney &&
+                // <ChampAlert tourney={props.data.previousTourney} />
+            } */}
             {props.data.currentTourney &&
                 <>
                     <a href="#/leaderboard">
@@ -26,7 +26,7 @@ function Home(props) {
             }
             {props.data.nextTourney &&
                 <>
-                    <SignUpButton tourney={props.data.nextTourney} />
+                    {/* <SignUpButton tourney={props.data.nextTourney} /> */}
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={props.data.nextTourney} />
                     </a>
