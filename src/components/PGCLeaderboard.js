@@ -37,7 +37,7 @@ function PGCLeaderboardItemInfo(props) {
         <div className="mt-1 mb-6 mx-auto">
             <TeamRounds {...props} />
             <PGCTeamTable {...props} />
-            {props.info.tourneyID > 1 &&
+            {props.info.tourneyID > 1 && props.info.tourneyID <= 16 &&
                 <ProjStandings {...props} />
             }
         </div>
@@ -85,8 +85,13 @@ function PGCTeamTable(props) {
                     <td className="text-2xs font-bold md:text-xs">Today</td>
                 </tr>
             </thead>
+<<<<<<< HEAD
             <tbody className={`bg-gray-50 ${(props.info["R2"] !== "-") ? '[&>*:nth-child(3)]:border-b border-gray-400' : ''}`}>
+=======
+            <tbody className={`bg-gray-50 [&>*:nth-child(5)]:border-b border-gray-400`}>
+>>>>>>> 1320d87ff02a74caf8a063cbf85df8743326076c
                 {golfers?.map(obj => {
+                    if (obj[1]==="-") return null
                     console.log(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-")
                     return (
                         <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>

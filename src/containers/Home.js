@@ -1,8 +1,8 @@
 import React from 'react';
 import CountdownLogic from '../components/CountdownLogic';
 import Standings from './Standings';
-import ChampAlert from '../components/ChampAlert'
-import SignUpButton from '../components/SignUpButton'
+// import ChampAlert from '../components/ChampAlert'
+// import SignUpButton from '../components/SignUpButton'
 import Leaderboard from './Leaderboard';
 
 import ReactGA from 'react-ga4';
@@ -12,9 +12,9 @@ function Home(props) {
     console.log(props)
     return (
         <>
-            {props.data.previousTourney &&
-                <ChampAlert tourney={props.data.previousTourney} />
-            }
+            {/* {props.data.previousTourney &&
+                // <ChampAlert tourney={props.data.previousTourney} />
+            } */}
             {props.data.currentTourney &&
                 <>
                     <a href="#/leaderboard">
@@ -26,7 +26,7 @@ function Home(props) {
             }
             {props.data.nextTourney &&
                 <>
-                    <SignUpButton tourney={props.data.nextTourney} />
+                    {/* <SignUpButton tourney={props.data.nextTourney} /> */}
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={props.data.nextTourney} />
                     </a>
