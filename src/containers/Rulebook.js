@@ -12,12 +12,12 @@ function Rulebook() {
                 <div className="font-varela place-self-center text-3xl font-bold mt-12">Schedule</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">The sixteen tournaments on the PGC Tour schedule that will be split into 3 tiers.</div>
                 <div className="font-varela place-self-center text-sm my-2">Majors - The Masters, PGA Championship, U.S. Open, The Open Championship</div>
-                <div className="font-varela place-self-center text-sm my-2">Mid Tier - Waste Management Open, Arnold Palmer Inviational, The Players Championship, RBC Heritage, Wells Fargo Championship, The Memorial Torunament</div>
-                <div className="font-varela place-self-center text-sm my-2">Bottom Tier - The Genesis Invitational, Valero Texas Open, AT&T Byron Nelson, RBC Canadian Open, Travelers Championship, Genesis Scottish Open</div>
+                <div className="font-varela place-self-center text-sm my-2">Elevated - The Genesis Invitational, Arnold Palmer Inviational, The Players Championship, RBC Heritage, Wells Fargo Championship, The Memorial Torunament</div>
+                <div className="font-varela place-self-center text-sm my-2">Standard - Waste Management Open, Valero Texas Open, The CJ Cup Byron Nelson, RBC Canadian Open, Travelers Championship, Genesis Scottish Open</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">Each tier will have a different points and payouts. A full schedule and points/payouts structure is outlined below.</div>
 
                 <div className="font-varela place-self-center text-3xl font-bold mt-12">Rosters</div>
-                <div className="font-varela place-self-center mt-6 mb-2 text-lg">The field for each tournament will be split into five groups that will be finalized on the Monday morning prior to each tournament. Groups will be chosen based on the <a href="/pgctour/#/golferstats">PGC Rating</a>.</div>
+                <div className="font-varela place-self-center mt-6 mb-2 text-lg">The field for each tournament will be split into five groups that will be finalized on the Monday morning prior to each tournament. Groups will be chosen based on the PGC Rating.</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">Players choose 2 golfers from each of the 5 groupings to create your 10 golfer team for the tournament. You will make new picks and have a new team for each tournament on the schedule.</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">Groups are set on Monday morning of tournament week.</div>
                 <div className="font-varela place-self-center text-sm my-2">Golfers that are added to the tournament field after the groups are set will be left out of the PGC field.</div>
@@ -49,6 +49,7 @@ function Rulebook() {
                 <div className="font-varela place-self-center text-sm my-2">Mid Tier Champions will win $100</div>
                 <div className="font-varela place-self-center text-sm my-2">Bottom Tier Champions will win $50</div>
                 <div className="font-varela place-self-center text-sm my-2">Full distributions can be found below.</div>
+                <div className="font-varela place-self-center text-sm my-2">Payouts are based on a 75 player tour, they will be adjusted once the total number of players is finalized.</div>
                 <div className="bottom"></div>
 
                 <img className="w-full mb-6 mt-2 max-w-3xl" alt="Points and Payout distributions" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/distributions.png" />

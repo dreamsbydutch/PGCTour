@@ -5,7 +5,7 @@ const sheets = {
     'pgaLeaderboard': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'Tournaments'],
     'golferStats': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'GolferStats'],
     'pgcStandings': ['1X5f0TtmTKKTK21SQn8pFu9Zmm6eekE-GvavnxaY6EHc', 'Standings'],
-    'tournaments': ['1EhRq77hWT0w_chnNVYhOq5_W_FQ--mPbliDyv3YHWG4', 'Tournaments'],
+    'tournaments': ['1SSk7lg3Ym17lw8Hn-yZvT_erE9umRHPlrZJ8U4faBMY', 'Tournaments'],
 }
 async function queryFunc({ queryKey }) {
     const [, sheetsKey] = queryKey
@@ -53,7 +53,7 @@ export function usePGCTournaments() {
         'isError': allTourneys.isError,
     }
     if (!allTourneys.data || !pgaLeaderboard.data || !pgcLeaderboard.data) { return output }
-    console.log(pgaLeaderboard)
+    console.log(allTourneys)
     console.log(pgcLeaderboard)
     allTourneys.data?.forEach(obj => {
         obj['pgaLeaderboard'] = pgaLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)

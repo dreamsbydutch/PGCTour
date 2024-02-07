@@ -8,7 +8,7 @@ export default function Standings(props) {
     var { width } = useWindowDimensions()
     return (
         <>
-            <div className="mb-2 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">PGC Tour Standings</div>
+            <div className="mb-2 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">2023 PGC Tour Standings</div>
             <div className="text-sm pb-2 text-gray-400 text-center md:text-base">Tap on a PGC player to view their stats and tournament history.</div>
             <div id="my-4">
                 <div className='grid grid-flow-row grid-cols-8 text-center'>
