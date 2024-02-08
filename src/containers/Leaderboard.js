@@ -8,6 +8,7 @@ import PGCLeaderboard from '../components/PGCLeaderboard';
 import ErrorPage from './ErrorPage';
 
 import ReactGA from 'react-ga4';
+import DbyDLeaderboard from '../components/DbyDLeaderboard'
 ReactGA.send({ hitType: "pageview", page: "/leaderboard" });
 
 export default function Leaderboard(props) {
@@ -37,7 +38,7 @@ export default function Leaderboard(props) {
     } else if (props.data.currentTourney) {
         return (
             <TourneyLeaderboard
-                tourney={props.data.currentTourney}
+                tourney={props.data.nextTourney}
                 allTourneys={props.data.allTourneys}
                 standings={props.data.standings}
                 live={true}
@@ -80,7 +81,8 @@ export default function Leaderboard(props) {
 
 function TourneyLeaderboard(props) {
     const [pgcEffect, setPGCEffect] = useState(false);
-    const [pgaEffect, setPGAEffect] = useState(false);
+    const [dbydEffect, setDbyDEffect] = useState(false);
+    // const [pgaEffect, setPGAEffect] = useState(false);
     const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
     return (
         <>
@@ -90,12 +92,18 @@ function TourneyLeaderboard(props) {
                     <></> :
                     <div className="my-4 mx-auto text-center">
                         <button onClick={() => { setLeaderboardToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
-                        <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button>
+                        <button onClick={() => { setLeaderboardToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>DbyD</button>
+                        {/* <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button> */}
                     </div>
                 }
                 {leaderboardToggle === "PGC" ?
                     <>
                         <PGCLeaderboard {...props} />
+                    </>
+                    :
+                    leaderboardToggle === "DbyD" ?
+                    <>
+                        <DbyDLeaderboard {...props} />
                     </>
                     :
                     <>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { addRankingSuffix, formatMoney, getRkChange } from '../utils/utils';
 
-export default function PGCLeaderboard(props) {
-    const leaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1')
+export default function DbyDLeaderboard(props) {
+    const leaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2')
     var data = (props.limit && leaderboardData) ? leaderboardData.slice(0, props.limit) : leaderboardData
     return (
         <>

@@ -22,6 +22,7 @@ ReactGA.initialize("G-5G8C0WCN60");
 
 function App() {
   const data = useLeagueData()
+  console.log(data)
 
   if (data.isLoading) { return <LoadingSpinner /> }
   if (data.isError) { return <ErrorPage /> }

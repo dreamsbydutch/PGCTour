@@ -41,7 +41,7 @@ function Home(props) {
             }
             <a href="#/standings">
                 <div className="my-8 py-4 px-2 rounded-2xl bg-gray-100 hover:text-gray-800 shadow-md">
-                    <Standings data={props.data} limit={10} />
+                    <Standings data={props.data} limit={15} home={true} />
                 </div>
             </a>
         </>
