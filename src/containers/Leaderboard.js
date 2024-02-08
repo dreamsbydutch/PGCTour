@@ -38,7 +38,7 @@ export default function Leaderboard(props) {
     } else if (props.data.currentTourney) {
         return (
             <TourneyLeaderboard
-                tourney={props.data.nextTourney}
+                tourney={props.data.currentTourney}
                 allTourneys={props.data.allTourneys}
                 standings={props.data.standings}
                 live={true}
