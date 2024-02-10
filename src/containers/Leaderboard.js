@@ -4,11 +4,12 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import CountdownLogic from '../components/CountdownLogic'
 import PGALeaderboard from '../components/PGALeaderboard';
-import PGCLeaderboard from '../components/PGCLeaderboard';
+import PGCLeaderboard, { PGCLeaderboardItem } from '../components/PGCLeaderboard';
 import ErrorPage from './ErrorPage';
 
 import ReactGA from 'react-ga4';
 import DbyDLeaderboard from '../components/DbyDLeaderboard'
+import { getRkChange } from '../utils/utils'
 ReactGA.send({ hitType: "pageview", page: "/leaderboard" });
 
 export default function Leaderboard(props) {
@@ -96,7 +97,12 @@ function TourneyLeaderboard(props) {
                         {/* <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button> */}
                     </div>
                 }
-                {leaderboardToggle === "PGC" ?
+                {props.home ?
+                    <>
+                        <HomeLeaderboard {...props} />
+                    </>
+                    :
+                    leaderboardToggle === "PGC" ?
                     <>
                         <PGCLeaderboard {...props} />
                     </>
@@ -112,6 +118,32 @@ function TourneyLeaderboard(props) {
                 }
             </div>
         </>
+    )
+}
+function HomeLeaderboard(props) {
+    const pgcLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1').slice(0, 10)
+    const dbdLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2').slice(0, 10)
+    return (
+        <div className='grid grid-flow-col grid-cols-2 text-center mx-auto'>
+        <div className='border-r border-black px-1'>
+            <div className='text-lg font-bold mb-2'>PGC Tour</div>
+            <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
+                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
+                <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
+                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Score</div>
+            </div>
+            {pgcLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
+        </div>
+        <div className='px-1'>
+            <div className='text-lg font-bold mb-2'>DbyD Tour</div>
+            <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
+                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
+                <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
+                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Score</div>
+            </div>
+            {dbdLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
+        </div>
+        </div>
     )
 }
 
@@ -136,6 +168,18 @@ function LeaderboardHeader(props) {
         </div >
     )
 };
+function HomeLeaderboardItem(props) {
+    const [showInfo, setShowInfo] = useState(false)
+    return (
+        <div className='border-b border-dashed border-gray-200 max-w-xl mx-auto' onClick={() => setShowInfo(!showInfo)}>
+            <div className='grid grid-flow-row grid-cols-8 text-center py-1'>
+                <div className='font-varela place-self-center text-xs col-span-2 sm:text-base'>{props.info.ShowRk}</div>
+                <div className='font-varela place-self-center text-sm col-span-4 sm:text-lg whitespace-nowrap'>{props.info.Name}</div>
+                <div className='font-varela place-self-center text-xs col-span-2 sm:text-base'>{props.info.Score}</div>
+            </div>
+        </div>
+    )
+}
 
 
 function DropdownComponent(props) {
