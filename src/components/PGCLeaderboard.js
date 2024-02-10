@@ -91,7 +91,7 @@ function PGCTeamTable(props) {
                     if (obj[1]==="-") return null
                     console.log(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-")
                     return (
-                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>
+                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "WD") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
                             <td className="text-xs md:text-sm">{obj[2] === "+100" ? "WD" : obj[2]}</td>
