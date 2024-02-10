@@ -85,7 +85,7 @@ function TourneyLeaderboard(props) {
     // const [pgaEffect, setPGAEffect] = useState(false);
     const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
     return (
-        <>
+        <div className='py-4'>
             <LeaderboardHeader {...props} />
             {props.home ?
                 <>
@@ -117,7 +117,7 @@ function TourneyLeaderboard(props) {
                     }
                 </div>
             }
-        </>
+        </div>
     )
 }
 function HomeLeaderboard(props) {
@@ -135,7 +135,7 @@ function HomeLeaderboard(props) {
             {pgcLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
         </div>
         <div className='pl-1'>
-            <div className='text-lg font-bold mb-2'>DxD Tour</div>
+            <div className='text-lg font-bold mb-2'>DbyD Tour</div>
             <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
                 <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
                 <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
