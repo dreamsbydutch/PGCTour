@@ -87,43 +87,44 @@ function TourneyLeaderboard(props) {
     return (
         <>
             <LeaderboardHeader {...props} />
-            <div className="mt-8">
-                {props.home ?
-                    <></> :
-                    <div className="my-4 mx-auto text-center">
-                        <button onClick={() => { setLeaderboardToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
-                        <button onClick={() => { setLeaderboardToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>DbyD</button>
-                        {/* <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button> */}
-                    </div>
-                }
-                {props.home ?
-                    <>
-                        <HomeLeaderboard {...props} />
-                    </>
-                    :
-                    leaderboardToggle === "PGC" ?
-                    <>
-                        <PGCLeaderboard {...props} />
-                    </>
-                    :
-                    leaderboardToggle === "DbyD" ?
-                    <>
-                        <DbyDLeaderboard {...props} />
-                    </>
-                    :
-                    <>
-                        <PGALeaderboard {...props} />
-                    </>
-                }
-            </div>
+            {props.home ?
+                <>
+                    <HomeLeaderboard {...props} />
+                </>
+                :
+                <div className="mt-8">
+                    {props.home ?
+                        <></> :
+                        <div className="my-4 mx-auto text-center">
+                            <button onClick={() => { setLeaderboardToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
+                            <button onClick={() => { setLeaderboardToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>DbyD</button>
+                            {/* <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button> */}
+                        </div>
+                    }
+                    {leaderboardToggle === "PGC" ?
+                        <>
+                            <PGCLeaderboard {...props} />
+                        </>
+                        :
+                        leaderboardToggle === "DbyD" ?
+                        <>
+                            <DbyDLeaderboard {...props} />
+                        </>
+                        :
+                        <>
+                            <PGALeaderboard {...props} />
+                        </>
+                    }
+                </div>
+            }
         </>
     )
 }
 function HomeLeaderboard(props) {
-    const pgcLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1').slice(0, 10)
-    const dbdLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2').slice(0, 10)
+    const pgcLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1').slice(0, 12)
+    const dbdLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2').slice(0, 12)
     return (
-        <div className='grid grid-flow-col grid-cols-2 text-center mx-auto'>
+        <div className='grid grid-flow-col grid-cols-2 text-center mx-auto mt-4'>
         <div className='border-r border-black pr-1'>
             <div className='text-lg font-bold mb-2'>PGC Tour</div>
             <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">

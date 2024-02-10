@@ -32,7 +32,8 @@ function App() {
     <Router>
       <ScrollToTop />
       {window.innerWidth < 850 ? <><TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} /><MobileNavbar /></> : <MobileNavbar />}
-      <div className='mt-8 mb-16 p-3 mx-auto max-w-3xl min-h-screen'>
+      <div className='mt-6 mb-16 mx-3 max-w-3xl min-h-screen'>
+      <div className='mx-auto'>
         <Routes>
           <Route exact path="/" element={<Home data={data} />} />
           <Route path="/leaderboard" element={<Leaderboard data={data} />} />
@@ -43,6 +44,7 @@ function App() {
           {/* <Route path="/history" element={<History />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
+      </div>
       </div>
       {window.innerWidth < 850 ? <div style={{ 'color': '#fff' }}>.</div> : <Footer />}
     </Router >
