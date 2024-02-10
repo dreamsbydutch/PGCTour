@@ -23,10 +23,10 @@ export function PGCLeaderboardItem(props) {
     return (
         <div className='border-b border-dashed border-gray-200 max-w-xl mx-auto' onClick={() => setShowInfo(!showInfo)}>
             <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
-                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.ShowRk}&nbsp;&nbsp;&nbsp;{getRkChange(props.info.RkChange)}</div>
+                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score === "+100" ? "CUT" : props.info.ShowRk}&nbsp;&nbsp;&nbsp;{getRkChange(props.info.RkChange)}</div>
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.Name}</div>
-                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score}</div>
-                <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? props.info.Today : props.info.Points}</div>
+                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score === "+100" ? "-" : props.info.Score}</div>
+                <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? props.info.Today === "+100" ? "-" : props.info.Today : props.info.Points}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1 whitespace-nowrap xs:text-2xs sm:text-xs'>{props.live ? props.info.Thru : formatMoney(props.info.Earnings)}</div>
             </div>
             {showInfo ? <PGCLeaderboardItemInfo {...props} /> : <></>}
@@ -91,10 +91,10 @@ function PGCTeamTable(props) {
                     if (obj[1]==="-") return null
                     console.log(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-")
                     return (
-                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "WD") ? 'text-gray-400' : 'text-gray-800'}`}>
+                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "WD" || obj[0] === "CUT") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
-                            <td className="text-xs md:text-sm">{obj[2] === "+100" ? "-" : obj[2]}</td>
+                            <td className="text-xs md:text-sm">{obj[2] === "+200" || obj[0] === "CUT" ? "-" : obj[2]}</td>
                             <td className="text-xs md:text-sm">{obj[3]}</td>
                         </tr>
                     )
