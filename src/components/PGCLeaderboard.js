@@ -18,7 +18,7 @@ export default function PGCLeaderboard(props) {
     )
 }
 
-function PGCLeaderboardItem(props) {
+export function PGCLeaderboardItem(props) {
     const [showInfo, setShowInfo] = useState(false)
     return (
         <div className='border-b border-dashed border-gray-200 max-w-xl mx-auto' onClick={() => setShowInfo(!showInfo)}>
@@ -94,7 +94,7 @@ function PGCTeamTable(props) {
                         <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
-                            <td className="text-xs md:text-sm">{obj[2]}</td>
+                            <td className="text-xs md:text-sm">{obj[2] === "+100" ? "WD" : obj[2]}</td>
                             <td className="text-xs md:text-sm">{obj[3]}</td>
                         </tr>
                     )

@@ -41,8 +41,8 @@ export function usePGCStandings() {
 }
 export function usePGCTournaments() {
     const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
-    const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 90000, })
-    const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 90000, })
+    const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 30000, })
+    const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 30000, })
     const now = new Date()
     var output = {
         'allTourneys': null,

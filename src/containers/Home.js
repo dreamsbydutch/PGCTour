@@ -9,7 +9,6 @@ import ReactGA from 'react-ga4';
 ReactGA.send({ hitType: "pageview", page: "/home" });
 
 function Home(props) {
-    console.log(props)
     return (
         <>
             {/* {props.data.previousTourney &&
