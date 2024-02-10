@@ -4,12 +4,11 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import CountdownLogic from '../components/CountdownLogic'
 import PGALeaderboard from '../components/PGALeaderboard';
-import PGCLeaderboard, { PGCLeaderboardItem } from '../components/PGCLeaderboard';
+import PGCLeaderboard from '../components/PGCLeaderboard';
 import ErrorPage from './ErrorPage';
 
 import ReactGA from 'react-ga4';
 import DbyDLeaderboard from '../components/DbyDLeaderboard'
-import { getRkChange } from '../utils/utils'
 ReactGA.send({ hitType: "pageview", page: "/leaderboard" });
 
 export default function Leaderboard(props) {
@@ -125,7 +124,7 @@ function HomeLeaderboard(props) {
     const dbdLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2').slice(0, 10)
     return (
         <div className='grid grid-flow-col grid-cols-2 text-center mx-auto'>
-        <div className='border-r border-black px-1'>
+        <div className='border-r border-black pr-1'>
             <div className='text-lg font-bold mb-2'>PGC Tour</div>
             <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
                 <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
@@ -134,7 +133,7 @@ function HomeLeaderboard(props) {
             </div>
             {pgcLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
         </div>
-        <div className='px-1'>
+        <div className='pl-1'>
             <div className='text-lg font-bold mb-2'>DbyD Tour</div>
             <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
                 <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
