@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 ReactGA.send({ hitType: "pageview", page: "/standings" });
 
 export default function Standings(props) {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams, _] = useSearchParams()
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
     const [standingsToggle, setStandingsToggle] = useState(searchParams.get("tour") || "PGC")
