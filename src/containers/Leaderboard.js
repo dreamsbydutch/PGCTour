@@ -80,7 +80,7 @@ export default function Leaderboard(props) {
 
 
 function TourneyLeaderboard(props) {
-    const [searchParams,setSearchParams] = useSearchParams()
+    const [searchParams, ] = useSearchParams()
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
     // const [pgaEffect, setPGAEffect] = useState(false);
