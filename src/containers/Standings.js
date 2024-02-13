@@ -2,58 +2,93 @@ import React, { useState } from 'react';
 import { formatMoney, getRkChange, useWindowDimensions } from '../utils/utils'
 
 import ReactGA from 'react-ga4';
+import { useSearchParams } from 'react-router-dom';
 ReactGA.send({ hitType: "pageview", page: "/standings" });
 
 export default function Standings(props) {
+    const [searchParams, setSearchParams] = useSearchParams()
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
-    const [standingsToggle, setStandingsToggle] = useState("PGC")
+    const [standingsToggle, setStandingsToggle] = useState(searchParams.get("tour") || "PGC")
     return (
         <>
-            <div className="mb-2 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">{props.home ? 'Combined Top 15' : standingsToggle === "PGC" ? 'PGC Tour Standings' : 'Dreams by Dutch Tour Standings'}</div>
-            <div className="text-sm pb-2 text-gray-400 text-center md:text-base">Tap on a tour player to view their stats and tournament history.</div>
+            <div className="mb-4 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">{props.home ? 'Tour Standings' : standingsToggle === "PGC" ? 'PGC Tour Standings' : 'Dreams by Dutch Tour Standings'}</div>
             
-            <div className="mt-8">
                 {props.home ?
-                        <FullStandings {...props} />
-                    :
-                    <>
-                    <div className="my-4 mx-auto text-center">
-                        <button onClick={() => { setStandingsToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${standingsToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
-                        <button onClick={() => { setStandingsToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>Dreams by Dutch</button>
-                    </div>
-                    {standingsToggle === "PGC" ?
-                            <PGCStandings {...props} />
+                        <HomeStandings {...props} />
                         :
-                            <DbyDStandings {...props} />}
-                    </>
+                        <>
+                            <div className="mb-2 text-sm text-gray-400 text-center md:text-base">Tap on a tour player to view their stats and tournament history.</div>
+                            <div className="my-4 mx-auto text-center">
+                                <button onClick={() => { setStandingsToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${standingsToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
+                                <button onClick={() => { setStandingsToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>Dreams by Dutch</button>
+                            </div>
+                            {standingsToggle === "PGC" ?
+                                    <PGCStandings {...props} />
+                                :
+                                    <DbyDStandings {...props} />}
+                        </>
                 }
-            </div>
         </>
     )
 }
-function FullStandings(props) {
-    var { width } = useWindowDimensions()
-    const fullStandings = props.data.standings.map(obj => {
-        obj.ShowRk = obj.FullRk
-        return obj
-    })
+function HomeStandings(props) {
+    const standings = [props.data.standings.filter(obj => obj.TourID === '1').slice(0,15),props.data.standings.filter(obj => obj.TourID === '2').slice(0,15)]
     return (
-        <>
-            <div id="my-4">
+        <div className='grid grid-flow-col grid-cols-2 text-center mx-auto'>
+            <div className='border-r border-black pr-2'>
+                <div className='text-lg font-bold mb-2'>PGC Tour</div>
                 <div className='grid grid-flow-row grid-cols-8 text-center'>
                     <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
-                    <div className="font-varela place-self-center font-bold text-base sm:text-lg  col-span-4">Name</div>
-                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">{width < 400 ? 'Points' : 'Cup Points'}</div>
-                    <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm">{width < 360 ? '$$' : 'Earnings'}</div>
+                    <div className="font-varela place-self-center font-bold text-base sm:text-lg col-span-5">Name</div>
+                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">Points</div>
                 </div>
                 {
-                    props.limit ?
-                        fullStandings.slice(0, props.limit).map(obj => <StandingsItem info={obj} key={obj.RawRk} tourneys={props.data.allTourneys} />) :
-                        fullStandings.map(obj => <StandingsItem info={obj} key={obj.RawRk} tourneys={props.data.allTourneys} />)
+                    standings[0].map(obj => {
+                        console.log(obj)
+                        return (
+                            <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400 whitespace-nowrap'>
+                                <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
+                                <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
+                                    {obj.TeamName}
+                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                                </div>
+                                <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
+                            </div>
+                        )
+                    })
                 }
             </div>
-        </>
+            <div className="pl-2">
+                <div className='text-lg font-bold mb-2'>DbyD Tour</div>
+                <div className='grid grid-flow-row grid-cols-8 text-center'>
+                    <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
+                    <div className="font-varela place-self-center font-bold text-base sm:text-lg col-span-5">Name</div>
+                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">Points</div>
+                </div>
+                {
+                    standings[1].map(obj => {
+                        console.log(obj)
+                        return (
+                            <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400 whitespace-nowrap'>
+                                <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
+                                <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
+                                    {obj.TeamName}
+                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                                </div>
+                                <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </div>
     )
 }
 function PGCStandings(props) {

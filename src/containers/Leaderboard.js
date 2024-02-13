@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import CountdownLogic from '../components/CountdownLogic'
@@ -80,10 +80,11 @@ export default function Leaderboard(props) {
 
 
 function TourneyLeaderboard(props) {
+    const [searchParams,setSearchParams] = useSearchParams()
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
     // const [pgaEffect, setPGAEffect] = useState(false);
-    const [leaderboardToggle, setLeaderboardToggle] = useState("PGC")
+    const [leaderboardToggle, setLeaderboardToggle] = useState(searchParams.get("tour") || "PGC")
     return (
         <div className='py-4'>
             <LeaderboardHeader {...props} />
