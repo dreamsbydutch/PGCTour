@@ -69,11 +69,12 @@ function TeamRounds(props) {
 function PGCTeamTable(props) {
     let golfers = []
     for (let i = 1; i <= 10; i++) {
+        props.info['G' + i + 'Thru'] = props.info['G' + i + 'Thru'] === undefined ? "" : props.info['G' + i + 'Thru']
         golfers.push([
             props.info['G' + i + 'Pos'],
             props.info['G' + i + 'Name'],
             props.info['G' + i + 'Total'],
-            props.info['G' + i + 'Today'] ? props.info['G' + i + 'Today'] + ' (' + props.info['G' + i + 'Thru'] + ')' : props.info['G' + i + 'Thru'],
+            props.info['G' + i + 'Pos'] === "CUT" || props.info['G' + i + 'Pos'] === "WD" || props.info['G' + i + 'Pos'] === "DQ"  ? null : props.info['G' + i + 'Thru'].includes("M") ? props.info['G' + i + 'Thru'] : props.info['G' + i + 'Today'] + ' (' + props.info['G' + i + 'Thru'] + ')',
         ])
     }
     return (
@@ -89,12 +90,11 @@ function PGCTeamTable(props) {
             <tbody className={`bg-gray-50 ${(props.info["R2"] !== "-") ? '[&>*:nth-child(5)]:border-b border-gray-400' : ''}`}>
                 {golfers?.map(obj => {
                     if (obj[1]==="-") return null
-                    console.log(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "-")
                     return (
                         <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "WD" || obj[0] === "CUT") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
-                            <td className="text-xs md:text-sm">{obj[2] === "+200" || obj[0] === "CUT" ? "-" : obj[2]}</td>
+                            <td className="text-xs md:text-sm">{obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ" ? "-" : obj[2]}</td>
                             <td className="text-xs md:text-sm">{obj[3]}</td>
                         </tr>
                     )
