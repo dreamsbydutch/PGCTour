@@ -91,7 +91,7 @@ function PGCTeamTable(props) {
                 {golfers?.map(obj => {
                     if (obj[1]==="-") return null
                     return (
-                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "WD" || obj[0] === "CUT") ? 'text-gray-400' : 'text-gray-800'}`}>
+                        <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
                             <td className="text-xs md:text-sm">{obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ" ? "-" : obj[2]}</td>
