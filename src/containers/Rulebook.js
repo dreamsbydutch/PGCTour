@@ -45,9 +45,9 @@ function Rulebook() {
                 <div className="font-varela place-self-center text-sm my-2">The TOUR Championship will only count the golfer's actual score and not their starting strokes awarded by the PGA</div>
 
                 <div className="font-varela place-self-center text-3xl font-bold mt-12">Payouts</div>
-                <div className="font-varela place-self-center mt-6 mb-2 text-lg">After every tournament the top 7-15 finishers will win money earnings. Earnings will accumulate during the season and will be paid out at the end of the year.</div>
-                <div className="font-varela place-self-center text-sm my-2">Major Champions will win $150</div>
-                <div className="font-varela place-self-center text-sm my-2">Mid Tier Champions will win $100</div>
+                <div className="font-varela place-self-center mt-6 mb-2 text-lg">After every tournament the top finishers will win money earnings. Earnings will accumulate during the season and will be paid out at the end of the year.</div>
+                <div className="font-varela place-self-center text-sm my-2">Major Champions will win $100</div>
+                <div className="font-varela place-self-center text-sm my-2">Mid Tier Champions will win $75</div>
                 <div className="font-varela place-self-center text-sm my-2">Bottom Tier Champions will win $50</div>
                 <div className="font-varela place-self-center text-sm my-2">Full distributions can be found below.</div>
                 <div className="font-varela place-self-center text-sm my-2">Payouts are based on a 75 player tour, they will be adjusted once the total number of players is finalized.</div>
