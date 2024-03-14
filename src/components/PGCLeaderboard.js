@@ -94,7 +94,7 @@ function PGCTeamTable(props) {
                         <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                             <td className="text-xs md:text-sm">{obj[0]}</td>
                             <td className="text-xs md:text-sm">{obj[1]}</td>
-                            <td className="text-xs md:text-sm">{obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ" ? "-" : obj[2]}</td>
+                            <td className="text-xs md:text-sm">{((obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ") && (props.info["R2"] !== "-")) ? "-" : obj[2]}</td>
                             <td className="text-xs md:text-sm">{obj[3]}</td>
                         </tr>
                     )
