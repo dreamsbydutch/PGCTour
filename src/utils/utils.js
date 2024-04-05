@@ -107,6 +107,6 @@ export function formatThru(thru,teetime) {
   } else if (+thru > 0) {
     return +thru
   } else {
-    return teetime.replace(" AM","").replace(" PM","")
+    return teetime
   }
 }
