@@ -42,8 +42,17 @@ function PGALeaderboardItemInfo(props) {
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
-                {props.info.R2==="" && <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div>}
-                <div className="font-varela font-bold text-xs text-center place-self-center">Win</div>
+                {props.info.R2==="" ? 
+                    <>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Top 10</div>
+                    </>
+                    :
+                    <>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Top 10</div>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Win</div>
+                    </>
+                }
             </div>
             <div className={`mx-auto grid ${props.info.R2==="" ? 'grid-cols-7' : 'grid-cols-6'} mb-1 sm:w-10/12 md:w-9/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R1}</div>
@@ -51,8 +60,17 @@ function PGALeaderboardItemInfo(props) {
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R3}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R4}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.Total}</div>
-                {props.info.R2==="" && <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>}
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.win*1000)/10}%</div>
+                {props.info.R2==="" ?
+                    <>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                    </>
+                    :
+                    <>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.win*1000)/10}%</div>
+                    </>
+                }
             </div>
         </div>
     )
