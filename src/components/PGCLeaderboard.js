@@ -49,19 +49,21 @@ function PGCLeaderboardItemInfo(props) {
 function TeamRounds(props) {
     return (
         <>
-            <div className="mx-auto grid grid-cols-5 sm:w-10/12 md:w-9/12">
+            <div className="mx-auto grid grid-cols-6 sm:w-10/12 md:w-9/12">
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
+                <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div>
             </div>
-            <div className="mx-auto grid grid-cols-5 mb-1 sm:w-10/12 md:w-9/12">
+            <div className="mx-auto grid grid-cols-6 mb-1 sm:w-10/12 md:w-9/12">
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R1}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R2}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R3}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R4}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.Total}</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>
             </div>
         </>
     )
