@@ -36,7 +36,7 @@ function PGALeaderboardItem(props) {
 function PGALeaderboardItemInfo(props) {
     return (
         <div className="mt-1 mb-6 mx-auto">
-            <div className={`mx-auto grid ${props.info.R2==="" ? 'grid-cols-7' : 'grid-cols-6'} sm:w-10/12 md:w-9/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
+            <div className={`mx-auto grid grid-cols-7 sm:w-11/12 md:w-10/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
                 <div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
@@ -54,7 +54,7 @@ function PGALeaderboardItemInfo(props) {
                     </>
                 }
             </div>
-            <div className={`mx-auto grid ${props.info.R2==="" ? 'grid-cols-7' : 'grid-cols-6'} mb-1 sm:w-10/12 md:w-9/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
+            <div className={`mx-auto grid grid-cols-7 mb-1 sm:w-11/12 md:w-10/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R1}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R2}</div>
                 <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R3}</div>
