@@ -83,7 +83,7 @@ function TourneyLeaderboard(props) {
     const [searchParams, ] = useSearchParams()
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
-    // const [pgaEffect, setPGAEffect] = useState(false);
+    const [pgaEffect, setPGAEffect] = useState(false);
     const [leaderboardToggle, setLeaderboardToggle] = useState(searchParams.get("tour") || "PGC")
     return (
         <div className='py-4'>
@@ -99,7 +99,7 @@ function TourneyLeaderboard(props) {
                         <div className="my-4 mx-auto text-center">
                             <button onClick={() => { setLeaderboardToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
                             <button onClick={() => { setLeaderboardToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>DbyD</button>
-                            {/* <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button> */}
+                            <button onClick={() => { setLeaderboardToggle("PGA"); setPGAEffect(true); }} className={`${pgaEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${leaderboardToggle === "PGA" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGAEffect(false)}>PGA</button>
                         </div>
                     }
                     {leaderboardToggle === "PGC" ?

@@ -1,8 +1,8 @@
 import { useQuery } from "react-query"
 
 const sheets = {
-    'pgcLeaderboard': ['1I3sq1tm1Wn6uIDcp8_3Uede4Qlj_WFNWMh1KJLtlYr0', 'Leaderboards'],
-    'pgaLeaderboard': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'Tournaments'],
+    'pgcLeaderboard': ['1I3sq1tm1Wn6uIDcp8_3Uede4Qlj_WFNWMh1KJLtlYr0', 'Sheet9'],
+    'pgaLeaderboard': ['1I3sq1tm1Wn6uIDcp8_3Uede4Qlj_WFNWMh1KJLtlYr0', 'pgaLeaderboard'],
     'golferStats': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'GolferStats'],
     'pgcStandings': ['1I3sq1tm1Wn6uIDcp8_3Uede4Qlj_WFNWMh1KJLtlYr0', 'Standings'],
     'tournaments': ['1SSk7lg3Ym17lw8Hn-yZvT_erE9umRHPlrZJ8U4faBMY', 'Tournaments'],
@@ -32,7 +32,6 @@ export function useLeagueData() {
 }
 export function usePGCStandings() {
     const standings = useQuery(['standings', 'pgcStandings'], queryFunc)
-    console.log(standings)
     return {
         'standings': standings.data || null,
         'isLoading': standings.isLoading,
@@ -43,6 +42,7 @@ export function usePGCTournaments() {
     const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
     const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 30000, })
     const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 30000, })
+    console.log(pgaLeaderboard)
     const now = new Date()
     var output = {
         'allTourneys': null,
@@ -54,8 +54,6 @@ export function usePGCTournaments() {
         'isError': allTourneys.isError,
     }
     if (!allTourneys.data || !pgaLeaderboard.data || !pgcLeaderboard.data) { return output }
-    console.log(allTourneys)
-    console.log(pgcLeaderboard)
     allTourneys.data?.forEach(obj => {
         obj['pgaLeaderboard'] = pgaLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)
         obj['pgcLeaderboard'] = pgcLeaderboard.data?.filter(a => a.tourneyID === obj.tourneyID)

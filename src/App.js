@@ -22,7 +22,6 @@ ReactGA.initialize("G-5G8C0WCN60");
 
 function App() {
   const data = useLeagueData()
-  console.log(data)
 
   if (data.isLoading) { return <LoadingSpinner /> }
   if (data.isError) { return <ErrorPage /> }
@@ -31,7 +30,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      {window.innerWidth < 850 ? <><TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} /><MobileNavbar /></> : <MobileNavbar />}
+      {window.innerWidth < 150 ? <><TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} /><MobileNavbar /></> : <MobileNavbar />}
       <div className='mt-6 mb-24 mx-3 max-w-3xl min-h-screen'>
       <div className='mx-auto'>
         <Routes>

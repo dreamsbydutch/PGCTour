@@ -84,3 +84,29 @@ export function addRankingSuffix(rank) {
     return rank + 'th';
   }
 }
+
+export function formatScore(score) {
+  switch (true) {
+    case (+score > 99):
+        score = null
+        break
+    case (+score > 0):
+        score = "+" + (+score)
+        break
+    case (score === '0'):
+        score = "E"
+        break
+    default:
+        break
+  }
+  return score
+}
+export function formatThru(thru,teetime) {
+  if (+thru === 18) {
+    return "F"
+  } else if (+thru > 0) {
+    return +thru
+  } else {
+    return teetime
+  }
+}

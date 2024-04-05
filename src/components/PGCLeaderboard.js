@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addRankingSuffix, formatMoney, getRkChange } from '../utils/utils';
+import { addRankingSuffix, formatMoney, getRkChange, formatScore, formatThru } from '../utils/utils';
 
 export default function PGCLeaderboard(props) {
     const leaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1')
@@ -13,7 +13,7 @@ export default function PGCLeaderboard(props) {
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : 'Pts'}</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Thru' : '$$'}</div>
             </div>
-            {data?.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
+            {data?.map(obj => <PGCLeaderboardItem {...{'info':obj,'key':obj.Name,'live':props.live,'pgaLeaderboard':props.tourney.pgaLeaderboard,'standings':props.standings?.filter(a => a.TeamName === obj.Name)[0]}} />)}
         </>
     )
 }
@@ -25,8 +25,8 @@ export function PGCLeaderboardItem(props) {
             <div className='grid grid-flow-row grid-cols-10 text-center py-1'>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score === "+100" ? "CUT" : props.info.ShowRk}&nbsp;&nbsp;&nbsp;{getRkChange(props.info.RkChange)}</div>
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.Name}</div>
-                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.Score === "+100" ? "-" : props.info.Score}</div>
-                <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? props.info.Today === "+100" ? "-" : props.info.Today : props.info.Points}</div>
+                <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{formatScore(props.info.Score)}</div>
+                <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{props.live ? formatScore(props.info.Today) : props.info.Points}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1 whitespace-nowrap xs:text-2xs sm:text-xs'>{props.live ? props.info.Thru : formatMoney(props.info.Earnings)}</div>
             </div>
             {showInfo ? <PGCLeaderboardItemInfo {...props} /> : <></>}
@@ -67,16 +67,19 @@ function TeamRounds(props) {
     )
 }
 function PGCTeamTable(props) {
-    let golfers = []
-    for (let i = 1; i <= 10; i++) {
-        props.info['G' + i + 'Thru'] = props.info['G' + i + 'Thru'] === undefined ? "" : props.info['G' + i + 'Thru']
-        golfers.push([
-            props.info['G' + i + 'Pos'],
-            props.info['G' + i + 'Name'],
-            props.info['G' + i + 'Total'],
-            props.info['G' + i + 'Pos'] === "CUT" || props.info['G' + i + 'Pos'] === "WD" || props.info['G' + i + 'Pos'] === "DQ"  ? null : props.info['G' + i + 'Thru'].includes("M") ? props.info['G' + i + 'Thru'] : props.info['G' + i + 'Today'] + ' (' + props.info['G' + i + 'Thru'] + ')',
-        ])
-    }
+    console.log(props.info)
+    let golfers = [
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferOne)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferTwo)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferThree)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferFour)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferFive)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferSix)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferSeven)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferEight)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferNine)[0],
+        props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferTen)[0],
+    ]
     return (
         <table className="text-center w-11/12 mx-auto mb-2 table-auto sm:w-9/12 md:w-8/12">
             <thead className="bg-gray-600 text-gray-100">
@@ -87,15 +90,14 @@ function PGCTeamTable(props) {
                     <td className="text-2xs font-bold md:text-xs">Today</td>
                 </tr>
             </thead>
-            <tbody className={`bg-gray-50 ${(props.info["R2"] !== "-") ? '[&>*:nth-child(5)]:border-b border-gray-400' : ''}`}>
+            <tbody className={`bg-gray-50 ${(props.info.R2 !== "") ? '[&>*:nth-child(5)]:border-b border-gray-400' : ''}`}>
                 {golfers?.map(obj => {
-                    if (obj[1]==="-") return null
                     return (
                         <tr className={`${(((props.info.R1 !== "-") && (props.info.R2 === "-" || props.info.Today === "-") && (props.info.R3 === "-") && (+props.info.Thru >= 9 || props.info.Thru === "F") && (+(obj[0].replace("T", "")) > 65)) || obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
-                            <td className="text-xs md:text-sm">{obj[0]}</td>
-                            <td className="text-xs md:text-sm">{obj[1]}</td>
-                            <td className="text-xs md:text-sm">{obj[0] === "CUT" || obj[0] === "WD" || obj[0] === "DQ" ? "-" : obj[2]}</td>
-                            <td className="text-xs md:text-sm">{obj[3]}</td>
+                            <td className="text-xs md:text-sm">{obj.currentPos}</td>
+                            <td className="text-xs md:text-sm">{obj.playerName}</td>
+                            <td className="text-xs md:text-sm">{obj.currentPos === "CUT" || obj.currentPos === "WD" || obj.currentPos === "DQ" ? "-" : formatScore(obj.currentScore)}</td>
+                            <td className="text-xs md:text-sm">{`${formatScore(obj.today)} (${formatThru(obj.thru,(props.info.R1 === "" ? obj.r1TeeTime : props.info.R2 === "" ? obj.r2TeeTime : props.info.R3 === "" ? obj.r3TeeTime : props.info.R4 === "" ? obj.r4TeeTime : ""))})`}</td>
                         </tr>
                     )
                 })}

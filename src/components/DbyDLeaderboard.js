@@ -13,7 +13,7 @@ export default function DbyDLeaderboard(props) {
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : 'Pts'}</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Thru' : '$$'}</div>
             </div>
-            {data?.map(obj => <PGCLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
+            {data?.map(obj => <PGCLeaderboardItem {...{'info':obj,'key':obj.Name,'live':props.live,'pgaLeaderboard':props.tourney.pgaLeaderboard,'standings':props.standings?.filter(a => a.TeamName === obj.Name)[0]}} />)}
         </>
     )
 }
