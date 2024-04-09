@@ -26,7 +26,7 @@ function PGALeaderboardItem(props) {
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{props.info.currentPos}</div>
                 <div className='font-varela place-self-center text-base col-span-4 sm:text-lg'>{props.info.playerName}</div>
                 <div className='font-varela place-self-center text-sm col-span-2 sm:text-base'>{formatScore(props.info.currentScore)}</div>
-                <div className='font-varela place-self-center whitespace-nowrap text-2xs col-span-1 sm:text-xs'>{formatScore(props.info.today) + " (" + formatThru(props.info.thru,(props.info.R1 === "" ? props.info.r1TeeTime : props.info.R2 === "" ? props.info.r2TeeTime : props.info.R3 === "" ? props.info.r3TeeTime : props.info.R4 === "" ? props.info.r4TeeTime : "")) + ")"}</div>
+                <div className='font-varela place-self-center whitespace-nowrap text-2xs col-span-1 sm:text-xs'>{props.info.thru > 0 ? formatScore(props.info.today) + " (" + formatThru(props.info.thru,(props.info.R1 === "" ? props.info.r1TeeTime : props.info.R2 === "" ? props.info.r2TeeTime : props.info.R3 === "" ? props.info.r3TeeTime : props.info.R4 === "" ? props.info.r4TeeTime : "")) + ")" : formatThru(props.info.thru,(props.info.R1 === "" ? props.info.r1TeeTime : props.info.R2 === "" ? props.info.r2TeeTime : props.info.R3 === "" ? props.info.r3TeeTime : props.info.R4 === "" ? props.info.r4TeeTime : ""))}</div>
                 <div className='font-varela place-self-center text-2xs col-span-1 sm:text-xs'>{Math.round(props.info.usage*1000)/10}%</div>
             </div>
             {showInfo ? <PGALeaderboardItemInfo info={props.info} /> : <></>}
