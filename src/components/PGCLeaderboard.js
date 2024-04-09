@@ -69,7 +69,6 @@ function TeamRounds(props) {
     )
 }
 function PGCTeamTable(props) {
-    console.log(props.info)
     let golfers = [
         props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferOne)[0],
         props.pgaLeaderboard.filter(obj => obj.dgID === props.info.golferTwo)[0],
