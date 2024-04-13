@@ -6,6 +6,7 @@ import CountdownLogic from '../components/CountdownLogic'
 import PGALeaderboard from '../components/PGALeaderboard';
 import PGCLeaderboard from '../components/PGCLeaderboard';
 import ErrorPage from './ErrorPage';
+import { formatScore } from '../utils/utils'
 
 import ReactGA from 'react-ga4';
 import DbyDLeaderboard from '../components/DbyDLeaderboard'
@@ -176,7 +177,7 @@ function HomeLeaderboardItem(props) {
             <div className='grid grid-flow-row grid-cols-8 text-center py-1'>
                 <div className='font-varela place-self-center text-xs col-span-2 sm:text-base'>{props.info.ShowRk}</div>
                 <div className='font-varela place-self-center text-sm col-span-4 sm:text-lg whitespace-nowrap'>{props.info.Name}</div>
-                <div className='font-varela place-self-center text-xs col-span-2 sm:text-base'>{props.info.Score}</div>
+                <div className='font-varela place-self-center text-xs col-span-2 sm:text-base'>{formatScore(props.info.Score)}</div>
             </div>
         </div>
     )
