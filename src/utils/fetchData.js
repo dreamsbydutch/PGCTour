@@ -15,7 +15,7 @@ async function queryFunc({ queryKey }) {
 }
 
 export function useLeagueData() {
-    var tourneys = usePGCTournaments()``
+    var tourneys = usePGCTournaments()
     var standings = usePGCStandings()
     var golferStats = useGolferStats()
     return {
