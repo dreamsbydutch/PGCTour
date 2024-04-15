@@ -6,6 +6,7 @@ const sheets = {
     'golferStats': ['1SUD_Ga1u2mvhxygSqz7hR0m9RHtSGIDJyMkCt-pxczA', 'GolferStats'],
     'pgcStandings': ['1I3sq1tm1Wn6uIDcp8_3Uede4Qlj_WFNWMh1KJLtlYr0', 'Standings'],
     'tournaments': ['1SSk7lg3Ym17lw8Hn-yZvT_erE9umRHPlrZJ8U4faBMY', 'Tournaments'],
+    'distributions': ['1SSk7lg3Ym17lw8Hn-yZvT_erE9umRHPlrZJ8U4faBMY', 'Distributions'],
 }
 async function queryFunc({ queryKey }) {
     const [, sheetsKey] = queryKey
@@ -42,7 +43,6 @@ export function usePGCTournaments() {
     const allTourneys = useQuery(['allTournaments', 'tournaments'], queryFunc)
     const pgaLeaderboard = useQuery(['pgaLeaderboard', 'pgaLeaderboard'], queryFunc, { refetchInterval: 30000, })
     const pgcLeaderboard = useQuery(['pgcLeaderboard', 'pgcLeaderboard'], queryFunc, { refetchInterval: 30000, })
-    console.log(pgaLeaderboard)
     const now = new Date()
     var output = {
         'allTourneys': null,
@@ -83,5 +83,14 @@ export function usePGCTournaments() {
 export function useGolferStats() {
     const golferStats = useQuery(['golferStats', 'golferStats'], queryFunc)
     return golferStats
+
+}
+export function useDistributions() {
+    const distributions = useQuery(['distributions', 'distributions'], queryFunc)
+    return {
+        'distributions': distributions.data || null,
+        'isLoading': distributions.isLoading,
+        'isError': distributions.isError,
+    }
 
 }

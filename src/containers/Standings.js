@@ -3,12 +3,15 @@ import { formatMoney, getRkChange, useWindowDimensions } from '../utils/utils'
 
 import ReactGA from 'react-ga4';
 import { useSearchParams } from 'react-router-dom';
+import { useDistributions } from '../utils/fetchData';
+import LoadingSpinner from '../components/LoadingSpinner';
 ReactGA.send({ hitType: "pageview", page: "/standings" });
 
 export default function Standings(props) {
     const [searchParams, ] = useSearchParams()
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
+    const [playoffEffect, setPlayoffEffect] = useState(false);
     const [standingsToggle, setStandingsToggle] = useState(searchParams.get("tour") || "PGC")
     return (
         <>
@@ -22,11 +25,15 @@ export default function Standings(props) {
                             <div className="my-4 mx-auto text-center">
                                 <button onClick={() => { setStandingsToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${standingsToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
                                 <button onClick={() => { setStandingsToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>Dreams by Dutch</button>
+                                <button onClick={() => { setStandingsToggle("Playoff"); setPlayoffEffect(true); }} className={`${playoffEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "Playoff" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPlayoffEffect(false)}>Projected Playoffs</button>
                             </div>
                             {standingsToggle === "PGC" ?
                                     <PGCStandings {...props} />
                                 :
-                                    <DbyDStandings {...props} />}
+                            standingsToggle === "DbyD" ?
+                                    <DbyDStandings {...props} />
+                                :
+                                    <ProjectedPlayoffs {...props} />}
                         </>
                 }
         </>
@@ -45,16 +52,15 @@ function HomeStandings(props) {
                 </div>
                 {
                     standings[0].map(obj => {
-                        console.log(obj)
                         return (
                             <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400 whitespace-nowrap'>
                                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
                                 <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
                                     {obj.TeamName}
-                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
                                 </div>
                                 <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
                             </div>
@@ -71,16 +77,15 @@ function HomeStandings(props) {
                 </div>
                 {
                     standings[1].map(obj => {
-                        console.log(obj)
                         return (
                             <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400 whitespace-nowrap'>
                                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
                                 <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
                                     {obj.TeamName}
-                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
+                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
                                 </div>
                                 <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
                             </div>
@@ -133,15 +138,59 @@ function DbyDStandings(props) {
         </>
     )
 }
-
+function ProjectedPlayoffs(props) {
+    var { width } = useWindowDimensions()
+    let distributions = useDistributions()
+    distributions = distributions.distributions?.filter(obj => obj.key === 'PlayoffStart')[0]
+    if (!distributions) return <LoadingSpinner />
+    const playoffStandings = [
+        props.data.standings.filter(obj => +(obj.ShowRk[0] === "T" ? obj.ShowRk.slice(1) : obj.ShowRk) <= 15),
+        props.data.standings.filter(obj => +(obj.ShowRk[0] === "T" ? obj.ShowRk.slice(1) : obj.ShowRk) > 15 && +(obj.ShowRk[0] === "T" ? obj.ShowRk.slice(1) : obj.ShowRk) <= 30),
+    ].map(obj => {
+        return obj.map(a => {
+            a.DistRk = [obj.filter((b) => +b.Points > +a.Points).length + 1, obj.filter((b) => +b.Points === +a.Points).length]
+            return a
+        })
+    })
+    return (
+        <>
+            <div className="my-4">
+                <div className='flex'>
+                    <div className='mx-auto my-3 text-6xl font-yellowtail text-yellow-700'>Gold Playoff</div>
+                </div>
+                <div className='grid grid-flow-row grid-cols-9 text-center'>
+                    <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
+                    <div className="font-varela place-self-center font-bold text-base sm:text-lg  col-span-4">Name</div>
+                    <div className="font-varela place-self-center font-bold text-xs xs:text-sm sm:text-base">Tour</div>
+                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">{width < 400 ? 'Points' : 'Cup Points'}</div>
+                    <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm">Starting Strokes</div>
+                </div>
+                {playoffStandings[0].map(obj => <PlayoffItem info={obj} key={obj.RawRk} tourneys={props.data.allTourneys} distribution={distributions} />)}
+            </div>
+            <div className="mt-8 mb-4">
+                <div className='flex'>
+                    <div className='mx-auto my-3 text-6xl font-yellowtail text-zinc-700'>Silver Playoff</div>
+                </div>
+                <div className='grid grid-flow-row grid-cols-9 text-center'>
+                    <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
+                    <div className="font-varela place-self-center font-bold text-base sm:text-lg  col-span-4">Name</div>
+                    <div className="font-varela place-self-center font-bold text-xs xs:text-sm sm:text-base">Tour</div>
+                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">{width < 400 ? 'Points' : 'Cup Points'}</div>
+                    <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm">Starting Strokes</div>
+                </div>
+                {playoffStandings[1].map(obj => <PlayoffItem info={obj} key={obj.RawRk} tourneys={props.data.allTourneys} distribution={distributions} />)}
+            </div>
+        </>
+    )
+}
 
 
 function StandingsItem(props) {
     const [showInfo, setShowInfo] = useState(false)
 
     return (
-        <div className="" onClick={() => setShowInfo(!showInfo)}>
-        {/* <div className="[&:nth-child(17)]:border-t-2 [&:nth-child(17)]:border-yellow-600 [&:nth-child(32)]:border-t-2 [&:nth-child(32)]:border-gray-600" onClick={() => setShowInfo(!showInfo)}> */}
+        // <div className="" onClick={() => setShowInfo(!showInfo)}>
+        <div className="[&:nth-child(17)]:border-t-2 [&:nth-child(17)]:border-yellow-600 [&:nth-child(32)]:border-t-2 [&:nth-child(32)]:border-zinc-600" onClick={() => setShowInfo(!showInfo)}>
             <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400'>
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{props.info.ShowRk}  {getRkChange(props.info.RkChange)}</div>
                 <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl col-span-4 [&>:nth-child(1)]:ml-1.5">
@@ -153,6 +202,28 @@ function StandingsItem(props) {
                 </div>
                 <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-base lg:text-lg">{formatMoney(props.info.Earnings)}</div>
+            </div>
+            {showInfo ? <StandingsItemInfo info={props.info} tourneys={props.tourneys} /> : <></>}
+        </div>
+    )
+}
+function PlayoffItem(props) {
+    const [showInfo, setShowInfo] = useState(false)
+
+    return (
+        <div onClick={() => setShowInfo(!showInfo)}>
+            <div className='grid grid-flow-row grid-cols-9 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400'>
+                <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{props.info.DistRk[0]}  {getRkChange(props.info.FullRkChange)}</div>
+                <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl col-span-4 [&>:nth-child(1)]:ml-1.5">
+                    {props.info.TeamName}
+                    {props.info.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
+                    {props.info.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                </div>
+                <div className="font-varela place-self-center text-xs 2xs:text-xs sm:text-sm md:text-base lg:text-xl">{props.info.TourID === '1' ? 'PGC' : 'DbyD'}</div>
+                <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
+                <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-base lg:text-lg">{calcDistribution(props.distribution,props.info.DistRk[0],props.info.DistRk[1])}</div>
             </div>
             {showInfo ? <StandingsItemInfo info={props.info} tourneys={props.tourneys} /> : <></>}
         </div>
@@ -202,4 +273,16 @@ function StandingsItemInfo(props) {
             <div className="py-4"></div>
         </div>
     )
+}
+
+
+function calcDistribution(distribution, place, tiedTotal) {
+    if (tiedTotal === 1) {
+        return distribution[place]
+    }
+    let total = 0
+    for (let i=0; i < tiedTotal; i++) {
+        total += +distribution[place+i]
+    }
+    return Math.round((total / tiedTotal)*10)/10
 }

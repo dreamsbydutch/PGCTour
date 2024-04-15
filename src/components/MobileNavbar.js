@@ -17,10 +17,10 @@ function NavBar() {
                 <NavLink to="/standings" className={(navData) => navData.isActive ? "invert before:content-[''] before:inline-block before:absolute before:w-16 before:h-16 before:z-[-1] before:bg-gray-200 before:transform before:translate-x-navbarActive before:translate-y-navbarActive before:rounded-xl" : ""}>
                     <img className="h-12" alt="Standings logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/standingsIcon.png" />
                 </NavLink>
-                <span className='h-4/6 border-1 border-gray-400' />
-                <NavLink to="/golferstats" className={(navData) => navData.isActive ? "invert before:content-[''] before:inline-block before:absolute before:w-16 before:h-16 before:z-[-1] before:bg-gray-200 before:transform before:translate-x-navbarActive before:translate-y-navbarActive before:rounded-xl" : ""}>
+                {/* <span className='h-4/6 border-1 border-gray-400' /> */}
+                {/* <NavLink to="/golferstats" className={(navData) => navData.isActive ? "invert before:content-[''] before:inline-block before:absolute before:w-16 before:h-16 before:z-[-1] before:bg-gray-200 before:transform before:translate-x-navbarActive before:translate-y-navbarActive before:rounded-xl" : ""}>
                     <img className="h-12" alt="Golfer Stats logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/golferstatsIcon.png" />
-                </NavLink>
+                </NavLink> */}
                 <span className='h-4/6 border-1 border-gray-400' />
                 <NavLink to="/rulebook" className={(navData) => navData.isActive ? "invert before:content-[''] before:inline-block before:absolute before:w-16 before:h-16 before:z-[-1] before:bg-gray-200 before:transform before:translate-x-navbarActive before:translate-y-navbarActive before:rounded-xl" : ""}>
                     <img className="h-12" alt="Rulebook logo" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/rulebookIcon.png" />

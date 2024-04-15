@@ -35,14 +35,15 @@ function Rulebook() {
                 <div className="font-varela place-self-center text-sm my-2">Major tournaments have a total points purse of 4325 points with the winner taking 1000 points.</div>
                 <div className="font-varela place-self-center text-sm my-2">Mid tier tournaments have a total points purse of 3150 points with the winner taking 750 points.</div>
                 <div className="font-varela place-self-center text-sm my-2">Bottom Tier tournaments have a total points purse of 1925 points with the winner taking 450 points.</div>
-                <div className="font-varela place-self-center mt-6 mb-2 text-lg">At the end of the regular season the top 35 players in the standings will make the PGC Playoff tournament.</div>
-                <div className="font-varela place-self-center text-sm my-2">Each team will start the playoff tournament at a starting score based on the distribution below.</div>
+                <div className="font-varela place-self-center mt-6 mb-2 text-lg">At the end of the regular season there will be 2 PGC Playoff tournaments. The top 15 finishers on each tour will compete in the Gold Playoff and the 16th to 30th finisher on each tour will compete in the Silver Playoff.</div>
+                <div className="font-varela place-self-center text-sm my-2">Each team will start the playoff tournament at a starting score based on their final regular season point total.</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">The playoff tournament will be 12-rounds long throughout all three FedEx Cup Playoff events (FedEx-StJude Championship, BMW Championship, TOUR Championship).</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">Players that qualify for the playoff tournament will pick their team prior to the FedEx-StJude Championship as usual and that will be your team of golfers throughout the entire playoffs.</div>
                 <div className="font-varela place-self-center text-sm my-2">The FedEx-StJude Championship will run just like a normal tournament.</div>
                 <div className="font-varela place-self-center text-sm my-2">The BMW Championship will only count your top 5 golfers in all 4 rounds.</div>
                 <div className="font-varela place-self-center text-sm my-2">The TOUR Championship will only count your top 3 golfers in all 4 rounds.</div>
                 <div className="font-varela place-self-center text-sm my-2">The TOUR Championship will only count the golfer's actual score and not their starting strokes awarded by the PGA</div>
+                <img className="w-full mb-6 mt-2 max-w-3xl" alt="pgc points" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/pgcPointsAndPayouts.png" />
 
                 <div className="font-varela place-self-center text-3xl font-bold mt-12">Payouts</div>
                 <div className="font-varela place-self-center mt-6 mb-2 text-lg">After every tournament the top finishers will win money earnings. Earnings will accumulate during the season and will be paid out at the end of the year.</div>
@@ -50,7 +51,7 @@ function Rulebook() {
                 <div className="font-varela place-self-center text-sm my-2">Mid Tier Champions will win $75</div>
                 <div className="font-varela place-self-center text-sm my-2">Bottom Tier Champions will win $50</div>
                 <div className="font-varela place-self-center text-sm my-2">Full distributions can be found below.</div>
-                <div className="font-varela place-self-center text-sm my-2">Payouts are based on a 75 player tour, they will be adjusted once the total number of players is finalized.</div>
+                <img className="w-full mb-6 mt-2 max-w-3xl" alt="pgc points" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/pgcPointsAndPayouts.png" />
                 <div className="bottom"></div>
 
                 {/* <img className="w-full mb-6 mt-2 max-w-3xl" alt="Points and Payout distributions" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/2024PGC-schedule.png" /> */}

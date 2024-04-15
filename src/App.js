@@ -14,7 +14,6 @@ import ErrorPage from './containers/ErrorPage';
 import Leaderboard from './containers/Leaderboard';
 import Standings from './containers/Standings';
 import Rulebook from './containers/Rulebook';
-import GolferStats from './containers/GolferStats';
 // import History from './containers/History/History';
 
 import ReactGA from 'react-ga4';
@@ -38,10 +37,9 @@ function App() {
           <Route path="/leaderboard" element={<Leaderboard data={data} />} />
           <Route path="/leaderboard/:tourneyId" element={<Leaderboard data={data} />} />
           <Route path="/standings" element={<Standings data={data} />} />
-          <Route path="/golferstats" element={<GolferStats data={data.golferStats} />} />
           <Route path="/rulebook" element={<Rulebook />} />
           {/* <Route path="/history" element={<History />} /> */}
-          <Route path="*" element={<ErrorPage />} />
+          {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
       </div>
       </div>

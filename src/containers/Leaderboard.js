@@ -14,6 +14,7 @@ ReactGA.send({ hitType: "pageview", page: "/leaderboard" });
 
 export default function Leaderboard(props) {
     let { tourneyId } = useParams();
+    console.log(props)
 
     if (tourneyId) {
         let tourney = props.data.allTourneys?.filter(obj => obj.tourneyID === tourneyId)[0]

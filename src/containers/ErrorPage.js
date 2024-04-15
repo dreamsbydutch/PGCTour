@@ -4,7 +4,7 @@ function ErrorPage() {
     return (
         <div className="">
             <p className="h1 text-center m-5">
-                Error!! The Page you are looking for does not exist
+                Error!! The Page you are looking for does not existw
             </p>
         </div>
     )

@@ -115,10 +115,10 @@ function ProjStandings(props) {
                 <div className="font-varela font-bold text-xs md:text-sm text-center place-self-center">Projected</div>
             </div>
             <div className="mx-auto grid grid-cols-2 mb-1">
-                <div className={`font-varela py-1 text-sm md:text-base text-center place-self-center ${+(props.standings.ShowRk[0] === "T" ? props.standings.ShowRk.slice(1) : props.standings.ShowRk) <=35 ? 'text-green-700' : 'text-rose-800'}`}>
+                <div className={`font-varela py-1 text-sm md:text-base text-center place-self-center ${+(props.standings.ShowRk[0] === "T" ? props.standings.ShowRk.slice(1) : props.standings.ShowRk) <=15 ? 'text-yellow-700 font-bold' : +(props.standings.ShowRk[0] === "T" ? props.standings.ShowRk.slice(1) : props.standings.ShowRk) <=30 ? 'text-zinc-700 font-semibold' : 'text-rose-800'}`}>
                     {props.standings.ShowRk[0] === "T" ? "T" + addRankingSuffix(props.standings.ShowRk.slice(1)) : addRankingSuffix(props.standings.ShowRk)}
                 </div>
-                <div className={`font-varela py-1 text-sm md:text-base text-center place-self-center ${+(props.standings.ProjRk[0] === "T" ? props.standings.ProjRk.slice(1) : props.standings.ProjRk) <=35 ? 'text-green-700' : 'text-rose-800'}`}>
+                <div className={`font-varela py-1 text-sm md:text-base text-center place-self-center ${+(props.standings.ProjRk[0] === "T" ? props.standings.ProjRk.slice(1) : props.standings.ProjRk) <=15 ? 'text-yellow-700 font-bold' : +(props.standings.ProjRk[0] === "T" ? props.standings.ProjRk.slice(1) : props.standings.ProjRk) <=30 ? 'text-zinc-700 font-semibold' : 'text-rose-800'}`}>
                     {props.standings.ProjRk[0] === "T" ? "T" + addRankingSuffix(props.standings.ProjRk.slice(1)) : addRankingSuffix(props.standings.ProjRk)}
                     </div>
             </div>
