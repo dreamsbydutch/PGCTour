@@ -31,7 +31,7 @@ export default function ChampAlert(props) {
     console.log(golfers)
     return (
         <>
-            <a href={"#/leaderboard/" + props.tourney.tourneyID + "?tour=DbyD"}>
+            <a href={"#/leaderboard/" + props.tourney.tourneyID + "?tour=dbyd"}>
                 <div className='grid grid-flow-row grid-cols-10 text-center py-3 mb-8 bg-amber-100 rounded-2xl hover:text-amber-900 max-w-screen-md mx-auto shadow-md'>
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-3 row-span-3"><img alt={props.tourney.Tourney} src={props.tourney.Logo} /></div>
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-7 font-bold text-lg text-amber-900 xs:text-xl sm:text-2xl md:text-3xl">{props.tourney.Tourney} DbyD Champion</div>
@@ -40,7 +40,7 @@ export default function ChampAlert(props) {
                     {golfers[0].map(obj => <div className="text-center font-varela place-self-center py-1 px-1 col-span-2 row-span-1 font-bold text-2xs text-amber-900 2xs:text-xs md:text-sm">{obj.playerName}<br />({formatScore(obj.currentScore)})</div>)}
                 </div>
             </a>
-            <a href={"#/leaderboard/" + props.tourney.tourneyID + "?tour=PGC"}>
+            <a href={"#/leaderboard/" + props.tourney.tourneyID + "?tour=pgc"}>
                 <div className='grid grid-flow-row grid-cols-10 text-center py-3 mb-8 bg-amber-100 rounded-2xl hover:text-amber-900 max-w-screen-md mx-auto shadow-md'>
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-3 row-span-3"><img alt={props.tourney.Tourney} src={props.tourney.Logo} /></div>
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-7 font-bold text-lg text-amber-900 xs:text-xl sm:text-2xl md:text-3xl">{props.tourney.Tourney} PGC Champion</div>

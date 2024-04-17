@@ -127,25 +127,31 @@ function HomeLeaderboard(props) {
     const pgcLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1').slice(0, 12)
     const dbdLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2').slice(0, 12)
     return (
-        <div className='grid grid-flow-col grid-cols-2 text-center mx-auto mt-4'>
-        <div className='border-r border-black pr-1'>
-            <div className='text-lg font-bold mb-2'>PGC Tour</div>
-            <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
-                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
-                <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
-                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Score</div>
+        <div className="my-0 mx-1 rounded-2xl bg-gray-100 hover:text-gray-800 shadow-md">
+            <div className='grid grid-flow-col grid-cols-2 text-center mx-auto mt-4'>
+                <a href="#/leaderboard?tour=pgc">
+                    <div className='border-r border-black pr-1'>
+                        <div className='text-lg font-bold mb-2'>PGC Tour</div>
+                        <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
+                            <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
+                            <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
+                            <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Score</div>
+                        </div>
+                        {pgcLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
+                    </div>
+                </a>
+                <a href="#/leaderboard?tour=dbyd">
+                    <div className='pl-1'>
+                        <div className='text-lg font-bold mb-2'>DbyD Tour</div>
+                        <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
+                            <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
+                            <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
+                            <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Score</div>
+                        </div>
+                        {dbdLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
+                    </div>
+                </a>
             </div>
-            {pgcLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
-        </div>
-        <div className='pl-1'>
-            <div className='text-lg font-bold mb-2'>DbyD Tour</div>
-            <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
-                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Rank</div>
-                <div className="col-span-4 text-sm font-semibold font-varela place-self-center">Name</div>
-                <div className="col-span-2 text-xs font-semibold font-varela place-self-center">Score</div>
-            </div>
-            {dbdLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
-        </div>
         </div>
     )
 }

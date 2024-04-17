@@ -9,7 +9,7 @@ export default function PGALeaderboard(props) {
                 <div className="col-span-2 text-sm font-bold font-varela place-self-center">Rank</div>
                 <div className="col-span-4 text-base font-bold font-varela place-self-center">Name</div>
                 <div className="col-span-2 text-sm font-bold font-varela place-self-center">Score</div>
-                <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">{props.live ? 'Today' : '$$'}</div>
+                <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">Today</div>
                 <div className="col-span-1 text-2xs font-varela place-self-center sm:text-xs">Usage</div>
             </div>
             {props.tourney.pgaLeaderboard?.map(obj => <PGALeaderboardItem info={obj} key={obj.PLAYER} live={props.live} />)}
@@ -36,39 +36,35 @@ function PGALeaderboardItem(props) {
 function PGALeaderboardItemInfo(props) {
     return (
         <div className="mt-1 mb-6 mx-auto">
-            <div className={`mx-auto grid grid-cols-7 sm:w-11/12 md:w-10/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
-                <div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
+            <div className={`mx-auto grid grid-cols-6 sm:w-11/12 md:w-10/12 ${props.info.currentScore>99 ? 'text-gray-400' : 'text-gray-800'}`}>
+                <div className="col-span-3 font-varela font-bold text-xs text-center place-self-center">Round Scores</div>
                 {props.info.R2==="" ? 
                     <>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Top 10</div>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Group</div>
                     </>
                     :
                     <>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Top 10</div>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Win</div>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Group</div>
                     </>
                 }
             </div>
-            <div className={`mx-auto grid grid-cols-7 mb-1 sm:w-11/12 md:w-10/12 ${(props.info.score === "CUT" || props.info.score === "WD" || props.info.score === "DQ") ? 'text-gray-400' : 'text-gray-800'}`}>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R1}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R2}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R3}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.R4}</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.Total}</div>
-                {props.info.R2==="" ?
+            <div className={`mx-auto grid grid-cols-6 mb-1 sm:w-11/12 md:w-10/12 ${props.info.currentScore>99 ? 'text-gray-400' : 'text-gray-800'}`}>
+                <div className="col-span-3 font-varela py-1 text-sm text-center place-self-center md:text-base">{`${props.info.R1 && props.info.R1}${props.info.R2 && ' - '+props.info.R2}${props.info.R3 && ' - '+props.info.R3}${props.info.R4 && ' - '+props.info.R4}`}</div>
+                {props.info.R2==="" ? 
                     <>
-                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>
-                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                    <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
                     </>
                     :
                     <>
-                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
-                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.win*1000)/10}%</div>
+                    <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.win*1000)/10}%</div>
+                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
                     </>
                 }
             </div>

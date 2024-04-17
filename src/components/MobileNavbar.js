@@ -1,8 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 
 
 function NavBar() {
+    const [searchParams] = useSearchParams()
+    const params = Object.fromEntries([...searchParams])
+    console.log(params)
     return (
         <div className=''>
             <div className='w-full h-20 bg-gray-200 shadow-inv flex justify-evenly items-center fixed bottom-0 z-20'>

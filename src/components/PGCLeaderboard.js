@@ -98,7 +98,7 @@ function PGCTeamTable(props) {
                             <td className="text-xs md:text-sm">{obj.currentPos}</td>
                             <td className="text-xs md:text-sm">{obj.playerName}</td>
                             <td className="text-xs md:text-sm">{obj.currentPos === "CUT" || obj.currentPos === "WD" || obj.currentPos === "DQ" ? "-" : formatScore(obj.currentScore)}</td>
-                            <td className="text-xs md:text-sm">{`${formatScore(obj.today)} (${formatThru(obj.thru,(props.info.R1 === "" ? obj.r1TeeTime : props.info.R2 === "" ? obj.r2TeeTime : props.info.R3 === "" ? obj.r3TeeTime : props.info.R4 === "" ? obj.r4TeeTime : ""))})`}</td>
+                            <td className="text-xs md:text-sm">{obj.currentPos === "CUT" || obj.currentPos === "WD" || obj.currentPos === "DQ" ? "-" : `${formatScore(obj.today)} (${formatThru(obj.thru,(props.info.R1 === "" ? obj.r1TeeTime : props.info.R2 === "" ? obj.r2TeeTime : props.info.R3 === "" ? obj.r3TeeTime : props.info.R4 === "" ? obj.r4TeeTime : ""))})`}</td>
                         </tr>
                     )
                 })}

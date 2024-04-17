@@ -12,28 +12,29 @@ export default function Standings(props) {
     const [pgcEffect, setPGCEffect] = useState(false);
     const [dbydEffect, setDbyDEffect] = useState(false);
     const [playoffEffect, setPlayoffEffect] = useState(false);
-    const [standingsToggle, setStandingsToggle] = useState(searchParams.get("tour") || "PGC")
+    const [standingsToggle, setStandingsToggle] = useState(searchParams.get("tour") || "pgc")
     return (
         <>
-            <div className="mb-4 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">{props.home ? 'Tour Standings' : standingsToggle === "PGC" ? 'PGC Tour Standings' : 'Dreams by Dutch Tour Standings'}</div>
-            
                 {props.home ?
-                        <HomeStandings {...props} />
+                        <div className="my-8 py-4 px-2 rounded-2xl bg-gray-100 hover:text-gray-800 shadow-md">
+                            <HomeStandings {...props} />
+                        </div>
                         :
                         <>
-                            <div className="mb-2 text-sm text-gray-400 text-center md:text-base">Tap on a tour player to view their stats and tournament history.</div>
-                            <div className="my-4 mx-auto text-center">
-                                <button onClick={() => { setStandingsToggle("PGC"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${standingsToggle === "PGC" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
-                                <button onClick={() => { setStandingsToggle("DbyD"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "DbyD" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>Dreams by Dutch</button>
-                                <button onClick={() => { setStandingsToggle("Playoff"); setPlayoffEffect(true); }} className={`${playoffEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "Playoff" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPlayoffEffect(false)}>Projected Playoffs</button>
-                            </div>
-                            {standingsToggle === "PGC" ?
-                                    <PGCStandings {...props} />
-                                :
-                            standingsToggle === "DbyD" ?
-                                    <DbyDStandings {...props} />
-                                :
-                                    <ProjectedPlayoffs {...props} />}
+                            <div className="mb-4 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">{standingsToggle === "pgc" ? 'PGC Tour Standings' : standingsToggle === "dbyd" ? 'Dreams by Dutch Tour Standings' : 'Tour Playoff Standings'}</div>
+                                <div className="mb-2 text-sm text-gray-400 text-center md:text-base">Tap on a tour player to view their stats and tournament history.</div>
+                                <div className="my-4 mx-auto text-center">
+                                    <button onClick={() => { setStandingsToggle("pgc"); setPGCEffect(true); }} className={`${pgcEffect && "animate-toggleClick"} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${standingsToggle === "pgc" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPGCEffect(false)}>PGC</button>
+                                    <button onClick={() => { setStandingsToggle("dbyd"); setDbyDEffect(true); }} className={`${dbydEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "dbyd" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setDbyDEffect(false)}>Dreams by Dutch</button>
+                                    <button onClick={() => { setStandingsToggle("playoff"); setPlayoffEffect(true); }} className={`${playoffEffect && "animate-toggleClick"} my-2 mx-3 py-1.5 px-6 rounded-lg text-md md:text-lg sm:px-8 md:px-10 font-bold ${standingsToggle === "playoff" ? "bg-gray-600 text-gray-300 shadow-btn" : "bg-gray-300 text-gray-800 shadow-btn"}`} onAnimationEnd={() => setPlayoffEffect(false)}>Projected Playoffs</button>
+                                </div>
+                                {standingsToggle === "pgc" ?
+                                        <PGCStandings {...props} />
+                                    :
+                                standingsToggle === "dbyd" ?
+                                        <DbyDStandings {...props} />
+                                    :
+                                        <ProjectedPlayoffs {...props} />}
                         </>
                 }
         </>
@@ -42,58 +43,65 @@ export default function Standings(props) {
 function HomeStandings(props) {
     const standings = [props.data.standings.filter(obj => obj.TourID === '1').slice(0,15),props.data.standings.filter(obj => obj.TourID === '2').slice(0,15)]
     return (
-        <div className='grid grid-flow-col grid-cols-2 text-center mx-auto'>
-            <div className='border-r border-black pr-2'>
-                <div className='text-lg font-bold mb-2'>PGC Tour</div>
-                <div className='grid grid-flow-row grid-cols-8 text-center'>
-                    <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
-                    <div className="font-varela place-self-center font-bold text-base sm:text-lg col-span-5">Name</div>
-                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">Points</div>
-                </div>
-                {
-                    standings[0].map(obj => {
-                        return (
-                            <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400 whitespace-nowrap'>
-                                <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
-                                <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
-                                    {obj.TeamName}
-                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
-                                </div>
-                                <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
-                            </div>
-                        )
-                    })
-                }
+        <>
+            <div className="mb-4 pb-2 text-5xl font-yellowtail text-center sm:text-6xl md:text-7xl">Tour Standings</div>
+            <div className='grid grid-flow-col grid-cols-2 text-center mx-auto'>
+                <a href="#/standings?tour=pgc" key="pgc">
+                    <div className='border-r border-black pr-2'>
+                        <div className='text-lg font-bold mb-2'>PGC Tour</div>
+                        <div className='grid grid-flow-row grid-cols-8 text-center'>
+                            <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
+                            <div className="font-varela place-self-center font-bold text-base sm:text-lg col-span-5">Name</div>
+                            <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">Points</div>
+                        </div>
+                        {
+                            standings[0].map(obj => {
+                                return (
+                                    <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400'>
+                                        <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
+                                        <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
+                                            {obj.TeamName}
+                                            {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
+                                            {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
+                                            {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
+                                            {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
+                                        </div>
+                                        <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </a>
+                <a href="#/standings?tour=dbyd" key="dbyd">
+                    <div className="pl-2">
+                        <div className='text-lg font-bold mb-2'>DbyD Tour</div>
+                        <div className='grid grid-flow-row grid-cols-8 text-center'>
+                            <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
+                            <div className="font-varela place-self-center font-bold text-base sm:text-lg col-span-5">Name</div>
+                            <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">Points</div>
+                        </div>
+                        {
+                            standings[1].map(obj => {
+                                return (
+                                    <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400'>
+                                        <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
+                                        <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
+                                            {obj.TeamName}
+                                            {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
+                                            {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
+                                            {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
+                                            {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
+                                        </div>
+                                        <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </a>
             </div>
-            <div className="pl-2">
-                <div className='text-lg font-bold mb-2'>DbyD Tour</div>
-                <div className='grid grid-flow-row grid-cols-8 text-center'>
-                    <div className="font-varela place-self-center font-bold text-xs sm:text-sm">Rank</div>
-                    <div className="font-varela place-self-center font-bold text-base sm:text-lg col-span-5">Name</div>
-                    <div className="font-varela place-self-center font-bold text-xs col-span-2 xs:text-sm sm:text-base">Points</div>
-                </div>
-                {
-                    standings[1].map(obj => {
-                        return (
-                            <div className='grid grid-flow-row grid-cols-8 text-center py-1 md:py-2 border-t border-dashed border-t-gray-400 whitespace-nowrap'>
-                                <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
-                                <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
-                                    {obj.TeamName}
-                                    {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
-                                    {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
-                                </div>
-                                <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </div>
+        </>
     )
 }
 function PGCStandings(props) {
