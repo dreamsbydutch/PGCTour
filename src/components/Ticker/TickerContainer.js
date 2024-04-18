@@ -4,6 +4,7 @@ import { addRankingSuffix } from '../../utils/utils'
 import './Ticker.css'
 
 
+
 function TickerContainer(props) {
     let data = props.data.pgcLeaderboard ? props.data.pgcLeaderboard : props.data
 
