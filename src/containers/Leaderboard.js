@@ -127,9 +127,9 @@ function HomeLeaderboard(props) {
     const pgcLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '1').slice(0, 12)
     const dbdLeaderboardData = props.tourney.pgcLeaderboard.filter(obj => obj.TourID === '2').slice(0, 12)
     return (
-        <div className="my-0 mx-1 rounded-2xl bg-gray-100 hover:text-gray-800 shadow-md">
+        <div className="my-0 mx-1 rounded-2xl">
             <div className='grid grid-flow-col grid-cols-2 text-center mx-auto mt-4'>
-                <a href="#/leaderboard?tour=pgc">
+                <a href="#/leaderboard?tour=PGC">
                     <div className='border-r border-black pr-1'>
                         <div className='text-lg font-bold mb-2'>PGC Tour</div>
                         <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
@@ -140,7 +140,7 @@ function HomeLeaderboard(props) {
                         {pgcLeaderboardData?.map(obj => <HomeLeaderboardItem info={obj} key={obj.Name} live={props.live} standings={props.standings?.filter(a => a.TeamName === obj.Name)[0]} />)}
                     </div>
                 </a>
-                <a href="#/leaderboard?tour=dbyd">
+                <a href="#/leaderboard?tour=DbyD">
                     <div className='pl-1'>
                         <div className='text-lg font-bold mb-2'>DbyD Tour</div>
                         <div className="grid grid-flow-row grid-cols-8 text-center max-w-xl mx-auto">
