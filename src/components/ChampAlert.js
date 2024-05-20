@@ -46,7 +46,7 @@ export default function ChampAlert(props) {
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-7 font-bold text-lg text-amber-900 xs:text-xl sm:text-2xl md:text-3xl">{props.tourney.Tourney} PGC Champion</div>
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-4 row-span-2 font-bold text-xl text-amber-900 xs:text-2xl sm:text-3xl">{leaderboards[0][0].Name}</div>
                     <div className="text-center font-varela place-self-center py-1 px-1 col-span-3 row-span-2 font-bold text-lg text-amber-900 xs:text-xl sm:text:2xl md:text-3xl">{leaderboards[0][0].Score}</div>
-                    {golfers[2].map(obj => <div className="text-center font-varela place-self-center py-1 px-1 col-span-2 row-span-1 font-bold text-2xs text-amber-900 2xs:text-xs md:text-sm">{obj.playerName}<br />({formatScore(obj.currentScore)})</div>)}
+                    {golfers[1].map(obj => <div className="text-center font-varela place-self-center py-1 px-1 col-span-2 row-span-1 font-bold text-2xs text-amber-900 2xs:text-xs md:text-sm">{obj.playerName}<br />({formatScore(obj.currentScore)})</div>)}
                 </div>
             </a>
         </>
