@@ -283,12 +283,12 @@ function calcDistribution(distribution, place, tiedTotal) {
     return Math.round((total / tiedTotal)*10)/10
 }
 
-function littlefucker(team,tourneys) {
+export function littlefucker(team,tourneys) {
     return (
         <>  
             {team.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[5].Logo} alt={tourneys[5].Tourney + " Logo"} /> : <></>}
             {team.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[9].Logo} alt={tourneys[9].Tourney + " Logo"} /> : <></>}
-            {team.Tourney11Rk === '1' ? <img className="inline-block mx-0.5 w-7 p-2" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/nationalOpenLogo.png" alt="Canadian Open Logo" /> : <></>}
+            {team.Tourney11Rk === '1' ? <img className="inline-block w-7 p-2" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/nationalOpenLogo.png" alt="Canadian Open Logo" /> : <></>}
             {team.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[12].Logo} alt={tourneys[12].Tourney + " Logo"} /> : <></>}
             {team.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[15].Logo} alt={tourneys[15].Tourney + " Logo"} /> : <></>}
         </>    

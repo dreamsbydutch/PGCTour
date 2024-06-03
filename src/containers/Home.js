@@ -12,7 +12,7 @@ function Home(props) {
     return (
         <>
             {props.data.previousTourney &&
-                <ChampAlert tourney={props.data.previousTourney} />
+                <ChampAlert tourney={props.data.previousTourney} data={props.data} />
             }
             {props.data.currentTourney &&
                 <>
