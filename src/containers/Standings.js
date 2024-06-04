@@ -61,10 +61,7 @@ function HomeStandings(props) {
                                         <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
                                         <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
                                             {obj.TeamName}
-                                            {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
-                                            {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
-                                            {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
-                                            {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
+                                            {littlefucker(obj,props.data.allTourneys)}
                                         </div>
                                         <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
                                     </div>
@@ -88,10 +85,7 @@ function HomeStandings(props) {
                                         <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{obj.ShowRk}</div>
                                         <div className="font-varela place-self-center text-sm sm:text-base md:text-lg lg:text-xl col-span-5 [&>:nth-child(1)]:ml-1.5">
                                             {obj.TeamName}
-                                            {obj.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[5].Logo} alt={props.data.allTourneys[5].Tourney + " Logo"} /> : <></>}
-                                            {obj.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[9].Logo} alt={props.data.allTourneys[9].Tourney + " Logo"} /> : <></>}
-                                            {obj.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[12].Logo} alt={props.data.allTourneys[12].Tourney + " Logo"} /> : <></>}
-                                            {obj.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.data.allTourneys[15].Logo} alt={props.data.allTourneys[15].Tourney + " Logo"} /> : <></>}
+                                            {littlefucker(obj,props.data.allTourneys)}
                                         </div>
                                         <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{obj.Points}</div>
                                     </div>
@@ -203,10 +197,7 @@ function StandingsItem(props) {
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{props.info.ShowRk}  {getRkChange(props.info.RkChange)}</div>
                 <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl col-span-4 [&>:nth-child(1)]:ml-1.5">
                     {props.info.TeamName}
-                    {props.info.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                    {littlefucker(props.info,props.tourneys)}
                 </div>
                 <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-base lg:text-lg">{formatMoney(props.info.Earnings)}</div>
@@ -224,10 +215,7 @@ function PlayoffItem(props) {
                 <div className="font-varela place-self-center text-2xs xs:text-xs sm:text-sm md:text-md lg:text-lg">{props.info.DistRk[0]}  {getRkChange(props.info.FullRkChange)}</div>
                 <div className="font-varela place-self-center text-base sm:text-lg md:text:xl lg:text-2xl col-span-4 [&>:nth-child(1)]:ml-1.5">
                     {props.info.TeamName}
-                    {props.info.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[5].Logo} alt={props.tourneys[5].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[9].Logo} alt={props.tourneys[9].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[12].Logo} alt={props.tourneys[12].Tourney + " Logo"} /> : <></>}
-                    {props.info.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={props.tourneys[15].Logo} alt={props.tourneys[15].Tourney + " Logo"} /> : <></>}
+                    {littlefucker(props.info,props.tourneys)}
                 </div>
                 <div className="font-varela place-self-center text-xs 2xs:text-xs sm:text-sm md:text-base lg:text-xl">{props.info.TourID === '1' ? 'PGC' : 'DbyD'}</div>
                 <div className="font-varela place-self-center text-xs col-span-2 2xs:text-sm sm:text-base md:text-lg lg:text-xl">{props.info.Points}</div>
@@ -293,4 +281,16 @@ function calcDistribution(distribution, place, tiedTotal) {
         total += +distribution[place+i]
     }
     return Math.round((total / tiedTotal)*10)/10
+}
+
+export function littlefucker(team,tourneys) {
+    return (
+        <>  
+            {team.Tourney6Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[5].Logo} alt={tourneys[5].Tourney + " Logo"} /> : <></>}
+            {team.Tourney10Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[9].Logo} alt={tourneys[9].Tourney + " Logo"} /> : <></>}
+            {team.Tourney11Rk === '1' ? <img className="inline-block w-7 p-2" src="https://raw.githubusercontent.com/dreamsbydutch/pgctour/main/public/assets/nationalOpenLogo.png" alt="Canadian Open Logo" /> : <></>}
+            {team.Tourney13Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[12].Logo} alt={tourneys[12].Tourney + " Logo"} /> : <></>}
+            {team.Tourney16Rk === '1' ? <img className="inline-block mx-0.5 w-7" src={tourneys[15].Logo} alt={tourneys[15].Tourney + " Logo"} /> : <></>}
+        </>    
+    )
 }
