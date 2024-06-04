@@ -25,7 +25,7 @@ function Home(props) {
             }
             {props.data.nextTourney &&
                 <>
-                    <SignUpButton tourney={props.data.nextTourney} />
+                    {props.data.nextTourney.FormLink && <SignUpButton tourney={props.data.nextTourney} />}
                     <a href="#/leaderboard">
                         <CountdownLogic tourney={props.data.nextTourney} />
                     </a>
