@@ -36,35 +36,39 @@ function PGALeaderboardItem(props) {
 function PGALeaderboardItemInfo(props) {
     return (
         <div className="mt-1 mb-6 mx-auto">
-            <div className={`mx-auto grid grid-cols-6 sm:w-11/12 md:w-10/12 ${props.info.currentScore>99 ? 'text-gray-400' : 'text-gray-800'}`}>
+            <div className={`mx-auto grid grid-cols-7 sm:w-11/12 md:w-10/12 ${props.info.currentScore>99 ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="col-span-3 font-varela font-bold text-xs text-center place-self-center">Round Scores</div>
                 {props.info.R2==="" ? 
                     <>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Top 10</div>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Group</div>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Usage</div>
                     </>
                     :
                     <>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Top 10</div>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Win</div>
                         <div className="font-varela font-bold text-xs text-center place-self-center">Group</div>
+                        <div className="font-varela font-bold text-xs text-center place-self-center">Usage</div>
                     </>
                 }
             </div>
-            <div className={`mx-auto grid grid-cols-6 mb-1 sm:w-11/12 md:w-10/12 ${props.info.currentScore>99 ? 'text-gray-400' : 'text-gray-800'}`}>
+            <div className={`mx-auto grid grid-cols-7 mb-1 sm:w-11/12 md:w-10/12 ${props.info.currentScore>99 ? 'text-gray-400' : 'text-gray-800'}`}>
                 <div className="col-span-3 font-varela py-1 text-sm text-center place-self-center md:text-base">{`${props.info.R1 && props.info.R1}${props.info.R2 && ' - '+props.info.R2}${props.info.R3 && ' - '+props.info.R3}${props.info.R4 && ' - '+props.info.R4}`}</div>
                 {props.info.R2==="" ? 
                     <>
-                    <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.makeCut*1000)/10}%</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
                     </>
                     :
                     <>
-                    <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.win*1000)/10}%</div>
-                <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.topTen*1000)/10}%</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{Math.round(props.info.win*1000)/10}%</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
+                        <div className="font-varela py-1 text-sm text-center place-self-center md:text-base">{props.info.group}</div>
                     </>
                 }
             </div>

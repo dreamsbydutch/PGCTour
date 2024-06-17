@@ -2,14 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&family=Varela+Round&family=Yellowtail&display=swap");
-
-a,
-a.div {
-  text-decoration: none;
-}
-
-a:hover,
-a.div:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
