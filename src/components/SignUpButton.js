@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function SignUpButton(props) {
+    console.log(props.tourney.Tourney)
     const [effect, setEffect] = useState(false);
     return (
         <div className="text-center m-auto">
@@ -13,8 +14,9 @@ function SignUpButton(props) {
                 }}
                 onAnimationEnd={() => setEffect(false)}
             >
-                MAKE/EDIT YOUR {props.tourney.Tourney} PICKS HERE
+                MAKE/EDIT YOUR {props.tourney.Tourney === 'FedEx-St. Jude Championship' ? 'PGC PLAYOFF' : props.tourney.Tourney} PICKS HERE
             </a>
+            {props.tourney.Tourney === 'FedEx-St. Jude Championship' ? <div className='text-center w-4/6 mx-auto font-barlow font-semibold'>Please do not enter picks if you have not qualified for the playoffs.</div> : null}
         </div>
     )
 }
