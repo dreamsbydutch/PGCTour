@@ -223,19 +223,23 @@ function TeamRounds(props) {
 					</>
 				) : (
 					<>
-						<div className="mx-auto grid grid-cols-5">
+						<div className="mx-auto grid grid-cols-6">
 							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
 						</div>
-						<div className="mx-auto grid grid-cols-5 mb-1">
+						<div className="mx-auto grid grid-cols-6 mb-1">
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R3}</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R4}</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.Total}</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">
+								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+							</div>
 						</div>
 					</>
 				)}
@@ -247,7 +251,7 @@ function TeamRounds(props) {
 			<>
 				{props.info.R2 === '' ? (
 					<>
-						<div className="mx-auto grid grid-cols-5 w-9/12">
+						<div className="mx-auto grid grid-cols-6 w-9/12">
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 1</div>
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 2</div>
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 3</div>
@@ -256,7 +260,7 @@ function TeamRounds(props) {
 							{/* <div className="font-varela font-bold text-sm text-center place-self-center">Make Cut</div> */}
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
 						</div>
-						<div className="mx-auto grid grid-cols-5 mb-1 w-9/12">
+						<div className="mx-auto grid grid-cols-6 mb-1 w-9/12">
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R1}</div>
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R2}</div>
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R3}</div>
@@ -270,19 +274,23 @@ function TeamRounds(props) {
 					</>
 				) : (
 					<>
-						<div className="mx-auto grid grid-cols-5 w-9/12">
+						<div className="mx-auto grid grid-cols-6 w-9/12">
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 1</div>
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 2</div>
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 3</div>
 							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 4</div>
 							<div className="font-varela font-bold text-sm text-center place-self-center">Total</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
 						</div>
-						<div className="mx-auto grid grid-cols-5 mb-1 w-9/12">
+						<div className="mx-auto grid grid-cols-6 mb-1 w-9/12">
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R1}</div>
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R2}</div>
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R3}</div>
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R4}</div>
 							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.Total}</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">
+								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+							</div>
 						</div>
 					</>
 				)}
