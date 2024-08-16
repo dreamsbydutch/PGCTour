@@ -104,10 +104,10 @@ function TourneyLeaderboard(props) {
 									setPGCEffect(true)
 								}}
 								className={`${pgcEffect && 'animate-toggleClick'} my-2 mx-3 py-1 px-6 rounded-lg text-lg md:text-xl sm:px-8 md:px-10 font-bold ${
-									leaderboardToggle === 'PGC' ? 'bg-yellow-800 text-yellow-100 shadow-btn' : 'bg-yellow-100 text-yellow-800 shadow-btn'
+									leaderboardToggle === 'PGC' ? 'bg-yellow-800 text-yellow-50 shadow-btn' : 'bg-yellow-100 text-yellow-800 shadow-btn'
 								}`}
 								onAnimationEnd={() => setPGCEffect(false)}>
-								Gold
+								Gold🏆
 							</button>
 							<button
 								onClick={() => {
@@ -234,7 +234,8 @@ function HomeLeaderboardItem(props) {
 			<div className="grid grid-flow-row grid-cols-8 text-center py-1">
 				<div className="font-varela place-self-center text-xs col-span-2 sm:text-base">{props.info.ShowRk}</div>
 				<div className="font-varela place-self-center text-sm col-span-4 sm:text-lg whitespace-nowrap">
-					{props.info.Name} {littlefucker(props.info.Name, { allTourneys: props.allTourneys, standings: props.standings })}
+					{props.info.Name}
+					{littlefucker(props.info.Name, { allTourneys: props.allTourneys, standings: props.standings })}
 				</div>
 				<div className="font-varela place-self-center text-xs col-span-2 sm:text-base">{formatScore(props.info.Score)}</div>
 			</div>
