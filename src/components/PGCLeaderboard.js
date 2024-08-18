@@ -49,7 +49,7 @@ export default function PGCLeaderboard(props) {
 				<div className="col-span-1 text-sm font-varela place-self-center">{props.live ? 'Thru' : '$$'}</div>
 				{/* <div className="col-span-2 text-sm font-varela place-self-center">Rounds</div> */}
 				<div className="col-span-1 text-xs font-varela place-self-center">Proj $$</div>
-				<div className="col-span-1 text-xs font-varela place-self-center">Starting Pos</div>
+				<div className="col-span-1 text-xs font-varela place-self-center">Starting Position</div>
 				{/* <div className="col-span-1 text-xs font-varela place-self-center">Make Cut</div> */}
 			</div>
 		)
@@ -215,7 +215,7 @@ function TeamRounds(props) {
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							{/* <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div> */}
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Position</div>
 						</div>
 						<div className="mx-auto grid grid-cols-6 mb-1">
 							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
@@ -241,7 +241,7 @@ function TeamRounds(props) {
 							<div className="font-varela font-bold text-xs text-center place-self-center col-span-3">Rounds</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Position</div>
 						</div>
 						<div className="mx-auto grid grid-cols-6 mb-1">
 							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
@@ -274,7 +274,7 @@ function TeamRounds(props) {
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							{/* <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div> */}
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Position</div>
 						</div>
 						<div className="mx-auto grid grid-cols-6 mb-1">
 							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
@@ -300,7 +300,7 @@ function TeamRounds(props) {
 							<div className="font-varela font-bold text-xs text-center place-self-center col-span-3">Rounds</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Position</div>
 						</div>
 						<div className="mx-auto grid grid-cols-6 mb-1">
 							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
