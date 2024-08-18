@@ -231,7 +231,7 @@ function TeamRounds(props) {
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{addRankingSuffix(props.standings.FullRk)}{' '}
-								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
 					</>
@@ -256,7 +256,7 @@ function TeamRounds(props) {
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{addRankingSuffix(props.standings.FullRk)}{' '}
-								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
 					</>
@@ -290,7 +290,7 @@ function TeamRounds(props) {
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{addRankingSuffix(props.standings.FullRk)}{' '}
-								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
 					</>
@@ -315,7 +315,7 @@ function TeamRounds(props) {
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{addRankingSuffix(props.standings.FullRk)}{' '}
-								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
 					</>
