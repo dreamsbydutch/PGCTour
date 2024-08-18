@@ -230,7 +230,7 @@ function TeamRounds(props) {
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
-								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{addRankingSuffix(props.standings.FullRk - (props.info.TourID === '2' && 30))}{' '}
 								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
@@ -255,7 +255,7 @@ function TeamRounds(props) {
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
-								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{addRankingSuffix(props.standings.FullRk - (props.info.TourID === '2' && 30))}{' '}
 								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
@@ -289,7 +289,7 @@ function TeamRounds(props) {
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
-								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{addRankingSuffix(props.standings.FullRk - (props.info.TourID === '2' && 30))}{' '}
 								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
@@ -314,7 +314,7 @@ function TeamRounds(props) {
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
 							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
-								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{addRankingSuffix(props.standings.FullRk - (props.info.TourID === '2' && 30))}{' '}
 								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
 							</div>
 						</div>
