@@ -41,14 +41,16 @@ export default function PGCLeaderboard(props) {
 	}
 	function PGCLeaderboardHeaderDesktop(props) {
 		return (
-			<div className="grid grid-flow-row grid-cols-12 text-center max-w-xl mx-auto">
+			<div className="grid grid-flow-row grid-cols-9 text-center max-w-xl mx-auto">
 				<div className="col-span-1 text-base font-bold font-varela place-self-center">Rank</div>
-				<div className="col-span-4 text-lg font-bold font-varela place-self-center">Name</div>
-				<div className="col-span-2 text-base font-bold font-varela place-self-center">Score</div>
+				<div className="col-span-3 text-lg font-bold font-varela place-self-center">Name</div>
+				<div className="col-span-1 text-base font-bold font-varela place-self-center">Score</div>
 				<div className="col-span-1 text-sm font-varela place-self-center">{props.live ? 'Today' : 'Pts'}</div>
 				<div className="col-span-1 text-sm font-varela place-self-center">{props.live ? 'Thru' : '$$'}</div>
-				<div className="col-span-2 text-sm font-varela place-self-center">Rounds</div>
-				<div className="col-span-1 text-xs font-varela place-self-center">Make Cut</div>
+				{/* <div className="col-span-2 text-sm font-varela place-self-center">Rounds</div> */}
+				<div className="col-span-1 text-xs font-varela place-self-center">Proj $$</div>
+				<div className="col-span-1 text-xs font-varela place-self-center">Starting Pos</div>
+				{/* <div className="col-span-1 text-xs font-varela place-self-center">Make Cut</div> */}
 			</div>
 		)
 	}
@@ -143,26 +145,34 @@ export function PGCLeaderboardItem(props) {
 		)
 	}
 	function PGCLeaderboardItemDesktop(props) {
+		console.log(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))
 		return (
-			<div className="grid grid-flow-row grid-cols-12 text-center py-1">
+			<div className="grid grid-flow-row grid-cols-9 text-center py-1">
 				<div className="font-varela place-self-center text-sm col-span-1">
 					{props.info.Score === '+100' ? 'CUT' : props.info.ShowRk}&nbsp;&nbsp;{getRkChange(props.info.RkChange)}
 				</div>
-				<div className="font-varela place-self-center text-xl col-span-4">
+				<div className="font-varela place-self-center text-xl col-span-3">
 					{props.info.Name}
 					{littlefucker(props.info.Name, props.data)}
 				</div>
-				<div className="font-varela place-self-center text-lg col-span-2">{formatScore(props.info.Score)}</div>
+				<div className="font-varela place-self-center text-lg col-span-1">{formatScore(props.info.Score)}</div>
 				<div className="font-varela place-self-center text-sm col-span-1">
 					{props.live ? formatScore(props.info.Today) : +props.info.Points === 0 ? '-' : props.info.Points}
 				</div>
 				<div className="font-varela place-self-center text-xs col-span-1 whitespace-nowrap">
 					{props.live ? props.info.Thru : formatMoney(props.info.Earnings)}
 				</div>
-				<div className="font-varela place-self-center text-xs col-span-2">{`${props.info.R1}${props.info.R2 === '' ? '' : ' - '}${props.info.R2}${
+				{/* <div className="font-varela place-self-center text-xs col-span-2">{`${props.info.R1}${props.info.R2 === '' ? '' : ' - '}${props.info.R2}${
 					props.info.R3
-				}${props.info.R4 === '' ? '' : ' - '}${props.info.R4}`}</div>
-				<div className="font-varela place-self-center text-xs col-span-1 whitespace-nowrap">{Math.round(props.info.makeCut * 1000) / 10}%</div>
+				}${props.info.R4 === '' ? '' : ' - '}${props.info.R4}`}</div> */}
+				{/* <div className="font-varela place-self-center text-xs col-span-1 whitespace-nowrap">{Math.round(props.info.makeCut * 1000) / 10}%</div> */}
+				<div className="font-varela py-1 text-sm text-center place-self-center col-span-1">
+					{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+				</div>
+				<div className="font-varela py-1 text-sm text-center place-self-center col-span-1">
+					{addRankingSuffix(props.standings.FullRk - (props.info.TourID === '2' && 30))}{' '}
+					{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))}
+				</div>
 			</div>
 		)
 	}
@@ -201,44 +211,52 @@ function TeamRounds(props) {
 				{props.info.R2 === '' ? (
 					<>
 						<div className="mx-auto grid grid-cols-6">
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center col-span-3">Rounds</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							{/* <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div> */}
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
 						</div>
 						<div className="mx-auto grid grid-cols-6 mb-1">
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R3}</div>
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R4}</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
+								{props.info.R1}
+								{props.info.R2 && ' - ' + props.info.R2}
+								{props.info.R3 && ' - ' + props.info.R3}
+								{props.info.R4 && ' - ' + props.info.R4}
+							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.Total}</div>
 							{/* <div className="font-varela py-1 text-sm text-center place-self-center">{Math.round(props.info.makeCut * 1000) / 10}%</div> */}
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+							</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">
+								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
 							</div>
 						</div>
 					</>
 				) : (
 					<>
 						<div className="mx-auto grid grid-cols-6">
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 1</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 2</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 3</div>
-							<div className="font-varela font-bold text-xs text-center place-self-center">Rd 4</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center col-span-3">Rounds</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
 						</div>
 						<div className="mx-auto grid grid-cols-6 mb-1">
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R1}</div>
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R2}</div>
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R3}</div>
-							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.R4}</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
+								{props.info.R1}
+								{props.info.R2 && ' - ' + props.info.R2}
+								{props.info.R3 && ' - ' + props.info.R3}
+								{props.info.R4 && ' - ' + props.info.R4}
+							</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.Total}</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+							</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">
+								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
 							</div>
 						</div>
 					</>
@@ -251,45 +269,53 @@ function TeamRounds(props) {
 			<>
 				{props.info.R2 === '' ? (
 					<>
-						<div className="mx-auto grid grid-cols-6 w-9/12">
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 1</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 2</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 3</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 4</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Total</div>
-							{/* <div className="font-varela font-bold text-sm text-center place-self-center">Make Cut</div> */}
+						<div className="mx-auto grid grid-cols-6">
+							<div className="font-varela font-bold text-xs text-center place-self-center col-span-3">Rounds</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
+							{/* <div className="font-varela font-bold text-xs text-center place-self-center">Make Cut</div> */}
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
 						</div>
-						<div className="mx-auto grid grid-cols-6 mb-1 w-9/12">
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R1}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R2}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R3}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R4}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.Total}</div>
-							{/* <div className="font-varela py-1 text-base text-center place-self-center">{Math.round(props.info.makeCut * 1000) / 10}%</div> */}
+						<div className="mx-auto grid grid-cols-6 mb-1">
+							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
+								{props.info.R1}
+								{props.info.R2 && ' - ' + props.info.R2}
+								{props.info.R3 && ' - ' + props.info.R3}
+								{props.info.R4 && ' - ' + props.info.R4}
+							</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.Total}</div>
+							{/* <div className="font-varela py-1 text-sm text-center place-self-center">{Math.round(props.info.makeCut * 1000) / 10}%</div> */}
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+							</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">
+								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
 							</div>
 						</div>
 					</>
 				) : (
 					<>
-						<div className="mx-auto grid grid-cols-6 w-9/12">
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 1</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 2</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 3</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Rd 4</div>
-							<div className="font-varela font-bold text-sm text-center place-self-center">Total</div>
+						<div className="mx-auto grid grid-cols-6">
+							<div className="font-varela font-bold text-xs text-center place-self-center col-span-3">Rounds</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Total</div>
 							<div className="font-varela font-bold text-xs text-center place-self-center">Proj $$</div>
+							<div className="font-varela font-bold text-xs text-center place-self-center">Starting Pos</div>
 						</div>
-						<div className="mx-auto grid grid-cols-6 mb-1 w-9/12">
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R1}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R2}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R3}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.R4}</div>
-							<div className="font-varela py-1 text-base text-center place-self-center">{props.info.Total}</div>
+						<div className="mx-auto grid grid-cols-6 mb-1">
+							<div className="font-varela py-1 text-sm text-center place-self-center col-span-3">
+								{props.info.R1}
+								{props.info.R2 && ' - ' + props.info.R2}
+								{props.info.R3 && ' - ' + props.info.R3}
+								{props.info.R4 && ' - ' + props.info.R4}
+							</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">{props.info.Total}</div>
 							<div className="font-varela py-1 text-sm text-center place-self-center">
 								{formatMoney(+props.standings.Earnings + +props.info.Earnings)}
+							</div>
+							<div className="font-varela py-1 text-sm text-center place-self-center">
+								{addRankingSuffix(props.standings.FullRk)}{' '}
+								{getRkChange(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', ''))}
 							</div>
 						</div>
 					</>
