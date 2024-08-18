@@ -1,51 +1,64 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
-import { useLeagueData } from './utils/fetchData';
+import { useLeagueData } from './utils/fetchData'
 import LoadingSpinner from './components/LoadingSpinner'
-import MobileNavbar from './components/MobileNavbar';
+import MobileNavbar from './components/MobileNavbar'
 // import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer';
-import TickerContainer from './components/Ticker/TickerContainer';
-import ScrollToTop from './utils/ScrollToTop';
+import Footer from './components/Footer'
+import TickerContainer from './components/Ticker/TickerContainer'
+import ScrollToTop from './utils/ScrollToTop'
 
-import Home from './containers/Home';
-import ErrorPage from './containers/ErrorPage';
-import Leaderboard from './containers/Leaderboard';
-import Standings from './containers/Standings';
-import Rulebook from './containers/Rulebook';
+import Home from './containers/Home'
+import ErrorPage from './containers/ErrorPage'
+import Leaderboard from './containers/Leaderboard'
+import Standings from './containers/Standings'
+import Rulebook from './containers/Rulebook'
 // import History from './containers/History/History';
 
-import ReactGA from 'react-ga4';
-ReactGA.initialize("G-5G8C0WCN60");
+import ReactGA from 'react-ga4'
+ReactGA.initialize('G-5G8C0WCN60')
 
 function App() {
-  const data = useLeagueData()
+	const data = useLeagueData()
 
-  if (data.isLoading) { return <LoadingSpinner /> }
-  if (data.isError) { return <ErrorPage /> }
-  if (!data.allTourneys || !data.standings || !data.golferStats) { return <ErrorPage /> }
-  
-  return (
-    <Router>
-      <ScrollToTop />
-      {window.innerWidth < 150 ? <><TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} /><MobileNavbar /></> : <MobileNavbar />}
-      <div className='mt-6 mb-24 mx-3 max-w-3xl min-h-screen'>
-      <div className='mx-auto'>
-        <Routes>
-          <Route exact path="/" element={<Home data={data} />} />
-          <Route path="/leaderboard" element={<Leaderboard data={data} />} />
-          <Route path="/leaderboard/:tourneyId" element={<Leaderboard data={data} />} />
-          <Route path="/standings" element={<Standings data={data} />} />
-          <Route path="/rulebook" element={<Rulebook />} />
-          {/* <Route path="/history" element={<History />} /> */}
-          {/* <Route path="*" element={<ErrorPage />} /> */}
-        </Routes>
-      </div>
-      </div>
-      {window.innerWidth < 850 ? <div style={{ 'color': '#fff' }}>.</div> : <Footer />}
-    </Router >
-  );
+	if (data.isLoading) {
+		return <LoadingSpinner />
+	}
+	if (data.isError) {
+		return <ErrorPage />
+	}
+	if (!data.allTourneys || !data.standings || !data.golferStats) {
+		return <ErrorPage />
+	}
+
+	return (
+		<Router>
+			<ScrollToTop />
+			{window.innerWidth < 150 ? (
+				<>
+					<TickerContainer data={data.currentTourney ? data.currentTourney : data.standings} />
+					<MobileNavbar />
+				</>
+			) : (
+				<MobileNavbar />
+			)}
+			<div className="mt-6 mb-24 max-w-3xl min-h-screen mx-auto">
+				<div className="mx-3">
+					<Routes>
+						<Route exact path="/" element={<Home data={data} />} />
+						<Route path="/leaderboard" element={<Leaderboard data={data} />} />
+						<Route path="/leaderboard/:tourneyId" element={<Leaderboard data={data} />} />
+						<Route path="/standings" element={<Standings data={data} />} />
+						<Route path="/rulebook" element={<Rulebook />} />
+						{/* <Route path="/history" element={<History />} /> */}
+						{/* <Route path="*" element={<ErrorPage />} /> */}
+					</Routes>
+				</div>
+			</div>
+			{window.innerWidth < 850 ? <div style={{ color: '#fff' }}>.</div> : <Footer />}
+		</Router>
+	)
 }
 
-export default App;
+export default App
