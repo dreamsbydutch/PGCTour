@@ -48,7 +48,7 @@ export default function DbyDLeaderboard(props) {
 				<div className="col-span-1 text-sm font-varela place-self-center">{props.live ? 'Today' : 'Pts'}</div>
 				<div className="col-span-1 text-sm font-varela place-self-center">{props.live ? 'Thru' : '$$'}</div>
 				{/* <div className="col-span-2 text-sm font-varela place-self-center">Rounds</div> */}
-				<div className="col-span-2 text-xs font-varela place-self-center">Proj $$</div>
+				<div className="col-span-2 text-xs font-varela place-self-center">Projected Earnings</div>
 				<div className="col-span-1 text-xs font-varela place-self-center">Starting Position</div>
 				{/* <div className="col-span-1 text-xs font-varela place-self-center">Make Cut</div> */}
 			</div>
