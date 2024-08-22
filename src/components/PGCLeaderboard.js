@@ -198,7 +198,7 @@ function PGCLeaderboardItemInfo(props) {
 		<div className="mt-1 mb-6 mx-auto">
 			<TeamRounds {...props} />
 			<PGCTeamTable {...props} />
-			{props.info.tourneyID > 1 && props.info.tourneyID <= 16 && props.info.R4 === '' && <ProjStandings {...props} />}
+			{props.data.tourney.tourneyID > 1 && props.data.tourney.tourneyID <= 16 && props.info.R4 === '' && <ProjStandings {...props} />}
 		</div>
 	)
 }
@@ -326,6 +326,7 @@ function TeamRounds(props) {
 	return <>{window.width < 550 ? <TeamRoundsPhone {...props} /> : window.width < 925 ? <TeamRoundsTablet {...props} /> : <></>}</>
 }
 function PGCTeamTable(props) {
+	console.log(props.data.tourney.tourneyID)
 	const window = useWindowDimensions()
 	function PGCTeamTableMini(props) {
 		let golfers = [
@@ -350,7 +351,7 @@ function PGCTeamTable(props) {
 						<td className="text-xs font-bold">Today</td>
 					</tr>
 				</thead>
-				<tbody className={`bg-gray-50 ${props.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
+				<tbody className={`bg-gray-50 ${props.data.tourney.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.data.tourney.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
 					{golfers?.map(obj => {
 						return (
 							<tr
@@ -417,7 +418,7 @@ function PGCTeamTable(props) {
 						<td className="text-xs font-bold">Today</td>
 					</tr>
 				</thead>
-				<tbody className={`bg-gray-50 ${props.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
+				<tbody className={`bg-gray-50 ${props.data.tourney.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.data.tourney.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
 					{golfers?.map(obj => {
 						return (
 							<tr
@@ -486,7 +487,7 @@ function PGCTeamTable(props) {
 						<td className="text-xs font-bold">{props.info.R2 === '' ? 'Top Ten' : 'Win'}</td>
 					</tr>
 				</thead>
-				<tbody className={`bg-gray-50 ${props.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
+				<tbody className={`bg-gray-50 ${props.data.tourney.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.data.tourney.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
 					{golfers?.map(obj => {
 						return (
 							<tr
@@ -565,7 +566,7 @@ function PGCTeamTable(props) {
 						<td className="text-sm font-bold">{props.info.R2 === '' ? 'Top Ten' : 'Win'}</td>
 					</tr>
 				</thead>
-				<tbody className={`bg-gray-50 ${props.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
+				<tbody className={`bg-gray-50 ${props.data.tourney.tourneyID === 19 ? '[&>*:nth-child(3)]:border-b [&>*:nth-child(3)]:border-gray-400' : props.info.R2 !== '' || props.data.tourney.tourneyID === 18 ? '[&>*:nth-child(5)]:border-b [&>*:nth-child(5)]:border-gray-400' : ''}`}>
 					{golfers?.map(obj => {
 						return (
 							<tr
