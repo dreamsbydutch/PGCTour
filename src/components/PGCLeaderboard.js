@@ -348,6 +348,7 @@ function PGCTeamTable(props) {
 						<td className="text-xs font-bold col=span-2">Golfer</td>
 						<td className="text-xs font-bold">Score</td>
 						<td className="text-xs font-bold">Today</td>
+						<td className="text-xs font-bold">Group</td>
 					</tr>
 				</thead>
 				<tbody
@@ -394,6 +395,7 @@ function PGCTeamTable(props) {
 													: ''
 										  )})`}
 								</td>
+								<td className="text-xs">{obj.group}</td>
 							</tr>
 						)
 					})}
@@ -422,6 +424,7 @@ function PGCTeamTable(props) {
 						<td className="text-xs font-bold col=span-2">Golfer</td>
 						<td className="text-xs font-bold">Score</td>
 						<td className="text-xs font-bold">Today</td>
+						<td className="text-xs font-bold">Group</td>
 					</tr>
 				</thead>
 				<tbody
@@ -468,6 +471,7 @@ function PGCTeamTable(props) {
 													: ''
 										  )})`}
 								</td>
+								<td className="text-sm">{obj.group}</td>
 							</tr>
 						)
 					})}
@@ -498,6 +502,7 @@ function PGCTeamTable(props) {
 						<td className="text-xs font-bold">Today</td>
 						<td className="text-xs font-bold">{props.info.R2 === '' ? 'Make Cut' : 'Top Ten'}</td>
 						<td className="text-xs font-bold">{props.info.R2 === '' ? 'Top Ten' : 'Win'}</td>
+						<td className="text-xs font-bold">Group</td>
 					</tr>
 				</thead>
 				<tbody
@@ -554,6 +559,7 @@ function PGCTeamTable(props) {
 										? '-'
 										: `${Math.round((props.info.R2 === '' ? obj.topTen : obj.win) * 1000) / 10}%`}
 								</td>
+								<td className="text-sm">{obj.group}</td>
 							</tr>
 						)
 					})}
@@ -584,6 +590,7 @@ function PGCTeamTable(props) {
 						<td className="text-sm font-bold">Today</td>
 						<td className="text-sm font-bold">{props.info.R2 === '' ? 'Make Cut' : 'Top Ten'}</td>
 						<td className="text-sm font-bold">{props.info.R2 === '' ? 'Top Ten' : 'Win'}</td>
+						<td className="text-sm font-bold">Group</td>
 					</tr>
 				</thead>
 				<tbody
@@ -640,6 +647,7 @@ function PGCTeamTable(props) {
 										? '-'
 										: `${Math.round((props.info.R2 === '' ? obj.topTen : obj.win) * 1000) / 10}%`}
 								</td>
+								<td className="text-base">{obj.group}</td>
 							</tr>
 						)
 					})}
