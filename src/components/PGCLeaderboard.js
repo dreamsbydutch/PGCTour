@@ -145,7 +145,6 @@ export function PGCLeaderboardItem(props) {
 		)
 	}
 	function PGCLeaderboardItemDesktop(props) {
-		console.log(+props.standings.FullRk.replace('T', '') - +props.info.ShowRk.replace('T', '') - (props.info.TourID === '2' && 30))
 		return (
 			<div className="grid grid-flow-row grid-cols-9 text-center py-1">
 				<div className="font-varela place-self-center text-sm col-span-1">
